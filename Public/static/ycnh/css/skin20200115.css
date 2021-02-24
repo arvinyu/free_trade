@@ -1,0 +1,170 @@
+﻿@charset "UTF-8";
+div {
+  position: relative;
+}
+#canvas {
+  position: absolute;
+  pointer-events: none;
+}
+.gb_logo_box .gb_logo a {
+  /* background-image: url(../images/20200115logo.png); */
+}
+.bg_shoot1 {
+  background-color: transparent;
+  background-image: url(../images/20200415bg.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+.bg_shoot2 {
+  background-color: transparent;
+}
+.gb_search .gb_btn_ok {
+  height: 40px;
+  background-color: #59acff;
+}
+.gb_top {
+  background-color: #1b4586;
+}
+.gb_top_list > li a:hover {
+  color: #59acff;
+}
+ul.gb_top_list ul li:hover {
+  color: #59acff;
+}
+.nav {
+  background: none;
+  background-color: #1b4586;
+}
+.sy1_li {
+  background-color: #1b4586;
+}
+.sy_line {
+  background: none;
+  background-color: #1b4586;
+}
+.sy1_ul .sy1_li > a:hover {
+  background: #1b4586;
+}
+.sy2_ul {
+  border-color: #1b4586;
+}
+.sy2_ul .sy1_li .sy2_li_h {
+  border-color: #1b4586;
+}
+.slideTxtBox .hd ul {
+  border-color: #1b4586;
+}
+.slideTxtBox .hd ul li a.on {
+  background: none;
+  background-color: #1b4586;
+}
+.info_list li a.on {
+  background-color: #1b4586;
+}
+.info_box h3 {
+  color: #ff3542;
+}
+.gb_xl_video h3 {
+  color: #ff3542;
+}
+.into_fta .fta_right ul li a {
+  background: none;
+  background-color: #1b4586;
+}
+.zt_title {
+  background: none;
+  background-color: #1b4586;
+}
+.zt_title i {
+  border-top-color: #1b4586;
+}
+.newstxtbox01 .hd ul {
+  border-bottom-color: #1b4586;
+}
+.newstxtbox01 .hd ul li a {
+  color: #1b4586;
+}
+.newstxtbox01 .hd ul li a.on {
+  background: none;
+  background-color: #1b4586;
+}
+.newstxtbox .hd ul {
+  border-bottom-color: #1b4586;
+}
+.newstxtbox .hd ul li a {
+  color: #1b4586;
+}
+.newstxtbox .hd ul li a.on {
+  background: none;
+  background-color: #1b4586;
+}
+.work_title {
+  color: #1b4586;
+}
+.work_title span,
+.work_title .iconfont {
+  color: inherit;
+}
+.work_title .fengcai {
+  border-color: #1b4586 !important;
+}
+.swiperBOX .swiper-button-prev,
+.swiperBOX .swiper-button-next {
+  background-color: #1b4586;
+}
+.swiperBOX .swiper-button-prev .iconfont,
+.swiperBOX .swiper-button-next .iconfont {
+  color: #fff;
+}
+.footer_box select {
+  background-color: #1b4586;
+}
+.gb_footer ul {
+  color: #1b4586;
+}
+.gb_footer ul a {
+  color: #1b4586;
+}
+.footer_after {
+  background-color: #1b4586 !important;
+}
+
+
+  .dove{
+    width: 163px;
+    height: 108px;
+    position: absolute;
+    left: -200px;
+    top: 100px;
+    animation: dove 2s cubic-bezier(0.25,0.1,0.25,1) 2s 1 normal;
+    animation-fill-mode: forwards;
+    -webkit-animation:dove 2s cubic-bezier(0.25,0.1,0.25,1) 2s 1 normal;
+    -webkit-animation-fill-mode: forwards;
+  }
+  @keyframes dove{
+    0%{left: -100px;}
+    100%{left: 100px;}
+  }
+  @-webkit-@keyframes dove{
+    0%{left: -100px;}
+    100%{left: 100px;}
+  }
+  .plane{
+    width: 191px;
+    height:83px;
+    position: absolute;
+    right: -200px; 
+    top: 100px;
+    animation:plane 2s cubic-bezier(0.25,0.1,0.25,1) 2s 1 normal;
+    animation-fill-mode: forwards;
+    -webkit-animation:plane 2s cubic-bezier(0.25,0.1,0.25,1) 2s 1 normal;
+    -webkit-animation-fill-mode: forwards;
+  }
+  @keyframes plane{
+    0%{right: -100px;}
+    100%{right: 100px;}
+  }
+  @-webkit-@keyframes plane{
+    0%{right: -100px;}
+    100%{right: 100px;}
+  }
