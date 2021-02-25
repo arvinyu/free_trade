@@ -1,54 +1,4 @@
-<<<<<<< HEAD
-<extend name="Base/common"/>
-
-<block name="header">
-    <header class="jumbotron subhead" id="overview">
-        <div class="container">
-            <h2>源自相同起点，演绎不同精彩！</h2>
-            <p class="lead"></p>
-        </div>
-    </header>
-</block>
-
-<block name="side">
-<!-- 左侧 nav
-================================================== -->
-    <div class="span3 bs-docs-sidebar">
-        <ul class="nav nav-list bs-docs-sidenav">
-            {:W('Category/lists', array(41, true))}
-        </ul>
-    </div>
-</block>
-
-<block name="body">
-    <div class="span9">
-        <!-- Contents
-        ================================================== -->
-        <section id="contents">
-            <article:list name="list" category="1" child="true">
-                <div class="">
-                    <h3><a href="{:U('Article/detail?id='.$list['id'])}">{$list.title}</a></h3>
-                </div>
-                <div>
-                    <p class="lead">{$list.description}</p>
-                </div>
-                <div>
-                    <span><a href="{:U('Article/detail?id='.$list['id'])}">查看全文</a></span>
-                    <span class="pull-right">
-                        <span class="author">{$list.uid|get_username}</span>
-                        <span>于 {$list.create_time|date='Y-m-d H:i',###}</span> 发表在 <span>
-                        <a href="{:U('Article/lists?category='.get_category_name($list['category_id']))}">{$list.category_id|get_category_title}</a></span> 
-                    </span>
-                </div>
-                <hr/>
-            </article:list>
-
-        </section>
-    </div>
-        </div>
-</block>
-=======
-<!DOCTYPE HTML>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -68,18 +18,18 @@
      } 
 })() 
 </script>
-<link rel="stylesheet" type="text/css" href="__STATIC__/ycnh/css/style.css"/>
-<link rel="stylesheet" type="text/css" href="__STATIC__/ycnh/css/common.css"/>
-<link rel="stylesheet" type="text/css" href="__STATIC__/ycnh/css/iconfont.css" />
-<link rel="stylesheet" type="text/css" href="__STATIC__/ycnh/css/idangerous.swiper.css" />
-<script type="text/javascript" src="__STATIC__/ycnh/js/idangerous.swiper.min.js"></script>
-<script type="text/javascript" src="__STATIC__/ycnh/js/jquery.min.js"></script>
-<!-- <script type="text/javascript" src="/__STATIC__/ycnh/js/main.js"></script> -->
-<script type="text/javascript" src="__STATIC__/ycnh/js/index_tab.js"></script>
-<script type="text/javascript" src="__STATIC__/ycnh/js/jquery.superslide.js"></script>
-<script type="text/javascript" src="__STATIC__/ycnh/js/jzf.js"></script>
-<link rel="stylesheet" type="text/css" href="__STATIC__/ycnh/css/skin20200115.css"/>
-<script type="text/javascript" src="__STATIC__/ycnh/js/skin20200115.js"></script>
+<link rel="stylesheet" type="text/css" href="/free_trade/Public/static/ycnh/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="/free_trade/Public/static/ycnh/css/common.css"/>
+<link rel="stylesheet" type="text/css" href="/free_trade/Public/static/ycnh/css/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="/free_trade/Public/static/ycnh/css/idangerous.swiper.css" />
+<script type="text/javascript" src="/free_trade/Public/static/ycnh/js/idangerous.swiper.min.js"></script>
+<script type="text/javascript" src="/free_trade/Public/static/ycnh/js/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="//free_trade/Public/static/ycnh/js/main.js"></script> -->
+<script type="text/javascript" src="/free_trade/Public/static/ycnh/js/index_tab.js"></script>
+<script type="text/javascript" src="/free_trade/Public/static/ycnh/js/jquery.superslide.js"></script>
+<script type="text/javascript" src="/free_trade/Public/static/ycnh/js/jzf.js"></script>
+<link rel="stylesheet" type="text/css" href="/free_trade/Public/static/ycnh/css/skin20200115.css"/>
+<script type="text/javascript" src="/free_trade/Public/static/ycnh/js/skin20200115.js"></script>
 <script language="javascript" type="text/javascript">
 var baseUrl='/',controller='index';
 function showtime()
@@ -177,21 +127,21 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
               <li>
                 <p>手机站
                 <ul class="xl_erweima1">
-                  <li><img src="__STATIC__/ycnh/uploads/allimg/20200531/1-20053115401D14.png" alt=""></li>
+                  <li><img src="/free_trade/Public/static/ycnh/uploads/allimg/20200531/1-20053115401D14.png" alt=""></li>
                 </ul>
                 </p>
               </li>
               <li>
                 <p>官方微信
                 <ul class="xl_erweima1">
-                  <li><img src="__STATIC__/ycnh/uploads/allimg/20200530/1-2005301A156420.jpg" alt=""></li>
+                  <li><img src="/free_trade/Public/static/ycnh/uploads/allimg/20200530/1-2005301A156420.jpg" alt=""></li>
                 </ul>
                 </p>
               </li>
               <li>
                 <p>官方微博
                 <ul class="xl_erweima1">
-                  <li><img src="__STATIC__/ycnh/uploads/allimg/20200530/1-200530163303X7.png" alt=""></li>
+                  <li><img src="/free_trade/Public/static/ycnh/uploads/allimg/20200530/1-200530163303X7.png" alt=""></li>
                 </ul>
                 </p>
               </li>
@@ -206,11 +156,11 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
 
 <!--
 
-<div class="dove"> <img src="/__STATIC__/ycnh/picture/dove.png" > </div>
+<div class="dove"> <img src="//free_trade/Public/static/ycnh/picture/dove.png" > </div>
 
 
 
-<div class="plane"> <img src="/__STATIC__/ycnh/picture/plane.png" > </div>-->
+<div class="plane"> <img src="//free_trade/Public/static/ycnh/picture/plane.png" > </div>-->
 
 <div class="bg_shoot2">
 <div class="container">
@@ -219,7 +169,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
 
 
 
-    background: url(/__STATIC__/ycnh/uploads/allimg/20200515/1-20051516142HF.png) no-repeat;
+    background: url(//free_trade/Public/static/ycnh/uploads/allimg/20200515/1-20051516142HF.png) no-repeat;
 
 
 
@@ -254,7 +204,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
                                         class="iconfont icon-ditu1" style="margin-right:4px; "></span><span class="navspan">走进自由港</span></a>
   <ul class="sy2_ul">
     <div class="into_fta">
-      <div class="fta_left"> <img src="__STATIC__/ycnh/uploads/allimg/20200515/1-200515142209164.png">
+      <div class="fta_left"> <img src="/free_trade/Public/static/ycnh/uploads/allimg/20200515/1-200515142209164.png">
         <p>海南省位于中国最南端，简称琼，省会海口市，全省陆地(主要包括海南岛和西沙、中沙、南沙群岛)总面积3.54 万平方公里，海域面积约200万平方公里。海岸线总长1823公里，有大小港湾68个。海南拥有特殊的区位优势，北以琼州海峡与广东省划界，其他三面隔海，与菲律宾、文莱、印度尼西亚和马来西亚为邻，是往来印度洋和太平洋的海上要冲，也是连接东北亚和东南亚的区域中心。目前，海南省是中国最大的经济特区、最大的自由贸易试验区和唯一的中国特色自由贸易港。...<a
 
 
@@ -263,16 +213,16 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
       </div>
       <div class="fta_right">
         <ul>
-                    <li><a href="query_7CF41E1B"><img src="__STATIC__/ycnh/uploads/allimg/20200518/1-20051Q01525M5.png">
+                    <li><a href="query_7CF41E1B"><img src="/free_trade/Public/static/ycnh/uploads/allimg/20200518/1-20051Q01525M5.png">
             <p>自贸区简介</p>
             </a></li>
-                    <li><a href="query_0C3F09AA"><img src="__STATIC__/ycnh/uploads/allimg/20200518/1-20051Q02II39.png">
+                    <li><a href="query_0C3F09AA"><img src="/free_trade/Public/static/ycnh/uploads/allimg/20200518/1-20051Q02II39.png">
             <p>海南简介</p>
             </a></li>
-                    <li><a href="query_573C3920"><img src="__STATIC__/ycnh/uploads/allimg/20200518/1-20051Q02P05Q.png">
+                    <li><a href="query_573C3920"><img src="/free_trade/Public/static/ycnh/uploads/allimg/20200518/1-20051Q02P05Q.png">
             <p>机构职能与设置</p>
             </a></li>
-                    <li><a href="query_2E3D7752"><img src="__STATIC__/ycnh/uploads/allimg/20200518/1-20051Q0292T94.png">
+                    <li><a href="query_2E3D7752"><img src="/free_trade/Public/static/ycnh/uploads/allimg/20200518/1-20051Q0292T94.png">
             <p>海南魅力</p>
             </a></li>
                   </ul>
@@ -324,10 +274,10 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
       <h3><a href="query_67287652" target="_blank">推荐新闻</a></h3>
       <div class="video_list">
         <ul>
-                    <li><a target="_blank" href="query_23529094"><span></span><img src="__STATIC__/ycnh/uploads/thumb/576_350/1-2006051GU2R0.png">
+                    <li><a target="_blank" href="query_23529094"><span></span><img src="/free_trade/Public/static/ycnh/uploads/thumb/576_350/1-2006051GU2R0.png">
             <p>【重磅官宣】海南自由贸易港政策干货精选60条！</p>
             </a></li>
-                    <li><a target="_blank" href="query_BDDBC415"><span></span><img src="__STATIC__/ycnh/uploads/thumb/576_350/1-2006051J54aE.png">
+                    <li><a target="_blank" href="query_BDDBC415"><span></span><img src="/free_trade/Public/static/ycnh/uploads/thumb/576_350/1-2006051J54aE.png">
             <p>海南自贸港船舶登记政策正式落地实施</p>
             </a></li>
                   </ul>
@@ -452,13 +402,13 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
       <div class="zt_title "><i></i>专题</div>
       <ul>
                 <li>
-          <div class="zt_img"><a target="_blank" href="query_B3E33D0B"><img src="__STATIC__/ycnh/uploads/thumb/576_350/1-200615153639504.png"></a></div>
+          <div class="zt_img"><a target="_blank" href="query_B3E33D0B"><img src="/free_trade/Public/static/ycnh/uploads/thumb/576_350/1-200615153639504.png"></a></div>
           <div class="zt_text"> <a target="_blank" href="query_B3E33D0B" class="text_name">海南自由贸易港首次集中签约一批重点项目</a>
             <p><a href="query_B3E33D0B">【详情】</a></p>
           </div>
         </li>
                 <li>
-          <div class="zt_img"><a target="_blank" href="query_64468D2D"><img src="__STATIC__/ycnh/uploads/thumb/576_350/1-20051Q1351I01.jpeg"></a></div>
+          <div class="zt_img"><a target="_blank" href="query_64468D2D"><img src="/free_trade/Public/static/ycnh/uploads/thumb/576_350/1-20051Q1351I01.jpeg"></a></div>
           <div class="zt_text"> <a target="_blank" href="query_64468D2D" class="text_name">关于电影等行业税费支持政策的公告</a>
             <p><a href="query_64468D2D">【详情】</a></p>
           </div>
@@ -515,27 +465,27 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
          
          
-                <li class="swiper-slide"><a target="_blank" href="query_F783D937"><img src="__STATIC__/ycnh/uploads/thumb/576_350/1-200515164234495.jpeg"/>
+                <li class="swiper-slide"><a target="_blank" href="query_F783D937"><img src="/free_trade/Public/static/ycnh/uploads/thumb/576_350/1-200515164234495.jpeg"/>
             <div class="black">
               <p>海南首个5G泛在智能总部基地正式签约</p>
             </div>
             </a></li>
-            <li class="swiper-slide"><a target="_blank" href="query_904BA006"><img src="__STATIC__/ycnh/uploads/thumb/576_350/1-2006051H62U58.png"/>
+            <li class="swiper-slide"><a target="_blank" href="query_904BA006"><img src="/free_trade/Public/static/ycnh/uploads/thumb/576_350/1-2006051H62U58.png"/>
             <div class="black">
               <p>重磅！中共中央 国务院印发《海南自由贸易港建设总体方案》</p>
             </div>
             </a></li>
-            <li class="swiper-slide"><a target="_blank" href="query_BDDBC415"><img src="__STATIC__/ycnh/uploads/thumb/576_350/1-2006051J54aE.png"/>
+            <li class="swiper-slide"><a target="_blank" href="query_BDDBC415"><img src="/free_trade/Public/static/ycnh/uploads/thumb/576_350/1-2006051J54aE.png"/>
             <div class="black">
               <p>海南自贸港船舶登记政策正式落地实施</p>
             </div>
             </a></li>
-            <li class="swiper-slide"><a target="_blank" href="query_23529094"><img src="__STATIC__/ycnh/uploads/thumb/576_350/1-2006051GU2R0.png"/>
+            <li class="swiper-slide"><a target="_blank" href="query_23529094"><img src="/free_trade/Public/static/ycnh/uploads/thumb/576_350/1-2006051GU2R0.png"/>
             <div class="black">
               <p>【重磅官宣】海南自由贸易港政策干货精选60条！</p>
             </div>
             </a></li>
-            <li class="swiper-slide"><a target="_blank" href="query_B3E33D0B"><img src="__STATIC__/ycnh/uploads/thumb/576_350/1-200615153639504.png"/>
+            <li class="swiper-slide"><a target="_blank" href="query_B3E33D0B"><img src="/free_trade/Public/static/ycnh/uploads/thumb/576_350/1-200615153639504.png"/>
             <div class="black">
               <p>海南自由贸易港首次集中签约一批重点项目</p>
             </div>
@@ -585,7 +535,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           【重磅官宣】海南自由贸易港政策干货精选60条！ </a> <span class="date">(06-02)</span> </li>
@@ -593,7 +543,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           三部门发文：不再执行20种商品停止减免税规定 </a> <span class="date">(08-14)</span> </li>
@@ -601,7 +551,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           海南自贸港船舶登记政策正式落地实施 </a> <span class="date">(06-05)</span> </li>
@@ -609,7 +559,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           重磅！中共中央 国务院印发《海南自由贸易港建设总体方案》 </a> <span class="date">(06-02)</span> </li>
@@ -617,7 +567,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           重点项目马力全开 自贸港建设动能足 </a> <span class="date">(01-11)</span> </li>
@@ -625,7 +575,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           海南离岛免税店今年销售额突破300亿元 </a> <span class="date">(12-16)</span> </li>
@@ -633,7 +583,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           国家税务总局出台海南自贸港有关增值税退税办法（解读） </a> <span class="date">(12-08)</span> </li>
@@ -641,7 +591,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           国务院办公厅印发《关于深化商事制度改革进一步为企业松绑减负激 </a> <span class="date">(09-11)</span> </li>
@@ -656,7 +606,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           海南降低药品注册与医疗器械产品注册收费标准 降幅均为30% </a> <span class="date">(06-05)</span> </li>
@@ -664,7 +614,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           答记者问 | 制度集成创新、离岛免税、“零关税”清单等全面解 </a> <span class="date">(01-12)</span> </li>
@@ -672,7 +622,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           海南自贸港再添一处机场海关 </a> <span class="date">(12-21)</span> </li>
@@ -680,7 +630,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           长征五号遥五运载火箭成功发射探月工程嫦娥五号探测器 </a> <span class="date">(11-24)</span> </li>
@@ -688,7 +638,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           30条硬核措施！助力海南自贸港金融服务大升级 </a> <span class="date">(09-17)</span> </li>
@@ -696,7 +646,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           海南分类监管企业信用风险 </a> <span class="date">(08-07)</span> </li>
@@ -704,7 +654,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           海南中行落地首单跨境贸易融资资产对外转让业务 </a> <span class="date">(06-05)</span> </li>
@@ -712,7 +662,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           胡春华：充分发挥先行开放平台作用 确保海南自由贸易港建设开好 </a> <span class="date">(06-04)</span> </li>
@@ -727,7 +677,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           进口小客车、游艇等交通工具“零关税”，谁能买？怎么买 </a> <span class="date">(12-30)</span> </li>
@@ -735,7 +685,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           最新最全：海南自贸港建设已出台重要政策文件 </a> <span class="date">(11-18)</span> </li>
@@ -743,7 +693,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           关于海南自由贸易港原辅料“零关税”政策的通知 </a> <span class="date">(11-13)</span> </li>
@@ -751,7 +701,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           中免集团与韩国领先化妆品企业强强联手 深耕海南旅游零售市场 </a> <span class="date">(10-23)</span> </li>
@@ -759,7 +709,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           2020中国（海南）国际海洋产业博览会三亚开幕 </a> <span class="date">(08-27)</span> </li>
@@ -767,7 +717,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           海关总署署长倪岳峰：抓紧出台海南自贸港口岸布局方案为全岛封关 </a> <span class="date">(08-12)</span> </li>
@@ -775,7 +725,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           沈晓明：通过制度集成创新树立营商环境标杆 </a> <span class="date">(06-03)</span> </li>
@@ -783,7 +733,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
           
           
         <!--
-          <img class='tag' src='/__STATIC__/ycnh/picture/new.gif'>-->
+          <img class='tag' src='//free_trade/Public/static/ycnh/picture/new.gif'>-->
         
           
           何立峰就海南自由贸易港建设发表署名文章 </a> <span class="date">(06-02)</span> </li>
@@ -803,7 +753,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
   </div>
 </div>
 
-  <div class="gb_mainbox"> <a href="###" target="_blank"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-200515162535V2.jpg" height="96" width="1152" ></a> </div>
+  <div class="gb_mainbox"> <a href="###" target="_blank"><img src="/free_trade/Public/static/ycnh/uploads/allimg/20200515/1-200515162535V2.jpg" height="96" width="1152" ></a> </div>
 <div class="gb_mainbox" style="height: 400px">
   <div class="bg_pic p10" style="width:720px;">
     <div class="newstxtbox">
@@ -907,9 +857,9 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
     <ul>
       
       
-             <li><a target="_blank" href="query_EB15F0B2"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K024914.png" width="92" height="92" alt="">博鳌片区</a> </li>
-           <li><a target="_blank" href="query_54150124"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K034X3.png" width="92" height="92" alt="">三亚片区</a> </li>
-           <li><a target="_blank" href="query_8CF65BF6"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K0424I.png" width="92" height="92" alt="">海口片区</a> </li>
+             <li><a target="_blank" href="query_EB15F0B2"><img src="/free_trade/Public/static/ycnh/uploads/allimg/20200515/1-2005151K024914.png" width="92" height="92" alt="">博鳌片区</a> </li>
+           <li><a target="_blank" href="query_54150124"><img src="/free_trade/Public/static/ycnh/uploads/allimg/20200515/1-2005151K034X3.png" width="92" height="92" alt="">三亚片区</a> </li>
+           <li><a target="_blank" href="query_8CF65BF6"><img src="/free_trade/Public/static/ycnh/uploads/allimg/20200515/1-2005151K0424I.png" width="92" height="92" alt="">海口片区</a> </li>
             
       
       
@@ -934,8 +884,8 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
         
        
        
-               <li class="zhuantiFa"><a target="_blank" href="query_109A407D"><img src="__STATIC__/ycnh/uploads/allimg/20200518/1-20051QPQE51.jpg"></a></li>
-               <li class="zhuantiFa"><a target="_blank" href="query_B2225582"><img src="__STATIC__/ycnh/uploads/allimg/20200518/1-20051QPZ0323.jpg"></a></li>
+               <li class="zhuantiFa"><a target="_blank" href="query_109A407D"><img src="/free_trade/Public/static/ycnh/uploads/allimg/20200518/1-20051QPQE51.jpg"></a></li>
+               <li class="zhuantiFa"><a target="_blank" href="query_B2225582"><img src="/free_trade/Public/static/ycnh/uploads/allimg/20200518/1-20051QPZ0323.jpg"></a></li>
                
        
       </ul>
@@ -990,17 +940,17 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
          
          
          
-                 <li class="swiper-slide"><a href="query_14379D29"><img src="__STATIC__/ycnh/uploads/thumb/576_350/1-200514101635642.jpeg"></a>
+                 <li class="swiper-slide"><a href="query_14379D29"><img src="/free_trade/Public/static/ycnh/uploads/thumb/576_350/1-200514101635642.jpeg"></a>
             <div class="black">
               <p>海口骑楼老街</p>
             </div>
           </li>
-               <li class="swiper-slide"><a href="query_DB46E15A"><img src="__STATIC__/ycnh/uploads/thumb/576_350/1-200514102RSc.jpeg"></a>
+               <li class="swiper-slide"><a href="query_DB46E15A"><img src="/free_trade/Public/static/ycnh/uploads/thumb/576_350/1-200514102RSc.jpeg"></a>
             <div class="black">
               <p>陵水椰子岛</p>
             </div>
           </li>
-               <li class="swiper-slide"><a href="query_E64DB0E8"><img src="__STATIC__/ycnh/uploads/thumb/576_350/1-200515150G1206.jpeg"></a>
+               <li class="swiper-slide"><a href="query_E64DB0E8"><img src="/free_trade/Public/static/ycnh/uploads/thumb/576_350/1-200515150G1206.jpeg"></a>
             <div class="black">
               <p>海口综合保税区</p>
             </div>
@@ -1104,7 +1054,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
     
     </div>
     <div style="display:inline-block;position:relative;vertical-align:middle"> 
-      <script id="_jiucuo_" sitecode='3500000069' src='__STATIC__/ycnh/js/jiucuo.js'></script> 
+      <script id="_jiucuo_" sitecode='3500000069' src='/free_trade/Public/static/ycnh/js/jiucuo.js'></script> 
     </div>
   </div>
 </footer>
@@ -1138,4 +1088,3 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
 <script>(function() {var _53code = document.createElement("script");_53code.src = "../tb.53kf.com/code/code/8844c358fe97e90be16b6e6426d1cbf30/1/index.htm";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(_53code, s);})();</script>
 </body>
 </html>
->>>>>>> 3af5136e07786c73de074c0749016309b2328cde

@@ -1,0 +1,70 @@
+[ 2021-02-24T18:30:36+08:00 ] ::1 /free_trade/index.php?s=/install/step2.html
+ERR: 系统不支持:mysql
+
+[ 2021-02-24T18:40:22+08:00 ] ::1 /free_trade/index.php?s=/admin/public/login.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000036s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000087s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000018s ]
+SQL: SHOW COLUMNS FROM `zm_ucenter_member` [ RunTime:0.007510s ]
+SQL: SELECT * FROM `zm_ucenter_member` WHERE ( `username` = 'admin' ) LIMIT 1   [ RunTime:0.005970s ]
+SQL: UPDATE `zm_ucenter_member` SET `last_login_time`=1614163222,`last_login_ip`=0 WHERE ( `id` = 1 ) [ RunTime:0.005078s ]
+SQL: SHOW COLUMNS FROM `zm_member` [ RunTime:0.005780s ]
+SQL: SELECT `uid`,`nickname`,`sex`,`birthday`,`qq`,`score`,`login`,`reg_ip`,`reg_time`,`last_login_ip`,`last_login_time`,`status` FROM `zm_member` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.005957s ]
+SQL: SHOW COLUMNS FROM `zm_action` [ RunTime:0.006271s ]
+SQL: SELECT * FROM `zm_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.006059s ]
+SQL: SHOW COLUMNS FROM `zm_action_log` [ RunTime:0.006120s ]
+SQL: INSERT INTO `zm_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (1,1,0,'member',1,1614163222,'操作url：/free_trade/index.php?s=/admin/public/login.html') [ RunTime:0.005885s ]
+SQL: SELECT * FROM `zm_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.006251s ]
+NOTIC: [8] Undefined offset: 1 /usr/local/var/www/free_trade/Application/Common/Common/function.php 第 605 行.
+NOTIC: [2] array_key_exists() expects parameter 2 to be array, null given /usr/local/var/www/free_trade/Application/Common/Common/function.php 第 605 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `zm_action_log` WHERE ( `action_id` = 1 ) AND ( `user_id` = 1 ) AND ( `create_time` > 1614076822 ) LIMIT 1   [ RunTime:0.004685s ]
+SQL: SHOW COLUMNS FROM `zm_member` [ RunTime:0.006213s ]
+SQL: UPDATE `zm_member` SET `score`=score+10 WHERE ( uid=1 AND status>-1 ) [ RunTime:0.006170s ]
+SQL: UPDATE `zm_member` SET `login`=`login`+1,`last_login_time`=1614163222,`last_login_ip`=0 WHERE ( `uid` = 1 ) [ RunTime:0.005153s ]
+
+[ 2021-02-24T21:46:33+08:00 ] 127.0.0.1 /free_trade/index.php?s=/admin/public/login.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `zm_ucenter_member` [ RunTime:0.015001s ]
+SQL: SELECT * FROM `zm_ucenter_member` WHERE ( `username` = 'admin' ) LIMIT 1   [ RunTime:0.011000s ]
+SQL: UPDATE `zm_ucenter_member` SET `last_login_time`=1614174393,`last_login_ip`='2130706433' WHERE ( `id` = 1 ) [ RunTime:0.006001s ]
+SQL: SHOW COLUMNS FROM `zm_member` [ RunTime:0.009001s ]
+SQL: SELECT `uid`,`nickname`,`sex`,`birthday`,`qq`,`score`,`login`,`reg_ip`,`reg_time`,`last_login_ip`,`last_login_time`,`status` FROM `zm_member` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.010000s ]
+SQL: SHOW COLUMNS FROM `zm_action` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `zm_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.009001s ]
+SQL: SHOW COLUMNS FROM `zm_action_log` [ RunTime:0.006000s ]
+SQL: INSERT INTO `zm_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (1,1,2130706433,'member',1,1614174393,'操作url：/free_trade/index.php?s=/admin/public/login.html') [ RunTime:0.010001s ]
+SQL: SELECT * FROM `zm_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.006000s ]
+NOTIC: [8] Undefined offset: 1 D:\phpStudy\PHPTutorial\WWW\free_trade\Application\Common\Common\function.php 第 605 行.
+NOTIC: [2] array_key_exists() expects parameter 2 to be array, null given D:\phpStudy\PHPTutorial\WWW\free_trade\Application\Common\Common\function.php 第 605 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `zm_action_log` WHERE ( `action_id` = 1 ) AND ( `user_id` = 1 ) AND ( `create_time` > 1614087993 ) LIMIT 1   [ RunTime:0.008001s ]
+SQL: UPDATE `zm_member` SET `login`=`login`+1,`last_login_time`=1614174393,`last_login_ip`='2130706433' WHERE ( `uid` = 1 ) [ RunTime:0.006000s ]
+
+[ 2021-02-24T22:01:16+08:00 ] 127.0.0.1 /free_trade/
+ERR: 模板不存在:./Application/Home/View/default/Index/index.htm.html
+
+[ 2021-02-24T22:08:18+08:00 ] 127.0.0.1 /free_trade/
+ERR: 模板不存在:./Application/Home/View/default/Index/index.htm.html
+
+[ 2021-02-24T22:08:22+08:00 ] 127.0.0.1 /free_trade/
+ERR: 模板不存在:./Application/Home/View/default/Index/index.htm.html
+
+[ 2021-02-24T22:10:47+08:00 ] 127.0.0.1 /free_trade/index.php?s=/admin/config/save.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `zm_config` [ RunTime:0.014001s ]
+SQL: UPDATE `zm_config` SET `value`='自由贸易' WHERE ( `name` = 'WEB_SITE_TITLE' ) [ RunTime:0.038002s ]
+SQL: UPDATE `zm_config` SET `value`='1' WHERE ( `name` = 'WEB_SITE_CLOSE' ) [ RunTime:0.007000s ]
+SQL: UPDATE `zm_config` SET `value`='OneThink内容管理框架' WHERE ( `name` = 'WEB_SITE_DESCRIPTION' ) [ RunTime:0.006001s ]
+SQL: UPDATE `zm_config` SET `value`='ThinkPHP,OneThink' WHERE ( `name` = 'WEB_SITE_KEYWORD' ) [ RunTime:0.009000s ]
+SQL: UPDATE `zm_config` SET `value`='' WHERE ( `name` = 'WEB_SITE_ICP' ) [ RunTime:0.007001s ]
+SQL: UPDATE `zm_config` SET `value`='default_color' WHERE ( `name` = 'COLOR_STYLE' ) [ RunTime:0.006000s ]
+
