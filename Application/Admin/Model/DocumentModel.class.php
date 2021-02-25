@@ -37,8 +37,8 @@ class DocumentModel extends Model{
     /* 自动完成规则 */
     protected $_auto = array(
         array('uid', 'is_login', self::MODEL_INSERT, 'function'),
-        array('title', 'htmlspecialchars', self::MODEL_BOTH, 'function'),
-        array('description', 'htmlspecialchars', self::MODEL_BOTH, 'function'),
+        // array('title', 'htmlspecialchars', self::MODEL_BOTH, 'function'),
+        // array('description', 'htmlspecialchars', self::MODEL_BOTH, 'function'),
     	array('root', 'getRoot', self::MODEL_BOTH, 'callback'),
         array('link_id', 'getLink', self::MODEL_BOTH, 'callback'),
         array('attach', 0, self::MODEL_INSERT),

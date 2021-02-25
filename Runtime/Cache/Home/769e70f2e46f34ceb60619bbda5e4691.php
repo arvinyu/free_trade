@@ -86,7 +86,7 @@
 ================================================== -->
     <div class="span3 bs-docs-sidebar">
         <ul class="nav nav-list bs-docs-sidenav">
-            <?php echo W('Category/lists', array(1, true));?>
+            <?php echo W('Category/lists', array(41, true));?>
         </ul>
     </div>
 

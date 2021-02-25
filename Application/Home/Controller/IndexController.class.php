@@ -36,6 +36,27 @@ class IndexController extends HomeController {
         }
     }
 
+    //系统首页
+    public function index2(){
+        if(IS_CLI){
+            $data = M('Content')->field("id,content")->select();
+            foreach ($data as $value) {
+                $value['content'] = ubb($value['content']);
+                M('Content')->save($value);
+            }
+
+        } else {
+            $category = D('Category')->getTree();
+            $lists    = D('Document')->lists(null);
+
+            $this->assign('category',$category);//栏目
+            $this->assign('lists',$lists);//列表
+            $this->assign('page',D('Document')->page);//分页
+
+            $this->display();
+        }
+    }
+
     public function upload(){
     	if(IS_POST){
             //又拍云

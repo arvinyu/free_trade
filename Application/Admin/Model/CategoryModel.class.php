@@ -26,11 +26,11 @@ class CategoryModel extends Model{
     );
 
     protected $_auto = array(
-        array('model', 'arr2str', self::MODEL_BOTH, 'function'),
+        array('model', 'arr2str', self::MODEL_UPDATE, 'function'),
         array('model', null, self::MODEL_BOTH, 'ignore'),
-        array('type', 'arr2str', self::MODEL_BOTH, 'function'),
+        array('type', 'arr2str', self::MODEL_UPDATE, 'function'),
         array('type', null, self::MODEL_BOTH, 'ignore'),
-        array('reply_model', 'arr2str', self::MODEL_BOTH, 'function'),
+        array('reply_model', 'arr2str', self::MODEL_UPDATE, 'function'),
         array('reply_model', null, self::MODEL_BOTH, 'ignore'),
         array('extend', 'json_encode', self::MODEL_BOTH, 'function'),
         array('extend', null, self::MODEL_BOTH, 'ignore'),

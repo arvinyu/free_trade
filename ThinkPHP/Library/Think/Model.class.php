@@ -925,6 +925,8 @@ class Model {
                     if(empty($auto[3])) $auto[3] =  'string';
                     switch(trim($auto[3])) {
                         case 'function':    //  使用函数进行填充 字段的值作为参数
+                            $data[$auto[0]]  = call_user_func_array($auto[1], array(I($auto[0])));
+                            break;
                         case 'callback': // 使用回调方法
                             $args = isset($auto[4])?(array)$auto[4]:array();
                             if(isset($data[$auto[0]])) {

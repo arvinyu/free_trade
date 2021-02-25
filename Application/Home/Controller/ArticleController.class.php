@@ -42,7 +42,6 @@ class ArticleController extends HomeController {
 		if(false === $list){
 			$this->error('获取列表数据失败！');
 		}
-
 		/* 获取模板 */
 		$tmpl = $category['template_lists'];
 

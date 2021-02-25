@@ -75,7 +75,6 @@ class CategoryModel extends Model{
 		} else { //否则返回所有分类
 			$info = $list;
 		}
-
 		return $info;
 	}
 

@@ -194,13 +194,14 @@ class ArticleController extends \Admin\Controller\AdminController {
             //获取分类绑定的模型
             $models = get_category($cate_id, 'model');
             $allow_reply = get_category($cate_id, 'reply');//分类文档允许回复
-            $pid = I('pid');
+            // $pid = I('pid');
+            $pid = I('cate_id');
             if ( $pid==0 ) {
                 //开发者可根据分类绑定的模型,按需定制分类文档列表
                 $template = $this->indexOfArticle( $cate_id, $models ); //转入默认文档列表方法
             }else{
                 //开发者可根据父文档的模型类型,按需定制子文档列表
-                $doc_model = M('Document')->where(array('id'=>$pid))->find();
+                $doc_model = M('Document')->where(array('category_id'=>$pid))->select();
 
                 switch($doc_model['model_id']){
                     default:
@@ -211,8 +212,9 @@ class ArticleController extends \Admin\Controller\AdminController {
                         }
                 }
             }
-
+// dump($doc_model);exit;
             $this->assign('list_grids', $grids);
+            $this->assign('list', $doc_model);
             $this->assign('model_list', $model);
             $this->display($template);
         }else{
