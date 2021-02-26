@@ -103,11 +103,15 @@
 							        "swf"             : "__STATIC__/uploadify/uploadify.swf",
 							        "fileObjName"     : "download",
 							        "buttonText"      : "上传图片",
-							        "uploader"        : "{:U('File/uploadPicture',array('session_id'=>session_id()))}",
+							        // "uploader"        : "{:U('File/uploadPicture',array('session_id'=>session_id()))}",
+							        "uploader"        : "http://localhost/free_trade/index.php?s=/admin/File/uploadPicture",
 							        "width"           : 120,
 							        'removeTimeout'	  : 1,
 							        'fileTypeExts'	  : '*.jpg; *.png; *.gif;',
-							        "onUploadSuccess" : uploadPicture{$field.name}
+							        "onUploadSuccess" : uploadPicture{$field.name},
+							        'onUploadError' : function() {
+							        	alert("失败");
+							        }
 							    });
 								function uploadPicture{$field.name}(file, data){
 							    	var data = $.parseJSON(data);
