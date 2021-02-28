@@ -38,4 +38,28 @@ class HomeController extends Controller {
 		is_login() || $this->error('您还没有登录，请先登录！', U('User/login'));
 	}
 
+	/* 文档分类检测 */
+	protected function category($id = 0){
+		/* 标识正确性检测 */
+		$id = $id ? $id : I('get.category', 0);
+		if(empty($id)){
+			$this->error('请指定文档分类！');
+		}
+
+		/* 获取分类信息 */
+		$category = D('Category')->info($id);
+		if($category && 1 == $category['status']){
+			switch ($category['display']) {
+				case 0:
+					$this->error('该分类禁止显示！');
+					break;
+				//TODO: 更多分类显示状态判断
+				default:
+					return $category;
+			}
+		} else {
+			$this->error('该分类不存在或被禁用！');
+		}
+	}
+
 }

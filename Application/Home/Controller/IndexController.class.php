@@ -46,6 +46,30 @@ class IndexController extends HomeController {
             }
 
         } else {
+
+            
+            // $category = $this->category(39);
+            // // $list = $Document->page(1, $category['list_row'])->lists($category['id']);
+            /* 获取当前分类列表 */
+
+            /* banner分类信息 */
+            $Document = D('Document');
+
+            $banners = $Document->bannerList();
+            if(false === $banners){
+                $this->error('获取banner列表数据失败！');
+            }
+            $this->assign('banners',$banners);//banner列表
+
+            /* 动态信息 */
+            $dynamics = $Document->dynamicList();
+            // dump($dynamics);exit;
+            if(false === $dynamics){
+                $this->error('获取动态列表数据失败！');
+            }
+            $this->assign('dynamics',$dynamics);//动态列表
+
+
             $category = D('Category')->getTree();
             $lists    = D('Document')->lists(null);
 

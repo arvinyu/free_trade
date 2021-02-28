@@ -337,4 +337,24 @@ class DocumentModel extends Model{
 		return $map;
 	}
 
+	//首页bannerList
+	public function bannerList(){
+		return $this
+                ->alias('d')
+                ->field('d.title,p.path')
+                ->join('left join zm_picture as p on d.cover_id = p.id')
+                ->where('d.category_id=39')
+                ->order("d.create_time DESC")
+                // ->limit($page->firstRow . ',' . $page->listRows)
+                ->select();
+	}
+	//首页动态列表
+	public function dynamicList(){
+		return $this->where('category_id=40')
+                ->order("create_time DESC")
+                ->limit(8)
+                ->select();
+	}
+
+
 }
