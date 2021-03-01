@@ -69,6 +69,15 @@ class IndexController extends HomeController {
             }
             $this->assign('dynamics',$dynamics);//动态列表
 
+            /* 园区子分类 */
+            $sub_park = $Document->parkSubCategory();
+            // dump($dynamics);exit;
+            if(false === $sub_park){
+                $this->error('获取园区子分类数据失败！');
+            }
+            // dump($sub_park);exit;
+            $this->assign('sub_parks',$sub_park);//园区子分类
+
 
             $category = D('Category')->getTree();
             $lists    = D('Document')->lists(null);

@@ -356,5 +356,25 @@ class DocumentModel extends Model{
                 ->select();
 	}
 
+	//首页动态列表
+	public function parkSubCategory(){
+		$sub_park = M('category')->where('pid=41')
+				->field('id,name,title,pid')
+                ->order("id ASC")
+                ->select();
+
+        if( !isset($sub_park) && empty($sub_park) ){
+        	return false;
+        }
+
+        foreach ($sub_park as $key => &$value) {
+        	$value['document'] = $this->where('category_id='.$value['id'])
+                ->order("create_time DESC")
+                ->limit(8)
+                ->select();
+        }
+		return $sub_park;
+	}
+
 
 }

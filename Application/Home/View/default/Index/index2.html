@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1" />
-<title>海南自由贸易港招商网</title>
+<title>中国（曹妃甸）自由贸易港招商网</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <script> 
@@ -152,7 +152,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
 </div> -->
 
 <div class="gb_mainbox"> 
-  <a href="###" target="_blank">
+  <a href="https://pro.formtalk.net/form/bizFormData.do?method=index&formId=F16116461180860000840000&rightId=600fc4b2f0eeb8738148256c&ours_as=540f484729d9a7da23d3614d771b4236996f8158&viewType=NEW&ours_params=7312ED85019D491C1F91BBC5015F73B3EFAE16B54FA4C2E20D5556272D0639D8DB12C2276E0CBD2E9D3C131F30331DD25DA99577F18BFDA5549232EC62B5FB2F260BE504779B6C115C79C35453E23E894259BE6A5C6005F6403F49302C19C2DFEDC5609E259C26E3" target="_blank">
     <img src="__STATIC__/ycnh/uploads/allimg/20200515/1-200515162535V2.jpg" height="96" width="1152" >
   </a> 
 </div>
@@ -200,7 +200,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
     <div class="newstxtbox01">
       <div class="hd">
         <ul>
-          <li><a href="query_54F714D1" title="园区动态">园区动态</a></li>
+          <li><a href="{:U('Article/lists?category=dynamic')}" title="园区动态">园区动态</a></li>
           <!-- <li><a href="query_54F714D1" title="园区动态">园区动态</a></li> -->
         </ul>
       </div>
@@ -209,7 +209,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
         <ul class="news_list news_lh35">
           <volist name="dynamics" id="dynamic">
             <li class="news_item"> 
-              <a class="text-overflow list-style" title="{$dynamic.title}" target="_blank" href="#"> 
+              <a class="text-overflow list-style" title="{$dynamic.title}" target="_blank" href="{:U('Article/detail?id='.$dynamic['id'])}"> 
                 {$dynamic.title}
               </a> 
               <span class="date">({$dynamic.create_time|date="m-d",###})</span> 
@@ -242,67 +242,27 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
     <div class="newstxtbox">
       <div class="hd">
         <ul>
-          <li ><a href="query_21664DA6" title="政策法规">政策法规</a></li>
-          <li ><a href="query_986D1D00" title="扶持政策">扶持政策</a></li>
-          <li ><a href="query_876FEC92" title="政策解读">政策解读</a></li>
-          <li ><a href="query_F18C8235" title="方案规划">方案规划</a></li>
-          <li class="mr0"><a href="query_1E91919F" title="统计数据">统计数据</a></li>
+          <volist name="sub_parks" id="sub_park">
+            <li >
+              <a href="{:U('Article/lists?category='.$sub_park['name'])}" title="{$sub_park.title}">
+              {$sub_park.title}
+              </a>
+            </li>
+          </volist>
         </ul>
       </div>
       <div class="bd" style="margin-top:10px;"> 
-        <ul class="news_list news_lh35">
-          <li class="news_item"> <a class="text-overflow list-style" title="6月7日要览 | 国新办将举行《海南自由贸易港建设总体方案》" target="_blank" href="query_C0B107FC"> 6月7日要览 | 国新办将举行《海南自由贸易港建设总体方案》 </a> <span class="date">(06-09)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="海南以“一业一证”改革推动“准入即准营”" target="_blank" href="query_45EEBD43"> 海南以“一业一证”改革推动“准入即准营” </a> <span class="date">(02-02)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="海南出台十条措施支持洋浦保税港区发展新型离岸国际贸易" target="_blank" href="query_BEF7ED9D"> 海南出台十条措施支持洋浦保税港区发展新型离岸国际贸易 </a> <span class="date">(01-26)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="6月17日要览 | 中石化在海南开设能源交易中心" target="_blank" href="query_AE8E0112"> 6月17日要览 | 中石化在海南开设能源交易中心 </a> <span class="date">(06-18)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="6月5日要览 | 海南制定措施推动自贸港重点园区水务高质量发" target="_blank" href="query_37B836B6"> 6月5日要览 | 海南制定措施推动自贸港重点园区水务高质量发 </a> <span class="date">(06-05)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="海南自由贸易港建设总体方案" target="_blank" href="query_36D4729F"> 海南自由贸易港建设总体方案 </a> <span class="date">(06-03)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="海南省出台加快区块链产业发展政策措施" target="_blank" href="query_2D1BCE99"> 海南省出台加快区块链产业发展政策措施 </a> <span class="date">(05-17)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="关于电影等行业税费支持政策的公告" target="_blank" href="query_ECB7E4CF"> 关于电影等行业税费支持政策的公告 </a> <span class="date">(05-18)</span> </li>
-        </ul>
-      
-        <ul class="news_list news_lh35">
-          <li class="news_item"> <a class="text-overflow list-style" title="海口江东新区—优惠政策" target="_blank" href="query_1D1ED46F"> 海口江东新区—优惠政策 </a> <span class="date">(07-10)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="财政部再放大招 海南自由贸易港企业所得税、个人所得税重大调整" target="_blank" href="query_3586AF68"> 财政部再放大招 海南自由贸易港企业所得税、个人所得税重大调整 </a> <span class="date">(06-30)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="三亚中央商务区—优惠政策" target="_blank" href="query_1EE84C9D"> 三亚中央商务区—优惠政策 </a> <span class="date">(05-19)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="海南陵水黎安国际教育创新试验区—优惠政策" target="_blank" href="query_69FDA35E"> 海南陵水黎安国际教育创新试验区—优惠政策 </a> <span class="date">(05-19)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="三亚市市级高新技术企业认定管理及扶持办法" target="_blank" href="query_DA577264"> 三亚市市级高新技术企业认定管理及扶持办法 </a> <span class="date">(04-10)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="三亚崖州湾科技城—优惠政策" target="_blank" href="query_10900F4F"> 三亚崖州湾科技城—优惠政策 </a> <span class="date">(05-19)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="海南博鳌乐城国际医疗旅游先行示范区—优惠政策" target="_blank" href="query_9F8D3FE1"> 海南博鳌乐城国际医疗旅游先行示范区—优惠政策 </a> <span class="date">(05-19)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="洋浦经济开发区—优惠政策" target="_blank" href="query_2F082A52"> 洋浦经济开发区—优惠政策 </a> <span class="date">(05-19)</span> </li>
-        </ul>
-
-       <ul class="news_list news_lh35">
-          <li class="news_item"> <a class="text-overflow list-style" title="企业来海南自贸港，“钱”景无限！" target="_blank" href="query_1936B3AE"> 企业来海南自贸港，“钱”景无限！ </a> <span class="date">(07-24)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="海关总署：《海南自由贸易港口岸布局方案》初步形成" target="_blank" href="query_A61BC4F9"> 海关总署：《海南自由贸易港口岸布局方案》初步形成 </a> <span class="date">(07-16)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="《海南自由贸易港博鳌乐城国际医疗旅游先行区条例》解读" target="_blank" href="query_238D1084"> 《海南自由贸易港博鳌乐城国际医疗旅游先行区条例》解读 </a> <span class="date">(06-17)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="省规划委相关负责人解读《关于实施海南省总体规划的决定》" target="_blank" href="query_099BFE5C"> 省规划委相关负责人解读《关于实施海南省总体规划的决定》 </a> <span class="date">(04-04)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="省规划委相关负责人解读《关于加强重要规划控制区规划管理的决定" target="_blank" href="query_B8A30ECA"> 省规划委相关负责人解读《关于加强重要规划控制区规划管理的决定 </a> <span class="date">(04-04)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="透视《中共中央国务院关于支持海南全面深化改革开放的指导意见》" target="_blank" href="query_28541959"> 透视《中共中央国务院关于支持海南全面深化改革开放的指导意见》 </a> <span class="date">(04-15)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="解读《中共中央国务院关于支持海南全面深化改革开放的指导意见》" target="_blank" href="query_995AE9CB"> 解读《中共中央国务院关于支持海南全面深化改革开放的指导意见》 </a> <span class="date">(04-15)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="国家公园管理局负责人解读《海南热带雨林国家公园体制试点方案》" target="_blank" href="query_12523A85"> 国家公园管理局负责人解读《海南热带雨林国家公园体制试点方案》 </a> <span class="date">(01-25)</span> </li>
-        </ul>
-      
-       <ul class="news_list news_lh35">
-          <li class="news_item"> <a class="text-overflow list-style" title="我省今年将推广新能源汽车超2.5万辆" target="_blank" href="query_33FD1E27"> 我省今年将推广新能源汽车超2.5万辆 </a> <span class="date">(01-25)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="海南实际使用外资连续三年翻番，特斯拉、哈罗公学等企业名校都来" target="_blank" href="query_3AF6DCE4"> 海南实际使用外资连续三年翻番，特斯拉、哈罗公学等企业名校都来 </a> <span class="date">(01-22)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="辽宁锦州至海南(洋浦)内外贸同船航线完成首航" target="_blank" href="query_8C83DFFE"> 辽宁锦州至海南(洋浦)内外贸同船航线完成首航 </a> <span class="date">(07-08)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="洋浦将打造数字服务贸易平台" target="_blank" href="query_9AFAD2D4"> 洋浦将打造数字服务贸易平台 </a> <span class="date">(06-11)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="房价不超8000元/㎡海南首个安居型商品房实施方案细则出炉" target="_blank" href="query_09C8FC4C"> 房价不超8000元/㎡海南首个安居型商品房实施方案细则出炉 </a> <span class="date">(06-11)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="海南博鳌乐城先行区特许药械品种及可用肿瘤新药、罕见病药双双破" target="_blank" href="query_63D71B30"> 海南博鳌乐城先行区特许药械品种及可用肿瘤新药、罕见病药双双破 </a> <span class="date">(06-10)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="海口江东新区迈雅河区域生态修复项目示范区完工" target="_blank" href="query_90D24AC2"> 海口江东新区迈雅河区域生态修复项目示范区完工 </a> <span class="date">(06-09)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="人民日报海外版：海南自贸港未来可期" target="_blank" href="query_C8073C27"> 人民日报海外版：海南自贸港未来可期 </a> <span class="date">(06-09)</span> </li>
-        </ul>
-      
-        <ul class="news_list news_lh35">
-          <li class="news_item"> <a class="text-overflow list-style" title="环岛旅游公路博鳌一期投入使用" target="_blank" href="query_0AB5C065"> 环岛旅游公路博鳌一期投入使用 </a> <span class="date">(06-11)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="海口海关助力海南成品油出口 5月增加出口量7000吨" target="_blank" href="query_60AB5F39"> 海口海关助力海南成品油出口 5月增加出口量7000吨 </a> <span class="date">(06-11)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="海南环岛港口航道如何提供航海保障？17条最新举措来了！" target="_blank" href="query_93AC8EAB"> 海南环岛港口航道如何提供航海保障？17条最新举措来了！ </a> <span class="date">(06-11)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="1-5月海南新设外资企业154家 实际使用外资3.19亿美元" target="_blank" href="query_FACFEBD6"> 1-5月海南新设外资企业154家 实际使用外资3.19亿美元 </a> <span class="date">(06-10)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="澎湃新闻：海南自贸港建设做什么不做什么" target="_blank" href="query_D7000BB9"> 澎湃新闻：海南自贸港建设做什么不做什么 </a> <span class="date">(06-09)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="6月4日要览 | 海南将在全球16个国家设立境外联络点" target="_blank" href="query_66BF2728"> 6月4日要览 | 海南将在全球16个国家设立境外联络点 </a> <span class="date">(06-09)</span> </li>
-          <li class="news_item"> <a class="text-overflow list-style" title="《2019年减税降费政策效应评估报告》发布" target="_blank" href="query_64B3FFC5"> 《2019年减税降费政策效应评估报告》发布 </a> <span class="date">(05-30)</span> </li>
-        </ul>
+        <volist name="sub_parks" id="sub_park">
+          <ul class="news_list news_lh35">
+            <volist name="sub_park.document" id="document">
+              <li class="news_item"> 
+                <a class="text-overflow list-style" title="{$document.title}" target="_blank" href="#"> {$document.title}
+                </a> 
+                <span class="date">({$document.create_time|date="m-d",###})</span> 
+              </li>
+            </volist>
+          </ul>
+        </volist>
 
       </div>
     </div>

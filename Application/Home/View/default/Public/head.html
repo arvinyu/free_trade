@@ -1,9 +1,108 @@
 <meta charset="UTF-8">
-<title>{:C('WEB_SITE_TITLE')}</title>
 <link href="__STATIC__/bootstrap/css/bootstrap.css" rel="stylesheet">
 <link href="__STATIC__/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 <link href="__STATIC__/bootstrap/css/docs.css" rel="stylesheet">
 <link href="__STATIC__/bootstrap/css/onethink.css" rel="stylesheet">
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1" />
+<title>{:C('WEB_SITE_TITLE')}</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<script> 
+   (function() {
+     if (! 
+     /*@cc_on!@*/
+     0) return;
+     var e = "abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video".split(', ');
+     var i= e.length;
+     while (i--){
+         document.createElement(e[i])
+     } 
+})() 
+</script>
+<link rel="stylesheet" type="text/css" href="__STATIC__/ycnh/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="__STATIC__/ycnh/css/common.css"/>
+<link rel="stylesheet" type="text/css" href="__STATIC__/ycnh/css/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="__STATIC__/ycnh/css/idangerous.swiper.css" />
+<script type="text/javascript" src="__STATIC__/ycnh/js/idangerous.swiper.min.js"></script>
+<script type="text/javascript" src="__STATIC__/ycnh/js/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="/__STATIC__/ycnh/js/main.js"></script> -->
+<script type="text/javascript" src="__STATIC__/ycnh/js/index_tab.js"></script>
+<script type="text/javascript" src="__STATIC__/ycnh/js/jquery.superslide.js"></script>
+<script type="text/javascript" src="__STATIC__/ycnh/js/jzf.js"></script>
+<link rel="stylesheet" type="text/css" href="__STATIC__/ycnh/css/skin20200115.css"/>
+<script type="text/javascript" src="__STATIC__/ycnh/js/skin20200115.js"></script>
+<script language="javascript" type="text/javascript">
+var baseUrl='/',controller='index';
+function showtime()
+{
+var today,hour,second,minute,year,month,date;
+var strDate ;
+today=new Date();
+var n_day = today.getDay();
+switch (n_day)
+{
+    case 0:{
+      strDate = "星期日"
+    }break;
+    case 1:{
+      strDate = "星期一"
+    }break;
+    case 2:{
+      strDate ="星期二"
+    }break;
+    case 3:{
+      strDate = "星期三"
+    }break;
+    case 4:{
+      strDate = "星期四"
+    }break;
+    case 5:{
+      strDate = "星期五"
+    }break;
+    case 6:{
+      strDate = "星期六"
+    }break;
+    case 7:{
+      strDate = "星期日"
+    }break;
+}
+year = today.getFullYear();
+month = today.getMonth()+1;
+date = today.getDate();
+hour = today.getHours();
+minute =today.getMinutes();
+second = today.getSeconds();
+document.getElementById('time').innerHTML = year + "年" + month + "月" + date + "日" + strDate +" " + hour + ":" + minute + ":" + second; //显示时间
+setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s)
+}
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".tc").find(".tz_box").hide(0);
+        $(".tc").hover(
+    function () { $(this).css("z-index", "20").find(".tz_box").css("z-index", "50").stop(true, true).animate({ opacity: "show" }); },
+    function () { $(this).css("z-index", "1").find(".tz_box").css("z-index", "1").stop(true, true).animate({ opacity: "hide" }); }
+    );
+
+        $(".search_text").focus(function () {
+
+            $(this).addClass("focus");
+
+        }).blur(function () {
+
+            $(this).removeClass("focus");
+
+        });
+    });
+</script>
+
+
+
+
 
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -19,3 +118,5 @@
 <!--<![endif]-->
 <!-- 页面header钩子，一般用于加载插件CSS文件和代码 -->
 {:hook('pageHeader')}
+
+
