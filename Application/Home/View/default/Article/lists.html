@@ -1,41 +1,103 @@
-<extend name="Base/common"/>
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <include file="Public/ycnh_head"/>
+  </head>
+<body>
+  <header>
+    <include file="Public/header"/>
+  </header>
 
-<block name="header">
-	<!-- <header class="jumbotron subhead" id="overview">
-		<div class="container">
-			<h2>源自相同起点，演绎不同精彩！</h2>
-			<p class="lead"></p>
-		</div>
-	</header> -->
-</block>
+  <div class="bg_shoot1">
 
-<block name="body">
-      <div class="span9">
-        <!-- Contents
-        ================================================== -->
-        <section id="contents">
+    <div class="bg_shoot2">
+      <div class="container">
 
-			<volist name="list" id="data">
-				<div class="">
-					<h3 class="ellipsis"><a href="{:U('Article/detail?id='.$data['id'])}">{$data.title}</a></h3>
-				</div>
-				<div>
-					<p class="lead">{$data.description}</p>
-				</div>
-				<div>
-					<span><a href="{:U('Article/detail?id='.$data['id'])}">查看全文</a></span>
-					<span class="pull-right">
-						<span class="author">{$data.uid|get_username}</span>&nbsp;&nbsp;
-						<span>发表于 {$data.create_time|date='Y-m-d H:i:s',###}</span>
-						<span>阅读({$data.view})</span>&nbsp;&nbsp;
-				</div>
-				<hr/>
-	        </volist>
+        <div class="gb_logo_box_empty"></div>
 
-            <div class="onethink pagination pagination-right pagination-large">
-                <article:page cate="$category['id']" listrow="$category['list_row']" />
+        <!-- <div class="gb_logo_box">
+          <div class="gb_logo" style="float: left;
+            background: url(/uploads/allimg/20200515/1-20051516142HF.png) no-repeat;
+            width: 514px;
+            height: 60px;
+            display: block;"><a href="/"></a>
+          </div>
+          
+        </div> -->
+        <!-- <nav class="nav"></nav> -->
+
+        <include file="Public/banner"/>
+
+        <div class="main">
+          <div class="address">
+            <div class="add_box">
+              您所在的位置： <a href='/' class=''>首页</a> 
+              &gt; <a href='{:U('Article/lists?category='.$category['name'])}' class=''>{$category.title}</a> 
+              <!-- &gt; <a href='/index.php?m=home&c=Lists&a=index&tid=221'>政策法规</a> -->
             </div>
-        </section>
+          </div>
+          <div class="left">
+            <!-- 文章分类 开始 -->
+            <div id="nav">
+              <h1>{$category.title}</h1>
+              <ul>
+                {:W('Category/lists', array($category['pid'], true))}
+              </ul>
+            </div>
+            <!-- 文章分类 结束 -->
+
+            <!-- 热门文章 开始 -->
+            <div class="hot_list" id="smartFloat_tags">
+              <h3 class="title_name">热门文章</h3>
+              <ul>
+                <volist name="hot_lists" id="hotlist">
+                  <li>
+                    <elt name="hotlist.sort" value="3"> <span class="number front">{$hotlist.sort}</span> </elt>
+                    <gt name="hotlist.sort" value="3"> <span class="number">{$hotlist.sort}</span> </gt>
+                    <a target="_blank" title="{$hotlist.title}" style="width:240px;" href="{:U('Article/detail?id='.$hotlist['id'])}">
+                      {$hotlist.title}
+                    </a>
+                  </li>
+                </volist>
+              </ul>
+            </div>
+            <!-- 热门文章 结束 -->
+          </div>
+
+          <!-- 文章列表 开始 -->
+          <div class="right">
+            <div class="right_title"><span>{$category.title} </span></div>
+            <div class="detailed_box">
+              <div class="wd_news">
+                <ul>
+                  <volist name="list" id="data">
+                    <li>
+                      <a target="_blank" title="{$data.title}" href="{:U('Article/detail?id='.$data['id'])}">
+                        {$data.title}
+                      </a>
+                      <span style="float:right;">{$data.create_time|date='Y-m-d H:i:s',###}</span>
+                    </li>
+                  </volist>
+                </ul>
+              </div>
+              <div style="text-align:right;margin-top:20px;">
+                <!-- <ul id="yw0" class="yiiPager">
+                   共<strong>1</strong>页 <strong>10</strong>条        
+                </ul> -->
+                <ul id="yw0" class="yiiPager">
+                  <article:page cate="$category['id']" listrow="$category['list_row']" />
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- 文章列表 结束 -->
+
+        </div>
       </div>
+
+      <div class="clear"></div>
+      <include file="Public/footer"/>
     </div>
-</block>
+  </div>
+</body>
+</html>

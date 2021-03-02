@@ -16,7 +16,7 @@ namespace Home\Controller;
 class IndexController extends HomeController {
 
 	//系统首页
-    public function index(){
+    /*public function index(){
     	if(IS_CLI){
             $data = M('Content')->field("id,content")->select();
             foreach ($data as $value) {
@@ -34,10 +34,10 @@ class IndexController extends HomeController {
 
             $this->display();
         }
-    }
+    }*/
 
     //系统首页
-    public function index2(){
+    public function index(){
         if(IS_CLI){
             $data = M('Content')->field("id,content")->select();
             foreach ($data as $value) {

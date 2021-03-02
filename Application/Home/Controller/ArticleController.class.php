@@ -35,6 +35,8 @@ class ArticleController extends HomeController {
 	public function lists($page = 1){
 		/* 分类信息 */
 		$category = $this->category();
+		//第几页
+		$page = I('get.p', 1);
 
 		/* 获取当前分类列表 */
 		$Document = D('Document');
@@ -44,10 +46,14 @@ class ArticleController extends HomeController {
 		}
 		/* 获取模板 */
 		$tmpl = $category['template_lists'];
+		/* 热门文章 */ 
+		$hot_lists =  $Document->hotLists();
+		// dump($hot_lists);exit;
 
 		/* 模板赋值并渲染模板 */
 		$this->assign('category', $category);
 		$this->assign('list', $list);
+		$this->assign('hot_lists', $hot_lists);
 		$this->display($tmpl);
 	}
 
@@ -200,32 +206,6 @@ class ArticleController extends HomeController {
 		} else {
 			$this->error('该分类不存在或被禁用！');
 		}
-	}
-
-	/* 文档模型列表页 */
-	public function lists2($page = 1){
-		/* 分类信息 */
-		$category = $this->category();
-		//第几页
-		$page = I('get.p', 1);
-
-		/* 获取当前分类列表 */
-		$Document = D('Document');
-		$list = $Document->page($page, $category['list_row'])->lists($category['id']);
-		if(false === $list){
-			$this->error('获取列表数据失败！');
-		}
-		/* 获取模板 */
-		$tmpl = $category['template_lists'];
-		/* 热门文章 */ 
-		$hot_lists =  $Document->hotLists();
-		// dump($hot_lists);exit;
-
-		/* 模板赋值并渲染模板 */
-		$this->assign('category', $category);
-		$this->assign('list', $list);
-		$this->assign('hot_lists', $hot_lists);
-		$this->display($tmpl);
 	}
 
 	/* 文档模型详情页 */

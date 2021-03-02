@@ -1,44 +1,254 @@
-<extend name="Base/common"/>
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <include file="Public/ycnh_head"/>
+  </head>
+<body>
+  <header>
+    <include file="Public/header"/>
+  </header>
+<div class="bg_shoot1">
+<div class="bg_shoot2">
+<div class="container">
 
+  <div class="gb_logo_box_empty"></div>
 
+  <include file="Public/banner"/>
 
-<block name="side">
-<!-- 左侧 nav
-================================================== -->
-    <div class="span3 bs-docs-sidebar">
-        <ul class="nav nav-list bs-docs-sidenav">
-            {:W('Category/lists', array(41, true))}
-        </ul>
-        <!-- <ul class="nav nav-list bs-docs-sidenav">
-            {:W('Category/lists', array(48, true))}
-        </ul> -->
-    </div>
-</block>
-
-<block name="body">
-    <div class="span9">
-        <!-- Contents
-        ================================================== -->
-        <section id="contents">
-            <article:list name="list" category="41" child="true">
-                <div class="">
-                    <h3><a href="{:U('Article/detail?id='.$list['id'])}">{$list.title}</a></h3>
-                </div>
-                <div>
-                    <p class="lead">{$list.description}</p>
-                </div>
-                <div>
-                    <span><a href="{:U('Article/detail?id='.$list['id'])}">查看全文</a></span>
-                    <span class="pull-right">
-                        <span class="author">{$list.uid|get_username}</span>
-                        <span>于 {$list.create_time|date='Y-m-d H:i',###}</span> 发表在 <span>
-                        <a href="{:U('Article/lists?category='.get_category_name($list['category_id']))}">{$list.category_id|get_category_title}</a></span> 
-                    </span>
-                </div>
-                <hr/>
-            </article:list>
-
-        </section>
-    </div>
+  <div class="gb_mainbox">
+    <!-- 图片区开始 -->
+    <div class="bg_pic">
+      <div id="slideBox" class="pic_scroll">
+        <div class="bd swiper-container" id="slideBox1">
+          <ul class="swiper-wrapper">
+            <volist name="banners" id="banner">
+              <li class="swiper-slide">
+                <a target="_blank" href="#">
+                  <img src="__ROOT__/{$banner.path}"/>
+                  <div class="black">
+                    <p>{$banner.title}</p>
+                  </div>
+                </a>
+              </li>
+            </volist>
+            
+          </ul>
+          <div class="pagination"></div>
         </div>
-</block>
+      </div>
+      <script>
+        var slideBox1 = new Swiper('#slideBox1', {
+          pagination: '.pagination',
+          paginationClickable: true,
+          loop: true,
+          autoplay: 3000
+        })
+        $('#slideBox1').mouseover(function () {
+          slideBox1.stopAutoplay();
+        })
+        $('#slideBox1').mouseleave(function () {
+          slideBox1.startAutoplay();
+        })
+      </script> 
+    </div>
+    <!-- 图片区结束 -->
+    
+    <!-- 园区动态开始 -->
+    <div class="bg_pic">
+      <div class="newstxtbox01">
+        <div class="hd">
+          <ul>
+            <li><a href="{:U('Article/lists?category=dynamic')}" title="园区动态">园区动态</a></li>
+            <!-- <li><a href="query_54F714D1" title="园区动态">园区动态</a></li> -->
+          </ul>
+        </div>
+        <div class="bd mt10">
+
+          <ul class="news_list news_lh35">
+            <volist name="dynamics" id="dynamic">
+              <li class="news_item"> 
+                <a class="text-overflow list-style" title="{$dynamic.title}" target="_blank" href="{:U('Article/detail?id='.$dynamic['id'])}"> 
+                  {$dynamic.title}
+                </a> 
+                <span class="date">({$dynamic.create_time|date="m-d",###})</span> 
+              </li>
+            </volist>
+          </ul>
+
+          <!-- <ul class="news_list news_lh35">
+            <volist name="dynamics" id="dynamic">
+              <li class="news_item"> 
+                <a class="text-overflow list-style" title="{$dynamic.title}" target="_blank" href="#"> 
+                  {$dynamic.title}
+                </a> 
+                <span class="date">({$dynamic.create_time|date="m-d",###})</span> 
+              </li>
+            </volist>
+          </ul> -->
+          
+        </div>
+
+        <script type="text/javascript">jQuery(".newstxtbox01").slide();</script> 
+      </div>
+    </div>
+    <!-- 园区动态结束 -->
+
+  </div>
+
+  <div class="gb_mainbox" style="height: 400px">
+    <div class="bg_pic p10" style="width:720px;">
+      <div class="newstxtbox">
+        <div class="hd">
+          <ul>
+            <volist name="sub_parks" id="sub_park">
+              <li >
+                <a href="{:U('Article/lists?category='.$sub_park['name'])}" title="{$sub_park.title}">
+                {$sub_park.title}
+                </a>
+              </li>
+            </volist>
+          </ul>
+        </div>
+        <div class="bd" style="margin-top:10px;"> 
+          <volist name="sub_parks" id="sub_park">
+            <ul class="news_list news_lh35">
+              <volist name="sub_park.document" id="document">
+                <li class="news_item"> 
+                  <a class="text-overflow list-style" title="{$document.title}" target="_blank" href="#"> {$document.title}
+                  </a> 
+                  <span class="date">({$document.create_time|date="m-d",###})</span> 
+                </li>
+              </volist>
+            </ul>
+          </volist>
+
+        </div>
+      </div>
+      <script type="text/javascript">jQuery(".newstxtbox").slide();</script> 
+    </div>
+    
+    <div class="bg_pic_right ">
+      <ul>
+        <li><a target="_blank" href="query_EB15F0B2"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K024914.png" width="92" height="92" alt="">博鳌片区</a> </li>
+        <li><a target="_blank" href="query_54150124"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K034X3.png" width="92" height="92" alt="">三亚片区</a> </li>
+        <li><a target="_blank" href="query_8CF65BF6"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K0424I.png" width="92" height="92" alt="">海口片区</a> </li>
+      </ul>
+    </div>
+
+  </div>
+
+<div class="gb_mainbox" style="background-color: #fff;padding: 20px 16px;">
+
+  <div class="ft_hd">
+    <div class="w740px">
+      <div class="work_title title_bg"><span class="iconfont icon-UI_icon_zhuantitu"></span><a target="_blank" href="query_116FFC74">专题专栏</a></div>
+      <ul>
+        <li class="zhuantiFa"><a target="_blank" href="query_109A407D"><img src="__STATIC__/ycnh/uploads/allimg/20200518/1-20051QPQE51.jpg"></a></li>
+        <li class="zhuantiFa"><a target="_blank" href="query_B2225582"><img src="__STATIC__/ycnh/uploads/allimg/20200518/1-20051QPZ0323.jpg"></a></li>       
+      </ul>
+    </div>
+    <div class="gb_notice " style="height: 242px;overflow: hidden;">
+      <div class="work_title title_bg duitai"><span class="zhitongche iconfont icon-zhitongcheguanjianci"></span><a target="_blank" href="article/list/gid/70/index.htm">专题推荐</a> </div>
+      <div class="ztzl_box">
+        <ul>
+          <li><a href="query_B3E33D0B" title="海南自由贸易港首次集中签约一批重点项目">海南自由贸易港首次集中签约一批重点项目</a></li>
+          <li><a href="query_64468D2D" title="关于电影等行业税费支持政策的公告">关于电影等行业税费支持政策的公告</a></li>
+          <li><a href="query_883D841C" title="海南自贸港创业大赛 海口赛区选拔赛启动">海南自贸港创业大赛 海口赛区选拔赛启动</a></li>
+          <li><a href="query_85F19BE7" title="海口国际免税城项目加快推进">海口国际免税城项目加快推进</a></li>
+          <li><a href="query_3CEA6B71" title="琼海超常规举措抓招商 多领域投资增热度">琼海超常规举措抓招商 多领域投资增热度</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="ft_main">
+    <div class="w740px">
+      <div class="work_title title_bg">
+        <span class="iconfont icon-rencaidongtaiyufazhan"></span>
+        <a target="_blank" href="query_EF5300DC">重点产业</a>
+      </div>
+      <ul class="zhidu">
+        <li class="jucuo"> <a target="_blank" href="query_DFEE2177"><span class="iconfont icon-jiangchengcuoshi"></span><span>旅游业</span> </a> </li>     
+        <li class="hongli"> <a target="_blank" href="query_68CA0F54"><span class="iconfont icon-jiangchengcuoshi"></span><span>现代服务业</span> </a> </li>     
+        <li class="anli"> <a target="_blank" href="query_9641A9DB"><span class="iconfont icon-jiangchengcuoshi"></span><span>高新技术产业</span> </a> </li>     
+        <li class="tuiguang"> <a target="_blank" href="query_D82302E5"><span class="iconfont icon-jiangchengcuoshi"></span><span>其他产业</span> </a> </li>     
+      </ul>
+    </div>
+    <div class="gb_notice">
+      <div class="work_title title_bg "> <span class="iconfont icon-hudong"></span><a target="_blank" href="index.htm">联系我们</a></div>
+      <div class="wx_box">
+        <ul>
+           <li><a target="_blank" href="query_7CF41E1B"><i class="iconfont icon-wenjuan"></i> 自贸区简介</a></li> <li><a target="_blank" href="query_0C3F09AA" class="zixun"><i class="iconfont icon-guanbi"></i>海南简介</a></li> <li><a target="_blank" href="query_573C3920" class="lianxi"><i class="iconfont icon-respond"></i>机构职能与设置</a></li> <li><a target="_blank" href="query_D037187E" class="callme"><i class="iconfont icon-kefu"></i>联系我们</a></li>        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="ft_banner">
+    <div class="work_title title_bg">
+      <span class="iconfont icon-qiyefengcai"></span>海南魅力
+      <span class="fengcai" style="display: inline-block;width: 954px; border: 1px solid #2d548f;vertical-align: middle;margin-left: 20px;"></span>
+    </div>
+    <div class="swiperBOX">
+      <div class="swiper-container ft_lun">
+        <ul class="swiper-wrapper">
+          <li class="swiper-slide">
+            <a href="query_14379D29">
+              <img src="__STATIC__/ycnh/uploads/thumb/576_350/1-200514101635642.jpeg">
+            </a>
+            <div class="black">
+              <p>海口骑楼老街</p>
+            </div>
+          </li>
+          <li class="swiper-slide">
+            <a href="query_DB46E15A">
+              <img src="__STATIC__/ycnh/uploads/thumb/576_350/1-200514102RSc.jpeg">
+            </a>
+            <div class="black">
+              <p>陵水椰子岛</p>
+            </div>
+          </li>
+          <li class="swiper-slide">
+            <a href="query_E64DB0E8">
+              <img src="__STATIC__/ycnh/uploads/thumb/576_350/1-200515150G1206.jpeg">
+            </a>
+            <div class="black">
+              <p>海口综合保税区</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="swiper-button-next"><i class="iconfont icon-jiantou"></i></div>
+      <div class="swiper-button-prev"><i class="iconfont icon-jiantou1"></i></div>
+    </div>
+    
+    <script>
+        var mySwiper_ft = new Swiper('.ft_lun', {
+            slidesPerView: 3,
+            autoplay: 1000,
+            loop: true,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+        })
+        $('.ft_lun').mouseover(function () {
+            mySwiper_ft.stopAutoplay();
+        })
+        $('.ft_lun').mouseleave(function () {
+            mySwiper_ft.startAutoplay();
+        })
+        $('.swiper-button-prev').click(function () {
+            mySwiper_ft.swipePrev();
+        })
+        $('.swiper-button-next').click(function () {
+            mySwiper_ft.swipeNext();
+        })
+    </script> 
+
+  </div>
+</div>
+</div>
+<div class="clear"></div>
+  <include file="Public/footer"/>
+</div>
+</div>
+</body>
+</html>
