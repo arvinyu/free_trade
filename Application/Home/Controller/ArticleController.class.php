@@ -91,8 +91,12 @@ class ArticleController extends HomeController {
 		$map = array('id' => $id);
 		$Document->where($map)->setInc('view');
 
+		/* 热门文章 */ 
+		$hot_lists =  $Document->hotLists();
+
 		/* 模板赋值并渲染模板 */
 		$this->assign('category', $category);
+		$this->assign('hot_lists', $hot_lists);
 		$this->assign('info', $info);
 		$this->assign('page', $page); //页码
 		$this->display($tmpl);

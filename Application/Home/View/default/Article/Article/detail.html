@@ -26,106 +26,79 @@
 
 <div class="main">
   <div class="address">
-    <div class="add_box">您所在的位置： <a href='/' class=''>首页</a> &gt; <a href='/?m=home&c=Lists&a=index&tid=116' class=''>政策法规</a> &gt; <a href='/?m=home&c=Lists&a=index&tid=225'>统计数据</a></div>
+    <div class="add_box">
+      您所在的位置： <a href='/' class=''>首页</a> 
+      &gt; <a href='{:U('Article/lists?category='.$category['name'])}' class=''>{$category.title}</a> 
+      <!-- &gt; <a href='/index.php?m=home&c=Lists&a=index&tid=221'>政策法规</a> -->
+    </div>
   </div>
   <div class="left">
     <div id="nav">
-      <h1>政策法规</h1>
+      <h1>{$category.title}</h1>
       <ul>
-        <li><a href="/?m=home&c=Lists&a=index&tid=221" title="政策法规">政策法规</a></li>
-        <li><a href="/?m=home&c=Lists&a=index&tid=222" title="扶持政策">扶持政策</a></li>
-        <li><a href="/?m=home&c=Lists&a=index&tid=223" title="政策解读">政策解读</a></li>
-        <li><a href="/?m=home&c=Lists&a=index&tid=224" title="方案规划">方案规划</a></li>
-        <li><a href="/?m=home&c=Lists&a=index&tid=225" title="统计数据">统计数据</a></li>
+        {:W('Category/lists', array($category['id'], false))}
       </ul>
     </div>
     <div class="hot_list" id="smartFloat_tags">
       <h3 class="title_name">热门文章</h3>
       <ul>
-                <li><span class="number front">1</span><a title="海南环岛港口航道如何提供航海保障？17条最新举措来了！" style="width:240px;" href="/?m=home&c=View&a=index&aid=354">海南环岛港口航道如何提供航海保障？17条最新举措来了！</a></li>
-                <li><span class="number front">2</span><a title="澎湃新闻：海南自贸港建设做什么不做什么" style="width:240px;" href="/?m=home&c=View&a=index&aid=348">澎湃新闻：海南自贸港建设做什么不做什么</a></li>
-                <li><span class="number front">3</span><a title="6月4日要览 | 海南将在全球16个国家设立境外联络点" style="width:240px;" href="/?m=home&c=View&a=index&aid=347">6月4日要览 | 海南将在全球16个国家设立境外联络点</a></li>
-                <li><span class="number ">4</span><a title="环岛旅游公路博鳌一期投入使用" style="width:240px;" href="/?m=home&c=View&a=index&aid=357">环岛旅游公路博鳌一期投入使用</a></li>
-                <li><span class="number ">5</span><a title="1-5月海南新设外资企业154家 实际使用外资3.19亿美元" style="width:240px;" href="/?m=home&c=View&a=index&aid=352">1-5月海南新设外资企业154家 实际使用外资3.19亿美元</a></li>
-                <li><span class="number ">6</span><a title="海口海关助力海南成品油出口 5月增加出口量7000吨" style="width:240px;" href="/?m=home&c=View&a=index&aid=355">海口海关助力海南成品油出口 5月增加出口量7000吨</a></li>
-                <li><span class="number ">7</span><a title="《2019年减税降费政策效应评估报告》发布" style="width:240px;" href="/?m=home&c=View&a=index&aid=306">《2019年减税降费政策效应评估报告》发布</a></li>
-              </ul>
+        <volist name="hot_lists" id="hotlist">
+          <li>
+            <elt name="hotlist.sort" value="3"> <span class="number front">{$hotlist.sort}</span> </elt>
+            <gt name="hotlist.sort" value="3"> <span class="number">{$hotlist.sort}</span> </gt>
+            <a target="_blank" title="{$hotlist.title}" style="width:240px;" href="{:U('Article/detail?id='.$hotlist['id'])}">
+              {$hotlist.title}
+            </a>
+          </li>
+        </volist>
+      </ul>
     </div>
   </div>
   <div class="right">
-    <div class="right_title"><span>统计数据 </span></div>
+    <div class="right_title"><span>{$category.title} </span></div>
     <div class="content_box">
-      <h1>环岛旅游公路博鳌一期投入使用</h1>  
-      <div class="wd_info"><span>2020-06-11 11:19:10</span> 作者：<span>admin</span>  阅读次数：<span class="blue"><script type="text/javascript">
-    function tag_arcclick(aid)
-    {
-        // 步骤一:创建异步对象
-        var ajax = new XMLHttpRequest();
-        // 步骤二:设置请求的url参数,参数一是请求的类型,参数二是请求的url,可以带参数,动态的传递参数starName到服务端
-        ajax.open("get", "/index.php?m=api&c=Ajax&a=arcclick&aid="+aid+"&type=view", true);
-        // 给头部添加ajax信息
-        ajax.setRequestHeader("X-Requested-With","XMLHttpRequest");
-        // 如果需要像 HTML 表单那样 POST 数据，请使用 setRequestHeader() 来添加 HTTP 头。然后在 send() 方法中规定您希望发送的数据：
-        ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-        // 步骤三:发送请求
-        ajax.send('_ajax=1');
-        // 步骤四:注册事件 onreadystatechange 状态改变就会调用
-        ajax.onreadystatechange = function () {
-            // 步骤五 如果能够进到这个判断 说明 数据 完美的回来了,并且请求的页面是存在的
-            if (ajax.readyState==4 && ajax.status==200) {
-        　　　　document.getElementById("eyou_arcclick_"+aid).innerHTML = ajax.responseText;
-          　}
-        } 
-    }
-</script><i id="eyou_arcclick_357" class="eyou_arcclick" style="font-style:normal"></i> 
-<script type="text/javascript">tag_arcclick(357);</script></span>次</div>
-      <div class="wd_jj">摘要：<span>博鳌亚洲论坛配套工程之一的海南省环岛旅游公路琼海博鳌段一期工程项目，已于近日顺利竣工并投入使用。　　环岛旅游公路博鳌一期项目是环岛旅游公路支线的先期工程，项目位于博鳌镇，全长3.53公里，设计标准为公...</span></div>
-      <div class="news_vdcon">
-        
-        
-         <div style="margin: 0px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: &quot;microsoft yahei&quot;; vertical-align: baseline; color: rgb(51, 51, 51); white-space: normal; background-color: rgb(245, 249, 255); text-align: left;"><p style="text-align: left; text-indent: 0em;"><span style="font-size: 18px;">　　博鳌亚洲论坛配套工程之一的海南省环岛旅游公路琼海博鳌段一期工程项目，已于近日顺利竣工并投入使用。</span></p><p style="text-align: left; text-indent: 0em;"><span style="font-size: 18px;">　　环岛旅游公路博鳌一期项目是环岛旅游公路支线的先期工程，项目位于博鳌镇，全长3.53公里，设计标准为公路三级标准。作为博鳌亚洲论坛的配套工程，环岛旅游公路博鳌一期项目建成投用，不仅能提升周边环境品质，服务博鳌亚洲论坛，也将为当地周边居民出行带来极大的便利，同时为各地游客来博鳌旅游提供新的观光点，促进当地发展。</span></p></div><p><br style="text-align: left;"/></p><p><br/></p><p><br/></p><p style="text-indent: 0em;">来源：海南自由贸易港</p> 
-      <div class="share01"> <span style="font-size: 13px;">分享到：</span>
-        <div class="bshare-custom"><a class="bshareDiv" href="http://www.bshare.cn/share">分享按钮</a><script type="text/javascript" charset="utf-8" src="__STATIC__/ycnh/js/buttonlite.js"></script></div>
+      <h1>{$info.title}</h1>  
+      <div class="wd_info">
+        <span>{$info.create_time|date='Y-m-d H:i',###}</span> 
+        作者：<span>{$info.uid|get_username}</span>  
+        阅读次数：<span class="blue">{$info.view}</span>次
       </div>
-      <div class="page_up">
-       
-        
-        
-         <!--上一篇-->
-     	 <p> 上一篇： <a href="/?m=home&c=View&a=index&aid=355">海口海关助力海南成品油出口 5月增加出口量7000吨</a> </p>
-  	      <!--下一篇-->
-     	  <p> 下一篇： 暂无 </p>
-	     </div>
-    <!--上下篇——结束-->
-        
-        
-        
-        
-        
+      
+      <div class="wd_jj">摘要：
+        <span>{$info.description}</span>
+      </div>
+      <div class="news_vdcon">
+        {$info.content}
+
+        <div class="share01"> 
+          <span style="font-size: 13px;">分享到：</span>
+          <div class="bshare-custom">
+            <a class="bshareDiv" href="http://www.bshare.cn/share">分享按钮</a>
+            <script type="text/javascript" charset="utf-8" src="__STATIC__/ycnh/js/buttonlite.js"></script>
+          </div>
+        </div>
+
+        <!--上下篇——结束-->
+        <!-- <div class="page_up">
+           <p> 上一篇： <a href="#">海口海关助力海南成品油出口 5月增加出口量7000吨</a> </p>
+           <p> 下一篇： 暂无 </p>
+        </div> -->
+        <!--上下篇——结束-->
         
       </div>
       
       <!-- 相关阅读 star-->
-      <div class="xg_read" style="margin-bottom: 10px;">
+      <!-- <div class="xg_read" style="margin-bottom: 10px;">
         <div class="read_title">相关阅读</div>
         <div class="read_list">
           <ul>
-            
-           
-           
-                    <li><a target="_blank" href="/?m=home&c=View&a=index&aid=355">海口海关助力海南成品油出口 5月增加出口量7000吨</a></li>
-               <li><a target="_blank" href="/?m=home&c=View&a=index&aid=348">澎湃新闻：海南自贸港建设做什么不做什么</a></li>
-               <li><a target="_blank" href="/?m=home&c=View&a=index&aid=352">1-5月海南新设外资企业154家 实际使用外资3.19亿美元</a></li>
-               <li><a target="_blank" href="/?m=home&c=View&a=index&aid=357">环岛旅游公路博鳌一期投入使用</a></li>
-                   
-           
-           
-           
-           
-           
+            <li><a target="_blank" href="/?m=home&c=View&a=index&aid=355">海口海关助力海南成品油出口 5月增加出口量7000吨</a></li>
+            <li><a target="_blank" href="/?m=home&c=View&a=index&aid=348">澎湃新闻：海南自贸港建设做什么不做什么</a></li>
+            <li><a target="_blank" href="/?m=home&c=View&a=index&aid=352">1-5月海南新设外资企业154家 实际使用外资3.19亿美元</a></li>
+            <li><a target="_blank" href="/?m=home&c=View&a=index&aid=357">环岛旅游公路博鳌一期投入使用</a></li>
           </ul>
         </div>
-      </div>
+      </div> -->
       <!-- 相关阅读 end--> 
       
     </div>

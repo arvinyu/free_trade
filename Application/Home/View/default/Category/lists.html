@@ -1,6 +1,6 @@
 <volist name="category" id="cate">
 	<eq name="current" value="$cate['id']">
-		<li class="active">
+		<li style="background: #2d548f;">
 			<a href="{:U('Article/lists?category='.$cate['name'])}" title="{$cate.title}">
 				<i class="icon-chevron-right"></i>{$cate.title}
 			</a>
