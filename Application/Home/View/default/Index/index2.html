@@ -200,7 +200,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
     <div class="newstxtbox01">
       <div class="hd">
         <ul>
-          <li><a href="{:U('Article/lists?category=dynamic')}" title="园区动态">园区动态</a></li>
+          <li><a href="{:U('Article/lists2?category=dynamic')}" title="园区动态">园区动态</a></li>
           <!-- <li><a href="query_54F714D1" title="园区动态">园区动态</a></li> -->
         </ul>
       </div>
@@ -244,7 +244,7 @@ setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s
         <ul>
           <volist name="sub_parks" id="sub_park">
             <li >
-              <a href="{:U('Article/lists?category='.$sub_park['name'])}" title="{$sub_park.title}">
+              <a href="{:U('Article/lists2?category='.$sub_park['name'])}" title="{$sub_park.title}">
               {$sub_park.title}
               </a>
             </li>

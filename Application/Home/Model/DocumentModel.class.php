@@ -356,7 +356,7 @@ class DocumentModel extends Model{
                 ->select();
 	}
 
-	//首页动态列表
+	//首页园区
 	public function parkSubCategory(){
 		$sub_park = M('category')->where('pid=41')
 				->field('id,name,title,pid')
@@ -374,6 +374,24 @@ class DocumentModel extends Model{
                 ->select();
         }
 		return $sub_park;
+	}
+
+	//热门文章
+	public function hotLists(){
+		$hot_lists =  M('document')->order('view desc')->limit(10)->select();
+		$result = array();
+		for ($i=0; $i < count($hot_lists); $i++) { 
+			$result[] = array(
+				'sort' => $i+1,
+				'id' => $hot_lists[$i]['id'],
+				'uid' => $hot_lists[$i]['uid'],
+				'name' => $hot_lists[$i]['name'],
+				'title' => $hot_lists[$i]['title'],
+				'category_id' => $hot_lists[$i]['category_id']
+				
+			);
+		}
+		return $result;
 	}
 
 
