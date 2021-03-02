@@ -71,12 +71,26 @@ class IndexController extends HomeController {
 
             /* 园区子分类 */
             $sub_park = $Document->parkSubCategory();
-            // dump($dynamics);exit;
             if(false === $sub_park){
                 $this->error('获取园区子分类数据失败！');
             }
             // dump($sub_park);exit;
             $this->assign('sub_parks',$sub_park);//园区子分类
+
+            /* 价格指数 */
+            $price = $Document->price();
+            if(false === $price){
+                $this->error('获取价格指数数据失败！');
+            }
+            // dump($price);exit;
+            $this->assign('price',$price);//价格指数
+
+            /* 专题推荐 */
+            $push_lists = $Document->pushList();
+            if(false === $push_lists){
+                $this->error('获取专题推荐列表数据失败！');
+            }
+            $this->assign('push_lists',$push_lists);//专题推荐
 
 
             $category = D('Category')->getTree();

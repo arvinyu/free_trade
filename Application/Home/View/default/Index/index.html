@@ -23,7 +23,7 @@
           <ul class="swiper-wrapper">
             <volist name="banners" id="banner">
               <li class="swiper-slide">
-                <a target="_blank" href="#">
+                <a target="_blank" href="{:U('Article/detail?id='.$banner['id'])}">
                   <img src="__ROOT__/{$banner.path}"/>
                   <div class="black">
                     <p>{$banner.title}</p>
@@ -129,15 +129,44 @@
     
     <div class="bg_pic_right ">
       <ul>
-        <li><a target="_blank" href="query_EB15F0B2"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K024914.png" width="92" height="92" alt="">博鳌片区</a> </li>
+        <!-- <li><a target="_blank" href="query_EB15F0B2"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K024914.png" width="92" height="92" alt="">博鳌片区</a> </li>
         <li><a target="_blank" href="query_54150124"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K034X3.png" width="92" height="92" alt="">三亚片区</a> </li>
-        <li><a target="_blank" href="query_8CF65BF6"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K0424I.png" width="92" height="92" alt="">海口片区</a> </li>
+        <li><a target="_blank" href="query_8CF65BF6"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K0424I.png" width="92" height="92" alt="">海口片区</a> </li> -->
+        <a target="_blank" href="{:U('Article/lists?category=price')}">
+          <img src="__ROOT__/{$price.path}" width="400" height="400" alt="">{$price.title}
+        </a>
+
       </ul>
     </div>
 
   </div>
 
 <div class="gb_mainbox" style="background-color: #fff;padding: 20px 16px;">
+
+  <div class="ft_main">
+    <div class="w740newpx">
+      <div class="work_title title_bg">
+        <span class="iconfont icon-rencaidongtaiyufazhan"></span>
+        <a target="_blank" href="query_EF5300DC">重点产业</a>
+      </div>
+      <ul class="zhidu">
+        <li class="jucuo"> <a target="_blank" href="query_DFEE2177"><span class="iconfont icon-jiangchengcuoshi"></span><span>旅游业</span> </a> </li>     
+        <li class="hongli"> <a target="_blank" href="query_68CA0F54"><span class="iconfont icon-jiangchengcuoshi"></span><span>现代服务业</span> </a> </li>     
+        <li class="anli"> <a target="_blank" href="query_9641A9DB"><span class="iconfont icon-jiangchengcuoshi"></span><span>高新技术产业</span> </a> </li>     
+        <li class="tuiguang"> <a target="_blank" href="query_D82302E5"><span class="iconfont icon-jiangchengcuoshi"></span><span>其他产业</span> </a> </li>  
+        <li class="jucuo"> <a target="_blank" href="query_DFEE2177"><span class="iconfont icon-jiangchengcuoshi"></span><span>旅游业</span> </a> </li>     
+        <li class="hongli"> <a target="_blank" href="query_68CA0F54"><span class="iconfont icon-jiangchengcuoshi"></span><span>现代服务业</span> </a> </li>     
+        <li class="anli"> <a target="_blank" href="query_9641A9DB"><span class="iconfont icon-jiangchengcuoshi"></span><span>高新技术产业</span> </a> </li>     
+      </ul>
+    </div>
+    <!-- <div class="gb_notice">
+      <div class="work_title title_bg "> <span class="iconfont icon-hudong"></span><a target="_blank" href="index.htm">联系我们</a></div>
+      <div class="wx_box">
+        <ul>
+           <li><a target="_blank" href="query_7CF41E1B"><i class="iconfont icon-wenjuan"></i> 自贸区简介</a></li> <li><a target="_blank" href="query_0C3F09AA" class="zixun"><i class="iconfont icon-guanbi"></i>海南简介</a></li> <li><a target="_blank" href="query_573C3920" class="lianxi"><i class="iconfont icon-respond"></i>机构职能与设置</a></li> <li><a target="_blank" href="query_D037187E" class="callme"><i class="iconfont icon-kefu"></i>联系我们</a></li>        </ul>
+      </div>
+    </div> -->
+  </div>
 
   <div class="ft_hd">
     <div class="w740px">
@@ -151,99 +180,14 @@
       <div class="work_title title_bg duitai"><span class="zhitongche iconfont icon-zhitongcheguanjianci"></span><a target="_blank" href="article/list/gid/70/index.htm">专题推荐</a> </div>
       <div class="ztzl_box">
         <ul>
-          <li><a href="query_B3E33D0B" title="海南自由贸易港首次集中签约一批重点项目">海南自由贸易港首次集中签约一批重点项目</a></li>
-          <li><a href="query_64468D2D" title="关于电影等行业税费支持政策的公告">关于电影等行业税费支持政策的公告</a></li>
-          <li><a href="query_883D841C" title="海南自贸港创业大赛 海口赛区选拔赛启动">海南自贸港创业大赛 海口赛区选拔赛启动</a></li>
-          <li><a href="query_85F19BE7" title="海口国际免税城项目加快推进">海口国际免税城项目加快推进</a></li>
-          <li><a href="query_3CEA6B71" title="琼海超常规举措抓招商 多领域投资增热度">琼海超常规举措抓招商 多领域投资增热度</a></li>
+          <volist name="push_lists" id="push">
+            <li><a href="{:U('Article/detail?id='.$push['id'])}" title="{$push.title}">{$push.title}</a></li>
+          </volist>
         </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="ft_main">
-    <div class="w740px">
-      <div class="work_title title_bg">
-        <span class="iconfont icon-rencaidongtaiyufazhan"></span>
-        <a target="_blank" href="query_EF5300DC">重点产业</a>
-      </div>
-      <ul class="zhidu">
-        <li class="jucuo"> <a target="_blank" href="query_DFEE2177"><span class="iconfont icon-jiangchengcuoshi"></span><span>旅游业</span> </a> </li>     
-        <li class="hongli"> <a target="_blank" href="query_68CA0F54"><span class="iconfont icon-jiangchengcuoshi"></span><span>现代服务业</span> </a> </li>     
-        <li class="anli"> <a target="_blank" href="query_9641A9DB"><span class="iconfont icon-jiangchengcuoshi"></span><span>高新技术产业</span> </a> </li>     
-        <li class="tuiguang"> <a target="_blank" href="query_D82302E5"><span class="iconfont icon-jiangchengcuoshi"></span><span>其他产业</span> </a> </li>     
-      </ul>
-    </div>
-    <div class="gb_notice">
-      <div class="work_title title_bg "> <span class="iconfont icon-hudong"></span><a target="_blank" href="index.htm">联系我们</a></div>
-      <div class="wx_box">
-        <ul>
-           <li><a target="_blank" href="query_7CF41E1B"><i class="iconfont icon-wenjuan"></i> 自贸区简介</a></li> <li><a target="_blank" href="query_0C3F09AA" class="zixun"><i class="iconfont icon-guanbi"></i>海南简介</a></li> <li><a target="_blank" href="query_573C3920" class="lianxi"><i class="iconfont icon-respond"></i>机构职能与设置</a></li> <li><a target="_blank" href="query_D037187E" class="callme"><i class="iconfont icon-kefu"></i>联系我们</a></li>        </ul>
       </div>
     </div>
   </div>
   
-  <div class="ft_banner">
-    <div class="work_title title_bg">
-      <span class="iconfont icon-qiyefengcai"></span>海南魅力
-      <span class="fengcai" style="display: inline-block;width: 954px; border: 1px solid #2d548f;vertical-align: middle;margin-left: 20px;"></span>
-    </div>
-    <div class="swiperBOX">
-      <div class="swiper-container ft_lun">
-        <ul class="swiper-wrapper">
-          <li class="swiper-slide">
-            <a href="query_14379D29">
-              <img src="__STATIC__/ycnh/uploads/thumb/576_350/1-200514101635642.jpeg">
-            </a>
-            <div class="black">
-              <p>海口骑楼老街</p>
-            </div>
-          </li>
-          <li class="swiper-slide">
-            <a href="query_DB46E15A">
-              <img src="__STATIC__/ycnh/uploads/thumb/576_350/1-200514102RSc.jpeg">
-            </a>
-            <div class="black">
-              <p>陵水椰子岛</p>
-            </div>
-          </li>
-          <li class="swiper-slide">
-            <a href="query_E64DB0E8">
-              <img src="__STATIC__/ycnh/uploads/thumb/576_350/1-200515150G1206.jpeg">
-            </a>
-            <div class="black">
-              <p>海口综合保税区</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="swiper-button-next"><i class="iconfont icon-jiantou"></i></div>
-      <div class="swiper-button-prev"><i class="iconfont icon-jiantou1"></i></div>
-    </div>
-    
-    <script>
-        var mySwiper_ft = new Swiper('.ft_lun', {
-            slidesPerView: 3,
-            autoplay: 1000,
-            loop: true,
-            nextButton: '.swiper-button-next',
-            prevButton: '.swiper-button-prev',
-        })
-        $('.ft_lun').mouseover(function () {
-            mySwiper_ft.stopAutoplay();
-        })
-        $('.ft_lun').mouseleave(function () {
-            mySwiper_ft.startAutoplay();
-        })
-        $('.swiper-button-prev').click(function () {
-            mySwiper_ft.swipePrev();
-        })
-        $('.swiper-button-next').click(function () {
-            mySwiper_ft.swipeNext();
-        })
-    </script> 
-
-  </div>
 </div>
 </div>
 <div class="clear"></div>

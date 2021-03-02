@@ -91,7 +91,17 @@ class DocumentModel extends Model{
 			return false;
 		}
 
-		return array_merge($info, $detail);
+		$picture = $this->picture($info['cover_id']);
+
+		return array_merge($info, $detail,$picture);
+	}
+
+	public function picture($id){
+		$picture = array();
+		if($id){
+			$picture = M('picture')->field('path')->where('id='.$id)->find();
+		}
+		return $picture;
 	}
 
 	/**
@@ -341,7 +351,7 @@ class DocumentModel extends Model{
 	public function bannerList(){
 		return $this
                 ->alias('d')
-                ->field('d.title,p.path')
+                ->field('d.id,d.title,p.path')
                 ->join('left join zm_picture as p on d.cover_id = p.id')
                 ->where('d.category_id=39')
                 ->order("d.create_time DESC")
@@ -374,6 +384,25 @@ class DocumentModel extends Model{
                 ->select();
         }
 		return $sub_park;
+	}
+
+	//价格指数列表
+	public function price(){
+		return $this
+				->alias('d')
+                // ->field('d.title,p.path')
+                ->join('left join zm_picture as p on d.cover_id = p.id')
+				->where('d.category_id=46')
+                ->order("d.create_time DESC")
+                ->find();
+	}
+
+	//首页专题推荐列表
+	public function pushList(){
+		return $this->where('category_id=53')
+                ->order("create_time DESC")
+                ->limit(5)
+                ->select();
 	}
 
 	//热门文章
