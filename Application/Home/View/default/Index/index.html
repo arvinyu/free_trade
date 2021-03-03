@@ -24,7 +24,7 @@
             <volist name="banners" id="banner">
               <li class="swiper-slide">
                 <a target="_blank" href="{:U('Article/detail?id='.$banner['id'])}">
-                  <img src="__ROOT__/{$banner.path}"/>
+                  <img src="__ROOT__{$banner.path}"/>
                   <div class="black">
                     <p>{$banner.title}</p>
                   </div>
@@ -133,7 +133,7 @@
         <li><a target="_blank" href="query_54150124"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K034X3.png" width="92" height="92" alt="">三亚片区</a> </li>
         <li><a target="_blank" href="query_8CF65BF6"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K0424I.png" width="92" height="92" alt="">海口片区</a> </li> -->
         <a target="_blank" href="{:U('Article/lists?category=price')}">
-          <img src="__ROOT__/{$price.path}" width="400" height="400" alt="">{$price.title}
+          <img src="__ROOT__{$price.path}" width="400" height="400" alt="">{$price.title}
         </a>
 
       </ul>
