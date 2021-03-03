@@ -114,7 +114,7 @@
             <ul class="news_list news_lh35">
               <volist name="sub_park.document" id="document">
                 <li class="news_item"> 
-                  <a class="text-overflow list-style" title="{$document.title}" target="_blank" href="#"> {$document.title}
+                  <a class="text-overflow list-style" title="{$document.title}" target="_blank" href="{:U('Article/detail?id='.$document['id'])}"> {$document.title}
                   </a> 
                   <span class="date">({$document.create_time|date="m-d",###})</span> 
                 </li>
