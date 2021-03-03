@@ -378,7 +378,8 @@ class DocumentModel extends Model{
         }
 
         foreach ($sub_park as $key => &$value) {
-        	$value['document'] = $this->where('category_id='.$value['id'])
+        	$map = array('category_id'=>$value['id'],'status'=>1);
+        	$value['document'] = $this->where($map)
                 ->order("create_time DESC")
                 ->limit(8)
                 ->select();
