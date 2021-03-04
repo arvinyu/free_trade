@@ -127,6 +127,19 @@ function get_document_type($type = null){
     }
 }
 
+function get_status_name($status = null){
+    if(!isset($status)){
+        return false;
+    }
+    switch ($status){
+        case 0  : return    '禁用'; break;
+        case 1  : return    '正常'; break;
+        case 2  : return    '待审核'; break;
+        case -1  : return    '删除'; break;
+        default : return    false;  break;
+    }
+}
+
 /**
  * 获取配置的类型
  * @param string $type 配置类型
