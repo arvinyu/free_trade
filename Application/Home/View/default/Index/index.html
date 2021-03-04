@@ -12,8 +12,8 @@
 <div class="container">
 
   <div class="gb_logo_box_empty"></div>
-
-  <include file="Public/banner"/>
+  <include file="Public/navigation"/>
+  <div class="gb_logo_box_empty"></div>
 
   <div class="gb_mainbox">
     <!-- 图片区开始 -->
@@ -95,6 +95,8 @@
 
   </div>
 
+  <include file="Public/banner"/>
+
   <div class="gb_mainbox" style="height: 400px">
     <div class="bg_pic p10" style="width:720px;">
       <div class="newstxtbox">
@@ -129,13 +131,13 @@
     
     <div class="bg_pic_right ">
       <ul>
+        <li><a href="{:U('Article/lists?category=price')}" title="价格指数">价格指数</a></li>
         <!-- <li><a target="_blank" href="query_EB15F0B2"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K024914.png" width="92" height="92" alt="">博鳌片区</a> </li>
         <li><a target="_blank" href="query_54150124"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K034X3.png" width="92" height="92" alt="">三亚片区</a> </li>
         <li><a target="_blank" href="query_8CF65BF6"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K0424I.png" width="92" height="92" alt="">海口片区</a> </li> -->
         <a target="_blank" href="{:U('Article/lists?category=price')}">
-          <img src="__ROOT__{$price.path}" width="400" height="400" alt="">{$price.title}
+          <img src="__ROOT__{$price.path}" width="400" height="360" alt="">
         </a>
-
       </ul>
     </div>
 
@@ -169,7 +171,7 @@
 
   <div class="ft_banner">
     <div class="work_title title_bg">
-      <span class="iconfont icon-rencaidongtaiyufazhan"></span>重点产业
+      <span class="iconfont icon-rencaidongtaiyufazhan"></span>招商领域
       <!-- <span class="iconfont icon-qiyefengcai"></span>海南魅力 -->
       <span class="fengcai" style="display: inline-block;width: 954px; border: 1px solid #2d548f;vertical-align: middle;margin-left: 20px;"></span>
     </div>

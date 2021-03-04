@@ -1174,7 +1174,7 @@ img {
 }
 
 .gb_mainbox {
-	margin-top: 15px;
+	/*margin-top: 15px;*/
 	overflow: hidden
 }
 
@@ -1469,7 +1469,7 @@ img {
 	background-color: #fff;
 	padding: 8px;
 	margin-bottom: 14px;
-	height: 108px;
+	height: 40px;
 }
 
 .bg_pic_right ul li a {
