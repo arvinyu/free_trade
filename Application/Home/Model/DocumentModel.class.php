@@ -354,7 +354,7 @@ class DocumentModel extends Model{
                 ->field('d.id,d.title,p.path')
                 ->join('left join zm_picture as p on d.cover_id = p.id')
                 ->where('d.category_id=39')
-                ->order("d.create_time DESC")
+                ->order("d.level ASC")
                 // ->limit($page->firstRow . ',' . $page->listRows)
                 ->select();
 	}
@@ -396,6 +396,14 @@ class DocumentModel extends Model{
 				->where('d.category_id=46')
                 ->order("d.create_time DESC")
                 ->find();
+	}
+
+	//首页营商环境列表
+	public function buildingList(){
+		return $this->where('category_id=53')
+                ->order("create_time DESC")
+                ->limit(5)
+                ->select();
 	}
 
 	//首页专题推荐列表

@@ -85,6 +85,13 @@ class IndexController extends HomeController {
             // dump($price);exit;
             $this->assign('price',$price);//价格指数
 
+            /* 营商环境 */
+            $building_lists = $Document->buildingList();
+            if(false === $building_lists){
+                $this->error('获取营商环境列表数据失败！');
+            }
+            $this->assign('building_lists',$building_lists);//营商环境
+
             /* 专题推荐 */
             $push_lists = $Document->pushList();
             if(false === $push_lists){
