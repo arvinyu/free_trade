@@ -87,7 +87,7 @@
                             </case>
                             <case value="picture">
                                 <div class="controls">
-									<input type="file" id="upload_picture_{$field.name}">
+									<input type="file" id="upload_picture_{$field.name}" accept="image/*" onchange="uploadPicture()">
 									<input type="hidden" name="{$field.name}" id="cover_id_{$field.name}"/>
 									<div class="upload-img-box">
 									<notempty name="data[$field['name']]">
@@ -96,36 +96,41 @@
 									</div>
 								</div>
 								<script type="text/javascript">
-								//上传图片
-							    /* 初始化上传插件 */
-								$("#upload_picture_{$field.name}").uploadify({
-							        "height"          : 30,
-							        "swf"             : "__STATIC__/uploadify/uploadify.swf",
-							        "fileObjName"     : "download",
-							        "buttonText"      : "上传图片",
-							        "uploader"        : "{:U('File/uploadPicture',array('session_id'=>session_id()))}",
-							        "width"           : 120,
-							        'removeTimeout'	  : 1,
-							        'fileTypeExts'	  : '*.jpg; *.png; *.gif;',
-							        "onUploadSuccess" : uploadPicture{$field.name}
-							    });
-								function uploadPicture{$field.name}(file, data){
-							    	var data = $.parseJSON(data);
-							    	var src = '';
-							        if(data.status){
-							        	$("#cover_id_{$field.name}").val(data.id);
-							        	src = data.url || '__ROOT__' + data.path;
-							        	$("#cover_id_{$field.name}").parent().find('.upload-img-box').html(
-							        		'<div class="upload-pre-item"><img src="' + src + '"/></div>'
-							        	);
-							        } else {
-							        	updateAlert(data.info);
-							        	setTimeout(function(){
+								function uploadPicture(){
+									// var inputfile = $('#inputfile')[0].files[0];
+									//new FormData的参数是一个DOM对象，而非jQuery对象
+									var formData = new FormData();
+									formData.append("download",document.getElementById("upload_picture_{$field.name}").files[0]);
+									$.ajax({
+										url: "{:U('File/uploadPicture',array('session_id'=>session_id()))}",
+										type: 'POST',
+										data: formData,			// 上传formdata封装的数据
+										//dataType: 'text',		//传递数据的格式  text才能触发succcess  json不能
+										async: true,			//这是重要的一步，防止重复提交的
+										// 下面三个参数要指定，如果不指定，会报一个JQuery的错误
+										cache: false,			// 不缓存
+										contentType: false,		// 不设置内容类型  jQuery不要去设置Content-Type请求头
+										processData: false,		// jQuery不要去处理发送的数据
+										success: function (data) {            //成功回调
+											// alert("#cover_id_{$field.name}");
+											// alert(data.path);
+											alert(data.info);
+											$("#cover_id_{$field.name}").val(data.id);
+								        	src = data.url || '__ROOT__' + data.path;
+								        	$("#cover_id_{$field.name}").parent().find('.upload-img-box').html(
+								        		'<div class="upload-pre-item"><img src="' + src + '"/></div>'
+								        	);
+										},
+										error: function (data) {
+											// data = JSON.parse(data);
+											updateAlert(data.info);
+							        		setTimeout(function(){
 							                $('#top-alert').find('button').click();
 							                $(that).removeClass('disabled').prop('disabled',false);
 							            },1500);
-							        }
-							    }
+										}
+									});
+								}
 								</script>
                             </case>
                             <case value="file">
