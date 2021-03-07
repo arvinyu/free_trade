@@ -55,19 +55,27 @@ class IndexController extends HomeController {
             /* banner分类信息 */
             $Document = D('Document');
 
-            $banners = $Document->bannerList();
-            if(false === $banners){
-                $this->error('获取banner列表数据失败！');
+            $news = $Document->newsList();
+            if(false === $news){
+                $this->error('获取news列表数据失败！');
             }
-            $this->assign('banners',$banners);//banner列表
+            $this->assign('news_list',$news);//news列表
 
-            /* 动态信息 */
-            $dynamics = $Document->dynamicList();
-            // dump($dynamics);exit;
-            if(false === $dynamics){
+            /* 项目建设信息 */
+            $projects = $Document->projectList();
+            // dump($projects);exit;
+            if(false === $projects){
                 $this->error('获取动态列表数据失败！');
             }
-            $this->assign('dynamics',$dynamics);//动态列表
+            $this->assign('projects',$projects);//项目建设列表
+
+            /* 企业风采 */
+            $enterprises = $Document->enterpriseList();
+            // dump($enterprises);exit;
+            if(false === $enterprises){
+                $this->error('获取企业风采数据失败！');
+            }
+            $this->assign('enterprises',$enterprises);//企业风采
 
             /* 园区子分类 */
             $sub_park = $Document->parkSubCategory();

@@ -15,15 +15,15 @@
   <include file="Public/navigation"/>
 
   <div class="gb_mainbox">
-    <!-- 图片区开始 -->
+    <!-- 新闻中心开始 -->
     <div class="bg_pic">
       <div id="slideBox" class="pic_scroll">
         <div class="bd swiper-container" id="slideBox1">
           <ul class="swiper-wrapper">
-            <volist name="banners" id="banner">
+            <volist name="news_list" id="news">
               <li class="swiper-slide">
-                <a target="_blank" href="{:U('Article/detail?id='.$banner['id'])}">
-                  <img src="__ROOT__{$banner.path}"/>
+                <a target="_blank" href="{:U('Article/detail?id='.$news['id'])}">
+                  <img src="__ROOT__{$news.path}"/>
                   <div class="black">
                     <p>{$banner.title}</p>
                   </div>
@@ -50,47 +50,55 @@
         })
       </script> 
     </div>
-    <!-- 图片区结束 -->
+    <!-- 新闻中心结束 -->
     
-    <!-- 园区动态开始 -->
+    <!-- 项目建设、企业风采开始 -->
     <div class="bg_pic">
       <div class="newstxtbox01">
         <div class="hd">
           <ul>
-            <li><a href="{:U('Article/lists?category=dynamic')}" title="园区动态">园区动态</a></li>
-            <!-- <li><a href="query_54F714D1" title="园区动态">园区动态</a></li> -->
+            <li><a  title="项目建设">项目建设</a></li>
+            <li><a  title="企业风采">企业风采</a></li>
           </ul>
         </div>
         <div class="bd mt10">
 
           <ul class="news_list news_lh35">
-            <volist name="dynamics" id="dynamic">
+            <volist name="projects" id="project">
               <li class="news_item"> 
-                <a class="text-overflow list-style" title="{$dynamic.title}" target="_blank" href="{:U('Article/detail?id='.$dynamic['id'])}"> 
-                  {$dynamic.title}
+                <!-- class="text-overflow list-style" -->
+                <a  title="{$project.ctitle}" target="_blank" href="{:U('Article/lists?category='.$project['name'])}"> 
+                  【{$project.ctitle}】
+                </a>
+                <a  title="{$project.title}" target="_blank" href="{:U('Article/detail?id='.$project['id'])}"> 
+                  {$project.title}
                 </a> 
-                <span class="date">({$dynamic.create_time|date="m-d",###})</span> 
+                <span class="date">({$project.create_time|date="m-d",###})</span> 
               </li>
             </volist>
           </ul>
 
-          <!-- <ul class="news_list news_lh35">
-            <volist name="dynamics" id="dynamic">
+          <ul class="news_list news_lh35">
+            <volist name="enterprises" id="enterprise">
               <li class="news_item"> 
-                <a class="text-overflow list-style" title="{$dynamic.title}" target="_blank" href="#"> 
-                  {$dynamic.title}
+                <!-- class="text-overflow list-style" -->
+                <a  title="{$enterprise.ctitle}" target="_blank" href="{:U('Article/lists?category='.$enterprise['name'])}"> 
+                  【{$enterprise.ctitle}】
+                </a>
+                <a  title="{$enterprise.title}" target="_blank" href="{:U('Article/detail?id='.$enterprise['id'])}"> 
+                  {$enterprise.title}
                 </a> 
-                <span class="date">({$dynamic.create_time|date="m-d",###})</span> 
+                <span class="date">({$enterprise.create_time|date="m-d",###})</span> 
               </li>
             </volist>
-          </ul> -->
+          </ul>
           
         </div>
 
         <script type="text/javascript">jQuery(".newstxtbox01").slide();</script> 
       </div>
     </div>
-    <!-- 园区动态结束 -->
+    <!-- 项目建设、企业风采结束 -->
 
   </div>
 

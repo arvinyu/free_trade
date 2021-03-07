@@ -348,7 +348,7 @@ class DocumentModel extends Model{
 	}
 
 	//首页bannerList
-	public function bannerList(){
+	public function newsList(){
 		return $this
                 ->alias('d')
                 ->field('d.id,d.title,p.path')
@@ -358,12 +358,31 @@ class DocumentModel extends Model{
                 // ->limit($page->firstRow . ',' . $page->listRows)
                 ->select();
 	}
-	//首页动态列表
-	public function dynamicList(){
-		return $this->where('category_id=40')
-                ->order("create_time DESC")
-                ->limit(8)
-                ->select();
+	//首页项目建设列表
+	public function projectList(){
+		$result = M('category')
+			->alias('c')
+			->field('d.id,d.title,c.name,c.title as ctitle')
+            ->join('left join zm_document as d on d.category_id = c.id')
+            ->where('c.pid=40 and d.id is not null')
+            ->order("d.update_time DESC")
+            ->limit(8)
+            ->select();
+        // echo M()->getLastSql();exit;
+        return $result;
+	}
+	//首页项目建设列表
+	public function enterpriseList(){
+		$result = M('category')
+			->alias('c')
+			->field('d.id,d.title,c.name,c.title as ctitle')
+            ->join('left join zm_document as d on d.category_id = c.id')
+            ->where('c.pid=53 and d.id is not null')
+            ->order("d.update_time DESC")
+            ->limit(8)
+            ->select();
+        // echo M()->getLastSql();exit;
+        return $result;
 	}
 
 	//首页园区
