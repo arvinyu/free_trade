@@ -459,3 +459,12 @@ function get_action_type($type, $all = false){
 	}
 	return $list[$type];
 }
+
+
+function get_link_url($link_id){
+    if(empty($link_id)){
+        return false;
+    }
+    $link_url = M('url')->where(array('status'=>1))->getById($link_id);
+    return  !empty($link_url['url']) ? $link_url['url'] : '';
+}

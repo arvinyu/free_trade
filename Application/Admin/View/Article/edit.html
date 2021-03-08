@@ -38,7 +38,11 @@
                     <div class="controls">
                         <switch name="field.type">
                             <case value="num">
-                                <input type="text" class="text input-large" name="{$field.name}" value="{$data[$field['name']]}">
+                                <eq name="field.name" value="link_id">
+								<input type="text" class="text input-large" name="{$field.name}" value="{$data[$field['name']]|get_link_url}">
+								<else/>
+								<input type="text" class="text input-large" name="{$field.name}" value="{$data[$field['name']]}">
+								</eq>
                             </case>
                             <case value="string">
                                 <input type="text" class="text input-large" name="{$field.name}" value="{$data[$field['name']]}">

@@ -69,3 +69,19 @@ function get_nav_url($url){
     }
     return $url;
 }
+
+function get_link_url($link_id){
+    if(empty($link_id)){
+        return false;
+    }
+    $link_url = M('url')->where(array('status'=>1))->getById($link_id);
+    return  !empty($link_url['url']) ? $link_url['url'] : '';
+}
+
+function get_cover($cover_id, $field = null){
+    if(empty($cover_id)){
+        return false;
+    }
+    $picture = M('Picture')->where(array('status'=>1))->getById($cover_id);
+    return !empty($picture['path']) ?$picture['path'] : '';
+}

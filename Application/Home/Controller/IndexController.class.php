@@ -93,6 +93,13 @@ class IndexController extends HomeController {
             // dump($price);exit;
             $this->assign('price',$price);//价格指数
 
+            /* 公共服务 */
+            $services_lists = $Document->servicesList();
+            if(false === $services_lists){
+                $this->error('获取公共列表数据失败！');
+            }
+            $this->assign('services_lists',$services_lists);//营商环境
+
             /* 营商环境 */
             $building_lists = $Document->buildingList();
             if(false === $building_lists){

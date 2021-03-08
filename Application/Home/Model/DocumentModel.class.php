@@ -417,6 +417,13 @@ class DocumentModel extends Model{
                 ->find();
 	}
 
+	//首页公共服务列表
+	public function servicesList(){
+		return $this->where('category_id=47')
+                ->order("create_time DESC")
+                ->select();
+	}
+
 	//首页营商环境列表
 	public function buildingList(){
 		return $this->where('category_id=53')
