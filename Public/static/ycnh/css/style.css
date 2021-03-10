@@ -357,7 +357,7 @@ img {
 	border: #1b4586 solid 2px;
 	border-top: none;
 	padding: 25px 20px;
-	background: #fff;
+	background: #F4f4f4;
 	width: 1108px;
 	text-align: left
 }
@@ -732,7 +732,7 @@ img {
 .xl_fta_box .info_news {
 	position: relative;
 	float: left;
-	width: 496px;
+	width: 1080px;
 	padding-right: 30px;
 	margin-bottom: 10px;
 }
@@ -800,7 +800,7 @@ img {
 
 .xl_fta_box .info_news {
 	float: left;
-	width: 496px;
+	width: 1080px;
 }
 
 .xl_fta_box .info_news h3 {
@@ -836,22 +836,22 @@ img {
 }
 
 .xl_fta_box .info_news li {
-	line-height: 30px;
+	line-height: 25px;
 }
 
 .xl_fta_box .info_news li a {
-	background: url(../images/dian.jpg) left no-repeat;
-	padding-left: 18px;
-	font-size: 16px;
+	/*background: url(../images/dian.jpg) left no-repeat;*/
+	padding-left: 50px;
+	font-size: 20px;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	float: left;
 	display: block;
-	overflow: hidden
+	overflow: hidden；
 }
 
 .xl_fta_box .info_news li a:hover {
-	background: url(../images/dian.jpg) left no-repeat;
+	/*background: url(../images/dian.jpg) left no-repeat;*/
 	color: #2d548f;
 	/* text-decoration: underline */
 }
