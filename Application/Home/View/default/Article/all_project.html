@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <include file="Public/ycnh_head"/>
+  </head>
+<body>
+  <header>
+    <include file="Public/header"/>
+  </header>
+
+  <div class="bg_shoot1">
+
+    <div class="bg_shoot2">
+      <div class="container">
+
+        <div class="gb_logo_box_empty"></div>
+        <include file="Public/navigation"/>
+
+        <!-- <div class="gb_logo_box">
+          <div class="gb_logo" style="float: left;
+            background: url(/uploads/allimg/20200515/1-20051516142HF.png) no-repeat;
+            width: 514px;
+            height: 60px;
+            display: block;"><a href="/"></a>
+          </div>
+          
+        </div> -->
+        <!-- <nav class="nav"></nav> -->
+
+        <include file="Public/banner"/>
+
+        <div class="main">
+          <div class="address">
+            <div class="add_box">
+              您所在的位置： <a href='/' class=''>首页</a> 
+              &gt; <a href='{:U('Article/all_project?category='.$category['name'])}' class=''>{$category.title}</a> 
+              <!-- &gt; <a href='/index.php?m=home&c=Lists&a=index&tid=221'>政策法规</a> -->
+            </div>
+          </div>
+          <div class="left">
+            <!-- 文章分类 开始 -->
+            <div id="nav">
+              <h1>项目建设</h1>
+              <ul>
+                <li>
+                  <a href="/free_trade/index.php?s=/home/article/lists/category/p_port.html"  title="在建港口项目">
+                    <i class="icon-chevron-right"></i>在建港口项目      </a>
+                </li>   
+                <li>
+                  <a href="/free_trade/index.php?s=/home/article/lists/category/p_logistics.html"  title="在建物流项目">
+                    <i class="icon-chevron-right"></i>在建物流项目      </a>
+                </li>              
+              </ul>
+            </div>
+            <!-- 文章分类 结束 -->
+
+            <!-- 热门文章 开始 -->
+            <div class="hot_list" id="smartFloat_tags">
+              <h3 class="title_name">热门文章</h3>
+              <ul>
+                <volist name="hot_lists" id="hotlist">
+                  <li>
+                    <elt name="hotlist.sort" value="3"> <span class="number front">{$hotlist.sort}</span> </elt>
+                    <gt name="hotlist.sort" value="3"> <span class="number">{$hotlist.sort}</span> </gt>
+                    <a target="_blank" title="{$hotlist.title}" style="width:240px;" href="{:U('Article/detail?id='.$hotlist['id'])}">
+                      {$hotlist.title}
+                    </a>
+                  </li>
+                </volist>
+              </ul>
+            </div>
+            <!-- 热门文章 结束 -->
+          </div>
+
+          <!-- 文章列表 开始 -->
+          <div class="right">
+            <div class="right_title"><span>{$category.title} </span></div>
+            <!-- <div class="detailed_box">
+              <div class="wd_news">
+                <ul>
+                  <volist name="list" id="data">
+                    <li>
+                      <a target="_blank" title="{$data.title}" href="{:U('Article/detail?id='.$data['id'])}">
+                        {$data.title}
+                      </a>
+                      <span style="float:right;">{$data.create_time|date='Y-m-d H:i:s',###}</span>
+                    </li>
+                  </volist>
+                </ul>
+              </div>
+              <div style="text-align:right;margin-top:20px;">
+                <ul id="yw0" class="yiiPager">
+                  <article:page cate="$category['id']" listrow="$category['list_row']" />
+                </ul>
+              </div>
+            </div> -->
+            
+<div>
+      <ul class="imglist"> 
+    <li>
+        <a href="#" target="_blank">
+           <img src="http://files.jb51.net/upload/2010-3/20100303232223253.jpg" />
+           <span>在建港口项目</span>
+           <span>项目名称</span>
+        </a>
+    </li> 
+ 
+    <li>
+        <a href="#" target="_blank">
+           <img src="http://files.jb51.net/upload/2010-3/20100303232223253.jpg" />
+           <span>在建港口项目</span>
+           <span>项目名称</span>
+        </a>
+    </li> 
+    <li>
+        <a href="#" target="_blank">
+           <img src="http://files.jb51.net/upload/2010-3/20100303232223253.jpg" />
+           <span>在建港口项目</span>
+           <span>项目名称</span>
+        </a>
+    </li>
+    <li>
+        <a href="#" target="_blank">
+           <img src="http://files.jb51.net/upload/2010-3/20100303232225693.jpg" />
+           <span>在建港口项目</span>
+           <span>项目名称</span>
+        </a>
+    </li> 
+ 
+    <li>
+        <a href="#" target="_blank">
+           <img src="http://files.jb51.net/upload/2010-3/20100303232225693.jpg" />
+           <span>在建港口项目</span>
+           <span>项目名称</span>
+        </a>
+    </li> 
+    <li>
+        <a href="#" target="_blank">
+           <img src="http://files.jb51.net/upload/2010-3/20100303232225693.jpg" />
+           <span>在建港口项目</span>
+           <span>项目名称</span>
+        </a>
+    </li> 
+     
+  </ul>
+      <!-- Unnamed (Rectangle) -->
+      <div id="u48" class="ax_default label">
+        <div id="u48_div" class=""></div>
+        <div id="u48_text" class="text ">
+          <p><span>上一页 1 2 3 4 5 下一页</span></p>
+        </div>
+      </div>
+ </div> 
+
+
+
+
+          </div>
+          <!-- 文章列表 结束 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+
+      <div class="clear"></div>
+      <include file="Public/footer"/>
+    </div>
+  </div>
+</body>
+</html>
