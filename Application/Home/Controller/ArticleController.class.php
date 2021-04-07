@@ -66,7 +66,8 @@ class ArticleController extends HomeController {
 
 		/* 获取当前分类列表 */
 		$Document = D('Document');
-		$list = $Document->page($page, $category['list_row'])->lists($category['id']);
+		// $list = $Document->page($page, $category['list_row'])->lists($category['id']);
+		$list = $Document->page($page, $category['list_row'])->new_lists($category['id']);
 		if(false === $list){
 			$this->error('获取列表数据失败！');
 		}

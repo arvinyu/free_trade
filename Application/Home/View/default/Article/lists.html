@@ -68,7 +68,7 @@
           <!-- 文章列表 开始 -->
           <div class="right">
             <div class="right_title"><span>{$category.title} </span></div>
-            <div class="detailed_box">
+            <!-- <div class="detailed_box">
               <div class="wd_news">
                 <ul>
                   <volist name="list" id="data">
@@ -82,9 +82,31 @@
                 </ul>
               </div>
               <div style="text-align:right;margin-top:20px;">
-                <!-- <ul id="yw0" class="yiiPager">
-                   共<strong>1</strong>页 <strong>10</strong>条        
-                </ul> -->
+                <ul id="yw0" class="yiiPager">
+                  <article:page cate="$category['id']" listrow="$category['list_row']" />
+                </ul>
+              </div>
+            </div> -->
+            <div>
+              <ul class="imglist"> 
+                <!-- <li>
+                    <a target="_blank" title="" href="{:U('Article/detail?id=154')}">
+                       <img src="./Uploads/Picture/2021-03-08/60452b2576e5e.png" /> 
+                    </a>
+                    <a href="/free_trade/index.php?s=/home/article/lists/category/p_port.html" target="_blank"><span>【在建港口项目】</span></a>
+                    <a href="{:U('Article/detail?id=154')}" target="_blank"><span>项目名称</span></a>
+                </li>  -->
+                <volist name="list" id="data">
+                  <li>
+                    <a target="_blank" title="{$data.title}" href="{:U('Article/detail?id='.$data['id'])}">
+                       <img src="__ROOT__{$data.path}" /> 
+                    </a>
+                    <a href="/free_trade/index.php?s=/home/article/lists/category/p_port.html" target="_blank"><span>【{$data.category_name}】</span></a>
+                    <a title="{$data.title}" href="{:U('Article/detail?id='.$data['id'])}" target="_blank"><span>{$data.title|msubstr=0,9}</span></a>
+                  </li>
+                </volist>
+              </ul>
+              <div style="text-align:center;margin-top:20px;">
                 <ul id="yw0" class="yiiPager">
                   <article:page cate="$category['id']" listrow="$category['list_row']" />
                 </ul>
