@@ -33,23 +33,16 @@
           <div class="address">
             <div class="add_box">
               您所在的位置： <a href='/' class=''>首页</a> 
-              &gt; <a href='{:U('Article/all_project?category='.$category['name'])}' class=''>{$category.title}</a> 
+              &gt; <a href='{:U('Article/lists?category='.$category['name'])}' class=''>{$category.title}</a> 
               <!-- &gt; <a href='/index.php?m=home&c=Lists&a=index&tid=221'>政策法规</a> -->
             </div>
           </div>
           <div class="left">
             <!-- 文章分类 开始 -->
             <div id="nav">
-              <h1>项目建设</h1>
+              <h1>{$category.title}</h1>
               <ul>
-                <li>
-                  <a href="./index.php?s=/home/article/img_lists/category/p_port.html"  title="在建港口项目">
-                    <i class="icon-chevron-right"></i>在建港口项目      </a>
-                </li>   
-                <li>
-                  <a href="./index.php?s=/home/article/img_lists/category/p_logistics.html"  title="在建物流项目">
-                    <i class="icon-chevron-right"></i>在建物流项目      </a>
-                </li>              
+                {:W('Category/img_lists', array($category['pid'], true))}
               </ul>
             </div>
             <!-- 文章分类 结束 -->
@@ -75,70 +68,26 @@
           <!-- 文章列表 开始 -->
           <div class="right">
             <div class="right_title"><span>{$category.title} </span></div>
-            <!-- <div class="detailed_box">
-              <div class="wd_news">
-                <ul>
-                  <volist name="list" id="data">
-                    <li>
-                      <a target="_blank" title="{$data.title}" href="{:U('Article/detail?id='.$data['id'])}">
-                        {$data.title}
-                      </a>
-                      <span style="float:right;">{$data.create_time|date='Y-m-d H:i:s',###}</span>
-                    </li>
-                  </volist>
-                </ul>
-              </div>
-              <div style="text-align:right;margin-top:20px;">
-                <ul id="yw0" class="yiiPager">
-                  <article:page cate="$category['id']" listrow="$category['list_row']" />
-                </ul>
-              </div>
-            </div> -->
-            
-            <div  style="margin-top:20px">
+            <div style="margin-top:20px">
               <ul class="imglist"> 
                 <volist name="list" id="data">
                   <li>
                     <a target="_blank" title="{$data.title}" href="{:U('Article/detail?id='.$data['id'])}">
                        <img src="__ROOT__{$data.path}" /> 
                     </a>
-                    <!-- <a href="./index.php?s=/home/article/img_lists/category/p_port.html" target="_blank"><span>【{$data.category_name}】</span></a> -->
-                    <a href="{:U('Article/img_lists?category='.$data['name'])}" target="_blank"><span>【{$data.category_name}】</span></a>
-                    <a title="{$data.title}" href="{:U('Article/detail?id='.$data['id'])}" target="_blank"><span>{$data.title|msubstr=0,9}</span></a>
+                    <a href="{:U('Article/img_lists?category='.$category['name'])}" target="_blank"><span>【{$data.category_name}】</span></a>
+                    <a title="{$data.title}" href="{:U('Article/detail_tab?id='.$data['id'])}" target="_blank"><span>{$data.title|msubstr=0,9}</span></a>
                   </li>
                 </volist>
-     
               </ul>
-                  <!-- Unnamed (Rectangle) -->
-                  <!-- <div style="text-align: center;">
-                    <p><span>上一页 1 2 3 4 5 下一页</span></p>
-                  </div> -->
               <div style="text-align:center;margin-top:20px;">
-                {$page}
+                <ul id="yw0" class="yiiPager">
+                  <article:page cate="$category['id']" listrow="$category['list_row']" />
+                </ul>
               </div>
-            </div> 
-
-
-
-
+            </div>
           </div>
           <!-- 文章列表 结束 -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         </div>
       </div>

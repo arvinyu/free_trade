@@ -8,6 +8,7 @@
 // +----------------------------------------------------------------------
 
 namespace Home\Controller;
+use COM\Page;
 
 /**
  * 文档模型控制器
@@ -33,6 +34,52 @@ class ArticleController extends HomeController {
 
 	/* 项目建设全部分类 */
 	public function all_project(){
+
+	    $category = $this->category();
+	    $sub_category = M('category')->where('pid='.$category['id'])->getField('id',true);
+		// dump($sub_category);exit;
+		$map['d.category_id'] = array('in',$sub_category);
+		$map['d.status'] = 1;
+
+	    $document = M('Document');
+	    // import('Library.COM.Page');// 导入分页类
+	    $count = $document->alias('d')
+                ->field('d.id,c.`title` AS category_name,d.title,p.path')
+                ->join('left join zm_category as c on d.category_id = c.id')
+                ->join('left join zm_picture as p on d.cover_id = p.id')
+                ->where($map)
+                ->order("d.level ASC")
+                // ->limit($page->firstRow . ',' . $page->listRows)
+                ->count();// 查询满足要求的总记录数 $map表示查询条件
+	    $Page = new Page($count,12);// 实例化分页类 传入总记录数
+	    $show = $Page->show();// 分页显示输出
+
+	    $list = $document->alias('d')
+                ->field('d.id,c.`name`,c.`title` AS category_name,d.title,p.path')
+                ->join('left join zm_category as c on d.category_id = c.id')
+                ->join('left join zm_picture as p on d.cover_id = p.id')
+                ->where($map)
+                ->order("d.level ASC")
+                ->limit($Page->firstRow . ',' . $Page->listRows)
+                ->select();// 查询满足要求的总记录数 $map表示查询条件
+                // echo $document->getLastSql();
+// dump($list);exit;
+        /* 获取模板 */
+		$tmpl = $category['template_lists'];
+		/* 热门文章 */ 
+		$hot_lists =  D('Document')->hotLists();
+		// dump($hot_lists);exit;
+
+		/* 模板赋值并渲染模板 */
+		$this->assign('category', $category);
+		$this->assign('list', $list);
+		$this->assign('page',$show);// 赋值分页输出
+		$this->assign('hot_lists', $hot_lists);
+		$this->display($tmpl);
+	}
+
+	/* 文档模型列表页 */
+	public function lists($page = 1){
 		/* 分类信息 */
 		$category = $this->category();
 		//第几页
@@ -41,6 +88,7 @@ class ArticleController extends HomeController {
 		/* 获取当前分类列表 */
 		$Document = D('Document');
 		$list = $Document->page($page, $category['list_row'])->lists($category['id']);
+		// $list = $Document->page($page, $category['list_row'])->new_lists($category['id']);
 		if(false === $list){
 			$this->error('获取列表数据失败！');
 		}
@@ -58,7 +106,7 @@ class ArticleController extends HomeController {
 	}
 
 	/* 文档模型列表页 */
-	public function lists($page = 1){
+	public function img_lists($page = 1){
 		/* 分类信息 */
 		$category = $this->category();
 		//第几页

@@ -40,15 +40,20 @@
           <div class="left">
             <!-- 文章分类 开始 -->
             <div id="nav">
-              <h1>项目建设</h1>
+              <h1>企业风采</h1>
               <ul>
-                <li>
-                  <a href="./index.php?s=/home/article/img_lists/category/p_port.html"  title="在建港口项目">
-                    <i class="icon-chevron-right"></i>在建港口项目      </a>
-                </li>   
-                <li>
-                  <a href="./index.php?s=/home/article/img_lists/category/p_logistics.html"  title="在建物流项目">
-                    <i class="icon-chevron-right"></i>在建物流项目      </a>
+                 <li>
+                  <a href="./index.php?s=/home/article/img_lists/category/e_port.html"  title="港口项目">
+                    <i class="icon-chevron-right"></i>港口项目      </a>
+                </li>   <li>
+                  <a href="./index.php?s=/home/article/img_lists/category/e_logistics.html"  title="物流项目">
+                    <i class="icon-chevron-right"></i>物流项目      </a>
+                </li>   <li>
+                  <a href="./index.php?s=/home/article/img_lists/category/e_trade.html"  title="贸易项目">
+                    <i class="icon-chevron-right"></i>贸易项目      </a>
+                </li>   <li>
+                  <a href="./index.php?s=/home/article/img_lists/category/e_services.html"  title="港口服务项目">
+                    <i class="icon-chevron-right"></i>港口服务项目      </a>
                 </li>              
               </ul>
             </div>
@@ -102,7 +107,6 @@
                     <a target="_blank" title="{$data.title}" href="{:U('Article/detail?id='.$data['id'])}">
                        <img src="__ROOT__{$data.path}" /> 
                     </a>
-                    <!-- <a href="./index.php?s=/home/article/img_lists/category/p_port.html" target="_blank"><span>【{$data.category_name}】</span></a> -->
                     <a href="{:U('Article/img_lists?category='.$data['name'])}" target="_blank"><span>【{$data.category_name}】</span></a>
                     <a title="{$data.title}" href="{:U('Article/detail?id='.$data['id'])}" target="_blank"><span>{$data.title|msubstr=0,9}</span></a>
                   </li>

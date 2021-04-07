@@ -59,6 +59,22 @@ class DocumentModel extends Model{
 		return $this->field($field)->where($map)->order($order)->select();
 	}
 
+	public function sub_category_lists($category, $order = '`id` DESC', $status = 1, $field = true){
+		$sub_category = M('category')->where('pid='.$category)->getField('id',true);
+		// dump($sub_category);exit;
+		$map['d.category_id'] = array('in',$sub_category);
+		$map['d.status'] = $status;
+		return $this
+                ->alias('d')
+                ->field('d.id,c.`title` AS category_name,d.title,p.path')
+                ->join('left join zm_category as c on d.category_id = c.id')
+                ->join('left join zm_picture as p on d.cover_id = p.id')
+                ->where($map)
+                ->order("d.level ASC")
+                // ->limit($page->firstRow . ',' . $page->listRows)
+                ->select();
+	}
+
 	//首页bannerList
 	public function new_lists($category, $order = '`id` DESC', $status = 1, $field = true){
 		$map = array(
@@ -70,7 +86,7 @@ class DocumentModel extends Model{
                 ->field('d.id,c.`title` AS category_name,d.title,p.path')
                 ->join('left join zm_category as c on d.category_id = c.id')
                 ->join('left join zm_picture as p on d.cover_id = p.id')
-                ->where($map )
+                ->where($map)
                 ->order("d.level ASC")
                 // ->limit($page->firstRow . ',' . $page->listRows)
                 ->select();
