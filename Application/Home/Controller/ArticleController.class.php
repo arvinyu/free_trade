@@ -129,6 +129,51 @@ class ArticleController extends HomeController {
 		$this->display($tmpl);
 	}
 
+	/* 文档模型详情页 */
+	public function detail_tab($id = 0){
+		/* 标识正确性检测 */
+		if(!($id && is_numeric($id))){
+			$this->error('文档ID错误！');
+		}
+
+		/* 页码检测 */
+		$page = intval($page);
+		$page = empty($page) ? 1 : $page;
+
+		/* 获取详细信息 */
+		$Document = D('Document');
+		$info = $Document->detail($id);
+		if(!$info){
+			$this->error($Document->getError());
+		}
+
+		/* 分类信息 */
+		$category = $this->category($info['category_id']);
+
+		/* 获取模板 */
+		if(!empty($info['template'])){//已定制模板
+			$tmpl = $info['template'];
+		} elseif (!empty($category['template_detail'])){ //分类已定制模板
+			$tmpl = $category['template_detail'];
+		} else { //使用默认模板
+			$tmpl = 'Article/'. get_document_model($info['model_id'],'name') .'/detail_tab';
+		}
+
+		/* 更新浏览数 */
+		$map = array('id' => $id);
+		$Document->where($map)->setInc('view');
+
+		/* 热门文章 */ 
+		$hot_lists =  $Document->hotLists();
+
+		/* 模板赋值并渲染模板 */
+		$this->assign('category', $category);
+		$this->assign('hot_lists', $hot_lists);
+		$this->assign('info', $info);
+		$this->assign('page', $page); //页码
+		$this->display($tmpl);
+	}
+
 	/* 搜索文章 */
 	public function search(){
 
