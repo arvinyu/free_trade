@@ -78,26 +78,6 @@ ul.gb_top_list ul li:hover {
 .zt_title i {
   border-top-color: #1b4586;
 }
-.newstxtbox01 .hd ul {
-  border-bottom-color: #1b4586;
-}
-.newstxtbox01 .hd ul li a {
-  color: #1b4586;
-}
-.newstxtbox01 .hd ul li a.on {
-  background: none;
-  background-color: #1b4586;
-}
-.newstxtbox .hd ul {
-  border-bottom-color: #1b4586;
-}
-.newstxtbox .hd ul li a {
-  color: #1b4586;
-}
-.newstxtbox .hd ul li a.on {
-  background: none;
-  background-color: #1b4586;
-}
 .work_title {
   color: #1b4586;
 }
