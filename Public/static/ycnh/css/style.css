@@ -83,16 +83,6 @@ li {
 	clear: both
 }
 
-.gb_top {
-	height: 50px;
-	width: 100%;
-	box-shadow: 0 0 2px #efeeee;
-	line-height: 40px;
-	color: #fff;
-	font-size: 14px;
-	background-color: #1b4586;
-}
-
 .bg_shoot1 {
 	z-index: 1;
 	background: rgba(233, 233, 233, 0.8) url("../images/ditu.png") no-repeat center bottom;
@@ -2101,39 +2091,6 @@ li {
 	color: #fff; */
 }
 
-footer {
-	/* background:url(../images/bg_top.jpg) repeat-x #eaeaea;  
-	  border-bottom: solid 2px #e0e0e0; */
-	overflow: hidden
-}
-
-.footer_box {
-	margin: 30px auto;
-	width: 1152px;
-	overflow: hidden
-}
-
-.footer_box select {
-	float: left;
-	width: 268px;
-	margin-right: 26px;
-	display: block;
-	border: solid 1px #ababab;
-	padding: 4px 0;
-	height: 32px;
-	line-height: 32px;
-	color: #fff;
-	background-color: #335893;
-}
-
-.footer_box .ml0 {
-	margin-left: 0
-}
-
-.footer_box .mr0 {
-	margin-right: 0px;
-}
-
 .gb_bottom {
 	margin: 0 15px 15px;
 }
@@ -2843,6 +2800,15 @@ ul.gb_top_list ul li:hover {
 }
 
 @media only screen and (max-width: 767px){
+	.gb_top {
+		height: 50px;
+		width: 576px;
+		box-shadow: 0 0 2px #efeeee;
+		line-height: 40px;
+		color: #fff;
+		font-size: 14px;
+		background-color: #1b4586;
+	}
 	.nav {
 		height: 50px;
 		position: relative;
@@ -2916,8 +2882,58 @@ ul.gb_top_list ul li:hover {
 		padding: 10px 0 0;
 	}
 
+	footer {
+		/* background:url(../images/bg_top.jpg) repeat-x #eaeaea;  
+		  border-bottom: solid 2px #e0e0e0; */
+		width: 576px;
+		overflow: hidden
+	}
+
+	.footer_box {
+		/*margin: 30px auto;*/
+		width: 576px;
+		overflow: hidden
+	}
+
+	.footer_box select {
+		float: left;
+		width: 130px;
+		margin-right: 10px;
+		display: block;
+		border: solid 1px #ababab;
+		padding: 4px 0;
+		height: 32px;
+		line-height: 32px;
+		color: #fff;
+		background-color: #335893;
+	}
+
+	.footer_box .ml0 {
+		margin-left: 0
+	}
+
+	.footer_box .mr0 {
+		margin-right: 0px;
+	}
+
+	.footer_after {
+		/*margin: 30px auto;*/
+		width: 576px;
+		height: 40px; 
+		background-color:#1b4586;
+	}
+
 }
 @media only screen and (min-width: 768px){
+	.gb_top {
+		height: 50px;
+		width: 100%;
+		box-shadow: 0 0 2px #efeeee;
+		line-height: 40px;
+		color: #fff;
+		font-size: 14px;
+		background-color: #1b4586;
+	}
 	.nav {
 		height: 50px;
 		position: relative;
@@ -2988,5 +3004,38 @@ ul.gb_top_list ul li:hover {
 
 	.newstxtbox .bd ul {
 		padding: 10px 0 0;
+	}
+
+	footer {
+		/* background:url(../images/bg_top.jpg) repeat-x #eaeaea;  
+		  border-bottom: solid 2px #e0e0e0; */
+		overflow: hidden
+	}
+
+	.footer_box {
+		margin: 30px auto;
+		width: 1152px;
+		overflow: hidden
+	}
+
+	.footer_box select {
+		float: left;
+		width: 268px;
+		margin-right: 26px;
+		display: block;
+		border: solid 1px #ababab;
+		padding: 4px 0;
+		height: 32px;
+		line-height: 32px;
+		color: #fff;
+		background-color: #335893;
+	}
+
+	.footer_box .ml0 {
+		margin-left: 0
+	}
+
+	.footer_box .mr0 {
+		margin-right: 0px;
 	}
 }
