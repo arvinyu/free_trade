@@ -39,7 +39,7 @@
           </div>
           <div class="left">
             <!-- 文章分类 开始 -->
-            <div id="nav">
+            <div class="hot_list">
               <h1>企业风采</h1>
               <ul>
                  <li>
@@ -58,24 +58,8 @@
               </ul>
             </div>
             <!-- 文章分类 结束 -->
-
-            <!-- 热门文章 开始 -->
-            <div class="hot_list" id="smartFloat_tags">
-              <h3 class="title_name">热门文章</h3>
-              <ul>
-                <volist name="hot_lists" id="hotlist">
-                  <li>
-                    <elt name="hotlist.sort" value="3"> <span class="number front">{$hotlist.sort}</span> </elt>
-                    <gt name="hotlist.sort" value="3"> <span class="number">{$hotlist.sort}</span> </gt>
-                    <a target="_blank" title="{$hotlist.title}" style="width:240px;" href="{:U('Article/detail?id='.$hotlist['id'])}">
-                      {$hotlist.title}
-                    </a>
-                  </li>
-                </volist>
-              </ul>
-            </div>
-            <!-- 热门文章 结束 -->
           </div>
+
 
           <!-- 文章列表 开始 -->
           <div class="right">
@@ -121,28 +105,27 @@
                 {$page}
               </div>
             </div> 
-
-
-
-
           </div>
           <!-- 文章列表 结束 -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          <div class="left">
+            <!-- 热门文章 开始 -->
+            <div class="hot_list" id="smartFloat_tags">
+              <h3 class="title_name">热门文章</h3>
+              <ul>
+                <volist name="hot_lists" id="hotlist">
+                  <li>
+                    <elt name="hotlist.sort" value="3"> <span class="number front">{$hotlist.sort}</span> </elt>
+                    <gt name="hotlist.sort" value="3"> <span class="number">{$hotlist.sort}</span> </gt>
+                    <a target="_blank" title="{$hotlist.title}" style="width:240px;" href="{:U('Article/detail?id='.$hotlist['id'])}">
+                      {$hotlist.title}
+                    </a>
+                  </li>
+                </volist>
+              </ul>
+            </div>
+            <!-- 热门文章 结束 -->
+          </div>
 
         </div>
       </div>

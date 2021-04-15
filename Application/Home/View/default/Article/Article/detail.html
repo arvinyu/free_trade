@@ -33,27 +33,14 @@
     </div>
   </div>
   <div class="left">
-    <div id="nav">
+    <div class="hot_list">
       <h1>{$category.title}</h1>
       <ul>
         {:W('Category/lists', array($category['id'], true))}
       </ul>
     </div>
-    <div class="hot_list" id="smartFloat_tags">
-      <h3 class="title_name">热门文章</h3>
-      <ul>
-        <volist name="hot_lists" id="hotlist">
-          <li>
-            <elt name="hotlist.sort" value="3"> <span class="number front">{$hotlist.sort}</span> </elt>
-            <gt name="hotlist.sort" value="3"> <span class="number">{$hotlist.sort}</span> </gt>
-            <a target="_blank" title="{$hotlist.title}" style="width:240px;" href="{:U('Article/detail?id='.$hotlist['id'])}">
-              {$hotlist.title}
-            </a>
-          </li>
-        </volist>
-      </ul>
-    </div>
   </div>
+
   <div class="right">
     <div class="right_title"><span>{$category.title} </span></div>
     <div class="content_box">
@@ -107,6 +94,25 @@
       
     </div>
   </div>
+  
+
+  <div class="left">
+    <div class="hot_list" id="smartFloat_tags">
+      <h3 class="title_name">热门文章</h3>
+      <ul>
+        <volist name="hot_lists" id="hotlist">
+          <li>
+            <elt name="hotlist.sort" value="3"> <span class="number front">{$hotlist.sort}</span> </elt>
+            <gt name="hotlist.sort" value="3"> <span class="number">{$hotlist.sort}</span> </gt>
+            <a target="_blank" title="{$hotlist.title}" style="width:240px;" href="{:U('Article/detail?id='.$hotlist['id'])}">
+              {$hotlist.title}
+            </a>
+          </li>
+        </volist>
+      </ul>
+    </div>
+  </div>
+  
 </div>
 </div>
 <div class="clear"></div>
