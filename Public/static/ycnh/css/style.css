@@ -95,15 +95,6 @@ li {
 	background-color: rgba(233, 233, 233, 0.8);
 }
 
-.left {
-	float: left;
-}
-
-.right {
-	float: right;
-	width: 800px;
-}
-
 .headerRight {
 	float: right;
 	/* width: 354px; */
@@ -146,7 +137,7 @@ li {
 }
 
 .gb_logo_box_empty {
-	padding: 5px 0 5px 0;
+	padding: 3px 0 3px 0;
 	overflow: hidden;
 	width: 100%
 }
@@ -311,7 +302,7 @@ li {
 
 .sy1_ul li.sy1_li .sy1_tit {
 	line-height: 48px;
-	font-size: 16px;
+	font-size: 13px;
 	display: block;
 	text-align: center
 }
@@ -1081,20 +1072,6 @@ li {
 
 .pic_scroll ul li {
 	float: left;
-}
-
-.pic_scroll .bd li a {
-	display: block;
-	overflow: hidden;
-	position: relative;
-	width: 576px;
-	height: 100%;
-}
-
-.pic_scroll .bd li a img {
-	display: block;
-	height: 350px;
-	width: 576px;
 }
 
 .pagination {
@@ -2581,12 +2558,12 @@ ul.gb_top_list ul li:hover {
 @media only screen and (max-width: 767px){
 	.container {
 		margin: 0 auto;
-		width: 576px;
+		width: 100%;
 		z-index: 2;
 	}
 	.gb_top {
 		height: 50px;
-		width: 576px;
+		width: 100%;
 		box-shadow: 0 0 2px #efeeee;
 		line-height: 40px;
 		color: #fff;
@@ -2597,36 +2574,70 @@ ul.gb_top_list ul li:hover {
 	.gb_mainbox {
 		/*margin-top: 15px;*/
 		overflow: hidden;
-		width: 576px;
+		width: 100%;
 	}
 
 	.gd_pic {
-		width: 576px;
+		width: 100%;
 		height: 96px;
 		background-color: rgb(110, 71, 71);
+	}
+
+	.hd_banner {
+		width: 100%;
+		height: 48px;
 	}
 
 	.nav {
 		height: 50px;
 		position: relative;
 		*z-index: 1000;
-		width: 576px;
+		width: 100%;
 		background: #1b4586;
 		border-radius: 2px;
 	}
+	.left {
+		float: left;
+	}
+
+	.right {
+		/*float: right;*/
+		width: 100%;
+	}
 	img {
-		width: 576px;
+		width: 100%;
 		border: none;
 		/*vertical-align: middle;*/
 	}
 	.bg_pic {
-		width: 576px;
+		width: 100%;
 		background-color: #fff;
+	}
+
+	.pic_scroll {
+		height: 250px;
+		overflow: hidden;
+		position: relative;
+		width: 100%;
+	}
+
+	.pic_scroll .bd li a {
+		display: block;
+		overflow: hidden;
+		position: relative;
+		width: 100%;
+		height: 100%;
+	}
+
+	.pic_scroll .bd li a img {
+		display: block;
+		height: 250px;
+		width: 100%;
 	}
 
 	.newstxtbox {
 		text-align: left;
-		width: 576px;
+		width: 100%;
 		height: 350px;
 	}
 
@@ -2655,10 +2666,10 @@ ul.gb_top_list ul li:hover {
 	.newstxtbox .hd ul li a {
 		color: #2d55ff;
 		float: left;
-		width: 130px;
+		width: 85px;
 		text-align: center;
 		display: block;
-		font-size: 18px;
+		font-size: 15px;
 		border-radius: 2px 2px 0 0;
 	}
 
@@ -2681,7 +2692,7 @@ ul.gb_top_list ul li:hover {
 
 	.bg_pic_right {
 		/*float: left;*/
-		width: 576px;
+		width: 100%;
 	}
 
 	.bg_pic_right ul li {
@@ -2715,7 +2726,7 @@ ul.gb_top_list ul li:hover {
 	.swiperBOX {
 		/*margin: 0 auto;*/
 		position: relative;
-		width: 576px;
+		width: 100%;
 	}
 
 	.swiperBOX .swiper-button-prev,
@@ -2780,7 +2791,7 @@ ul.gb_top_list ul li:hover {
 
 	.fengcai{
 		display: inline-block;
-		width: 400px; 
+		width: 80%; 
 		border: 1px solid #2d548f;
 		vertical-align: middle;
 		margin-left: 20px;
@@ -2791,7 +2802,7 @@ ul.gb_top_list ul li:hover {
 	}
 
 	.ft_lun {
-		width: 543px;
+		width: 95%;
 		height: 202px;
 		/*margin: 0 auto;*/
 		position: absolute;
@@ -2831,25 +2842,25 @@ ul.gb_top_list ul li:hover {
 	footer {
 		/* background:url(../images/bg_top.jpg) repeat-x #eaeaea;  
 		  border-bottom: solid 2px #e0e0e0; */
-		width: 576px;
+		width: 100%;
 		overflow: hidden
 	}
 
 	.footer_box {
 		/*margin: 30px auto;*/
-		width: 576px;
+		width: 100%;
 		overflow: hidden
 	}
 
 	.footer_box select {
 		float: left;
-		width: 130px;
+		width: 23%;
 		margin-right: 10px;
 		display: block;
 		border: solid 1px #ababab;
-		padding: 4px 0;
+		padding: 2px 0;
 		height: 32px;
-		line-height: 32px;
+		line-height: 30px;
 		color: #fff;
 		background-color: #335893;
 	}
@@ -2864,7 +2875,7 @@ ul.gb_top_list ul li:hover {
 
 	.footer_after {
 		/*margin: 30px auto;*/
-		width: 576px;
+		width: 100%;
 		height: 40px; 
 		background-color:#1b4586;
 	}
@@ -2885,6 +2896,10 @@ ul.gb_top_list ul li:hover {
 		font-size: 14px;
 		background-color: #1b4586;
 	}
+	.hd_banner {
+		width: 1152px;
+		height: 96px;
+	}
 	.nav {
 		height: 50px;
 		position: relative;
@@ -2892,6 +2907,14 @@ ul.gb_top_list ul li:hover {
 		width: 1152px;
 		background: #1b4586;
 		border-radius: 2px;
+	}
+	.left {
+		float: left;
+	}
+
+	.right {
+		float: right;
+		width: 800px;
 	}
 	img {
 		border: none;
@@ -2901,6 +2924,27 @@ ul.gb_top_list ul li:hover {
 		float: left;
 		width: 576px;
 		background-color: #fff;
+	}
+
+	.pic_scroll {
+		height: 350px;
+		overflow: hidden;
+		position: relative;
+		width: 576px;
+	}
+
+	.pic_scroll .bd li a {
+		display: block;
+		overflow: hidden;
+		position: relative;
+		width: 576px;
+		height: 100%;
+	}
+
+	.pic_scroll .bd li a img {
+		display: block;
+		height: 350px;
+		width: 576px;
 	}
 
 	.gb_mainbox {

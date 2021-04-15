@@ -2,11 +2,6 @@
 
 /* CSS Document */
 /*新闻资讯 css*/
-.main {
-    background-color: #fff;
-    overflow: hidden;
-    padding: 0 12px 0 20px;
-}
 
 .into_main {
     width: 1044px;
@@ -46,7 +41,8 @@
 }
 
 #nav {
-    margin-bottom: 15px;
+    /*margin-bottom: 15px;*/
+    width: 100%;
 }
 
 #nav ul {
@@ -251,15 +247,6 @@
     width: 186px;
 }
 
-.hot_list {
-    background: #f8f8f8;
-    overflow: hidden;
-    margin-bottom: 15px;
-    border: solid 1px #e5e5e5;
-    border-top: solid 2px #0070d9;
-    width: 298px;
-}
-
 .title_name {
     height: 40px;
     line-height: 40px;
@@ -281,7 +268,7 @@
     height: 40px;
     line-height: 40px;
     overflow: hidden;
-    width: 280px;
+    width: 100%;
 }
 
 .hot_list ul li .number {
@@ -630,29 +617,6 @@
 }
 
 .wd_news {}
-
-.wd_news li {
-    border-bottom: dotted 1px #ddd;
-    line-height: 40px;
-    overflow: hidden;
-    font-size: 14px;
-}
-
-.wd_news li a {
-    background: url("../images/square.png") left no-repeat;
-    padding-left: 20px;
-    float: left;
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: 14px;
-}
-
-.wd_news li span {
-    color: #999;
-    font-size: 13px;
-}
 
 .event_list {
     background: url(../images/dian3.png) repeat-y 69px 0;
@@ -2001,3 +1965,78 @@ ul.imglist li span{ display:block; width:100%; height:30px; line-height:30px;tex
 .Contentbox ul{list-style:none;margin:7px;padding:0;} 
 .Contentbox ul li{line-height:24px;border-bottom:1px dotted #ccc;} 
 
+@media only screen and (max-width: 767px){
+    .main {
+        background-color: #fff;
+        overflow: hidden;
+        /*padding: 0 12px 0 20px;*/
+    }
+    .hot_list {
+        background: #f8f8f8;
+        overflow: hidden;
+        margin-bottom: 15px;
+        border: solid 1px #e5e5e5;
+        border-top: solid 2px #0070d9;
+        width: 100%;
+    }
+    .wd_news li {
+        border-bottom: dotted 1px #ddd;
+        line-height: 20px;
+        overflow: hidden;
+        font-size: 12px;
+    }
+
+    .wd_news li a {
+        /*background: url("../images/square.png") left no-repeat;*/
+        padding-left: 10px;
+        float: left;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 12px;
+    }
+
+    .wd_news li span {
+        color: #999;
+        font-size: 13px;
+        padding-right: 10px;
+    }
+}
+@media only screen and (min-width: 767px){
+    .main {
+        background-color: #fff;
+        overflow: hidden;
+        padding: 0 12px 0 20px;
+    }
+    .hot_list {
+        background: #f8f8f8;
+        overflow: hidden;
+        margin-bottom: 15px;
+        border: solid 1px #e5e5e5;
+        border-top: solid 2px #0070d9;
+        width: 300px;
+    }
+    .wd_news li {
+        border-bottom: dotted 1px #ddd;
+        line-height: 40px;
+        overflow: hidden;
+        font-size: 14px;
+    }
+
+    .wd_news li a {
+        background: url("../images/square.png") left no-repeat;
+        padding-left: 20px;
+        float: left;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 14px;
+    }
+
+    .wd_news li span {
+        color: #999;
+        font-size: 13px;
+    }
+}
