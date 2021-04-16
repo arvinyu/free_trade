@@ -36,24 +36,26 @@
   <include file="Public/navigation"/>
   <include file="Public/banner"/>
 
-<div class="main">
-  <div class="address">
-    <div class="add_box">
-      您所在的位置： <a href='/' class=''>首页</a> 
-      &gt; <a href='{:U('Article/img_lists?category='.$category['name'])}' class=''>{$category.title}</a> 
-      <!-- &gt; <a href='/index.php?m=home&c=Lists&a=index&tid=221'>政策法规</a> -->
+  <div class="main">
+    <div class="address">
+      <div class="add_box">
+        您所在的位置： <a href='/' class=''>首页</a> 
+        &gt; <a href='{:U('Article/img_lists?category='.$category['name'])}' class=''>{$category.title}</a> 
+        <!-- &gt; <a href='/index.php?m=home&c=Lists&a=index&tid=221'>政策法规</a> -->
+      </div>
     </div>
-  </div>
-  <div class="left">
-    <div class="hot_list">
-      <h1>{$category.title}</h1>
-      <ul>
-        {:W('Category/lists', array($category['id'], true))}
-      </ul>
+    <div class="left">
+      <div class="hot_list">
+        <h1>{$category.title}</h1>
+        <ul>
+          {:W('Category/lists', array($category['id'], true))}
+        </ul>
+      </div>
     </div>
-  </div>
 
-  <div class="right">
+
+
+    <div class="right">
     <div class="right_title"><span>{$info.title} </span></div>
     
 
@@ -269,25 +271,29 @@
       </div> 
     </div> 
   </div>
-
-  <div class="left">
-    <div class="hot_list" id="smartFloat_tags">
-      <h3 class="title_name">热门文章</h3>
-      <ul>
-        <volist name="hot_lists" id="hotlist">
-          <li>
-            <elt name="hotlist.sort" value="3"> <span class="number front">{$hotlist.sort}</span> </elt>
-            <gt name="hotlist.sort" value="3"> <span class="number">{$hotlist.sort}</span> </gt>
-            <a target="_blank" title="{$hotlist.title}" style="width:240px;" href="{:U('Article/detail?id='.$hotlist['id'])}">
-              {$hotlist.title}
-            </a>
-          </li>
-        </volist>
-      </ul>
-    </div>
-  </div>
-  
 </div>
+    
+
+    <div class="left">
+      <div class="hot_list" id="smartFloat_tags">
+        <h3 class="title_name">热门文章</h3>
+        <ul>
+          <volist name="hot_lists" id="hotlist">
+            <li>
+              <elt name="hotlist.sort" value="3"> <span class="number front">{$hotlist.sort}</span> </elt>
+              <gt name="hotlist.sort" value="3"> <span class="number">{$hotlist.sort}</span> </gt>
+              <a target="_blank" title="{$hotlist.title}" style="width:240px;" href="{:U('Article/detail?id='.$hotlist['id'])}">
+                {$hotlist.title}
+              </a>
+            </li>
+          </volist>
+        </ul>
+      </div>
+    </div>
+
+
+    
+  </div>
 </div>
 <div class="clear"></div>
 <include file="Public/footer"/>
