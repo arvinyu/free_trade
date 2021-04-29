@@ -41,7 +41,7 @@ return array(
     'DB_HOST'   => '81.70.105.3', // 服务器地址
     'DB_NAME'   => 'free_trade', // 数据库名
     'DB_USER'   => 'root', // 用户名
-    'DB_PWD'    => 'root',  // 密码
+    'DB_PWD'    => '5d8c2b067790',  // 密码
     'DB_PORT'   => '3306', // 端口
     'DB_PREFIX' => 'zm_', // 数据库表前缀
 
