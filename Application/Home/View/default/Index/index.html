@@ -208,8 +208,13 @@
       </div>
       
       <script>
+        var screen_width = document.body.clientWidth;
+        var page = 1;
+        if (screen_width > 768) {
+          page = 3;
+        }
         var mySwiper_ft = new Swiper('.ft_lun', {
-            slidesPerView: 1,
+            slidesPerView: page,
             autoplay: 1000,
             loop: true,
             nextButton: '.swiper-button-next',
