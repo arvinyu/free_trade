@@ -46,32 +46,27 @@
               </ul>
             </div>
             <!-- 文章分类 结束 -->
+            <!-- 热门文章 开始 -->
+            <div class="hot_list" id="smartFloat_tags">
+              <h3 class="title_name">热门文章</h3>
+              <ul>
+                <volist name="hot_lists" id="hotlist">
+                  <li>
+                    <elt name="hotlist.sort" value="3"> <span class="number front">{$hotlist.sort}</span> </elt>
+                    <gt name="hotlist.sort" value="3"> <span class="number">{$hotlist.sort}</span> </gt>
+                    <a target="_blank" title="{$hotlist.title}" style="width:240px;" href="{:U('Article/detail?id='.$hotlist['id'])}">
+                      {$hotlist.title}
+                    </a>
+                  </li>
+                </volist>
+              </ul>
+            </div>
+            <!-- 热门文章 结束 -->
           </div>
 
           <!-- 文章列表 开始 -->
           <div class="right">
-            <div class="right_title"><span>{$category.title}上年运营情况 </span></div>
-            <div class="wd_jj">
-              <span>
-
-                <h3>
-                  一、基本概况
-                </h3>
-                <span style="font-size:18px;">按照《唐山港总体规划》(2015年1月修订版)，曹妃甸港区规划面积128.6平方公里，可建泊位412个，规划岸线长度126.26公里。</span><br />
-                <span style="font-size:18px;">2008年2月国务院批复的《曹妃甸循环经济示范区产业发展总体规划》中，曹妃甸港的功能定位为：中国能源、矿石等大宗货物集疏港。</span><br />
-                <span style="font-size:18px;">2010年7月，习近平总书记视察唐山、曹妃甸时指出：要努力把唐山、曹妃甸建成东北亚地区经济合作窗口城市、环渤海地区新型工业化基地和首都经济圈重要支点。</span><br />
-                <span style="font-size:18px;">2015年1月修订的《唐山港总体规划》中，将曹妃甸港功能定位为：服务我国北方大宗物资转运和环渤海新型工业化基地的大型综合性港区，利用深水岸线资源优势，发展油气、铁矿石等大宗能源、原材料转运、储备、贸易功能，承担“北煤南运”的重要任务；为临港冶金、石化、装备制造等大型重化工业服务。</span><br />
-                <span style="font-size:18px;">《京津冀协同发展规划纲要》将曹妃甸协同发展示范区列为四大战略合作平台之首。河北省委九届六次全会提出把曹妃甸打造成全省新的增长极和唐山“一港双城”建设的核心承载区。</span><br />
-                <h3>
-                  二、开发建设情况
-                </h3>
-                <span style="font-size:18px;">十几年前，建设25万吨矿石码头的气锤声，打破了沙岛持续千年的寂静，一批批驻港铁军，一批批朝气蓬勃的建设者，在曹妃甸创造了一个又一个令人惊叹不已的奇迹，用短短十几年的时间走完了一些港口几十年甚至上百年的历程。</span><br />
-                <span style="font-size:18px;">截至目前，累计完成投资600多亿元，已开发利用25公里，累计建有矿石、煤炭、原油、LNG、散杂、件杂、集装箱、木材等生产性泊位100个，通过能力4.8亿吨，国家批复的11个40万吨船舶泊位中曹妃甸占据两席。开通国内外贸易航线110余条，可直达日、韩、美、英等70多个国家和地区。2020年，货物吞吐量4.07亿吨，助力唐山港进位世界港口第二位。</span><br />
-
-
-              </span>
-            </div>
-
+            
             <div class="right_title"><span>{$category.title}列表 </span></div>
             <div style="margin-top:20px">
               <ul class="imglist"> 
@@ -93,28 +88,6 @@
             </div>
           </div>
           <!-- 文章列表 结束 -->
-
-
-          <div class="left">
-            <!-- 热门文章 开始 -->
-            <div class="hot_list" id="smartFloat_tags">
-              <h3 class="title_name">热门文章</h3>
-              <ul>
-                <volist name="hot_lists" id="hotlist">
-                  <li>
-                    <elt name="hotlist.sort" value="3"> <span class="number front">{$hotlist.sort}</span> </elt>
-                    <gt name="hotlist.sort" value="3"> <span class="number">{$hotlist.sort}</span> </gt>
-                    <a target="_blank" title="{$hotlist.title}" style="width:240px;" href="{:U('Article/detail?id='.$hotlist['id'])}">
-                      {$hotlist.title}
-                    </a>
-                  </li>
-                </volist>
-              </ul>
-            </div>
-            <!-- 热门文章 结束 -->
-          </div>
-
-          
 
         </div>
       </div>
