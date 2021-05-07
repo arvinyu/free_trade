@@ -52,27 +52,27 @@
     </div>
     <!-- 新闻中心结束 -->
     
-    <!-- 项目建设、企业风采开始 -->
+    <!-- 园区动态、聚焦曹妃甸 -->
     <div class="bg_pic">
       <div class="newstxtbox">
         <div class="hd">
           <ul>
-            <li><a  title="项目建设">项目建设</a></li>
-            <li><a  title="企业风采">企业风采</a></li>
-            <li><a  title="企业地图">企业地图</a></li>
+            <li><a  title="园区动态">园区动态</a></li>
+            <li><a  title="聚焦曹妃甸">聚焦曹妃甸</a></li>
+            <!-- <li><a  title="企业地图">企业地图</a></li> -->
           </ul>
         </div>
-        <div class="bd mt10">
+        <div  class="bd" style="margin-top:10px;">
 
           <ul class="news_list news_lh35">
             <volist name="projects" id="project">
               <li class="news_item"> 
                 <!-- class="text-overflow list-style" -->
-                <a  title="{$project.ctitle}" target="_blank" href="{:U('Article/lists?category='.$project['name'])}"> 
+                <!-- <a  title="{$project.ctitle}" target="_blank" href="{:U('Article/lists?category='.$project['name'])}"> 
                   【{$project.ctitle}】
-                </a>
-                <a  title="{$project.title}" target="_blank" href="{:U('Article/detail?id='.$project['id'])}"> 
-                  {$project.title}
+                </a> -->
+                <a class="text-overflow list-style" title="{$project.title}" target="_blank" href="{:U('Article/detail?id='.$project['id'])}"> 
+                  {$project.title|msubstr=0,25}
                 </a> 
                 <span class="date">({$project.create_time|date="m-d",###})</span> 
               </li>
@@ -83,26 +83,26 @@
             <volist name="enterprises" id="enterprise">
               <li class="news_item"> 
                 <!-- class="text-overflow list-style" -->
-                <a  title="{$enterprise.ctitle}" target="_blank" href="{:U('Article/lists?category='.$enterprise['name'])}"> 
+                <!-- <a  title="{$enterprise.ctitle}" target="_blank" href="{:U('Article/lists?category='.$enterprise['name'])}"> 
                   【{$enterprise.ctitle}】
-                </a>
-                <a  title="{$enterprise.title}" target="_blank" href="{:U('Article/detail?id='.$enterprise['id'])}"> 
-                  {$enterprise.title}
+                </a> -->
+                <a class="text-overflow list-style" title="{$enterprise.title}" target="_blank" href="{:U('Article/detail?id='.$enterprise['id'])}"> 
+                  {$enterprise.title|msubstr=0,25}
                 </a> 
                 <span class="date">({$enterprise.create_time|date="m-d",###})</span> 
               </li>
             </volist>
           </ul>
-          <ul class="news_list news_lh35">
+          <!-- <ul class="news_list news_lh35">
             <a href="./Uploads/Picture/ditu.png" target="_blank"><img height="280" width="100%" src="./Uploads/Picture/ditujb.png"/></a>
-          </ul>
+          </ul> -->
           
         </div>
 
         <script type="text/javascript">jQuery(".newstxtbox01").slide();</script> 
       </div>
     </div>
-    <!-- 项目建设、企业风采结束 -->
+    <!-- 园区动态、聚焦曹妃甸 -->
 
   </div>
 

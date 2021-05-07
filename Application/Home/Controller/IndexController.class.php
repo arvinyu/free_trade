@@ -61,16 +61,18 @@ class IndexController extends HomeController {
             }
             $this->assign('news_list',$news);//news列表
 
-            /* 项目建设信息 */
-            $projects = $Document->projectList();
+            /* 园区动态 */
+            // $projects = $Document->projectList();
+            $projects = $Document->yqdt();
             // dump($projects);exit;
             if(false === $projects){
                 $this->error('获取动态列表数据失败！');
             }
             $this->assign('projects',$projects);//项目建设列表
 
-            /* 企业风采 */
-            $enterprises = $Document->enterpriseList();
+            /* 聚焦曹妃 */
+            // $enterprises = $Document->enterpriseList();
+            $enterprises = $Document->jjcf();
             // dump($enterprises);exit;
             if(false === $enterprises){
                 $this->error('获取企业风采数据失败！');

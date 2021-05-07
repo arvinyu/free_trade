@@ -391,6 +391,7 @@ class DocumentModel extends Model{
                 // ->limit($page->firstRow . ',' . $page->listRows)
                 ->select();
 	}
+
 	//首页项目建设列表
 	public function projectList(){
 		$result = M('category')
@@ -416,6 +417,29 @@ class DocumentModel extends Model{
             ->select();
         // echo M()->getLastSql();exit;
         return $result;
+	}
+
+	//园区动态
+	public function yqdt(){
+		return $this
+                ->alias('d')
+                ->field('d.id,d.title,d.create_time')
+                ->where('d.category_id=65')
+                ->order("d.level ASC")
+                ->limit(8)
+                // ->limit($page->firstRow . ',' . $page->listRows)
+                ->select();
+	}
+	//聚焦曹妃
+	public function jjcf(){
+		return $this
+                ->alias('d')
+                ->field('d.id,d.title,d.create_time')
+                ->where('d.category_id=63')
+                ->order("d.level ASC")
+                ->limit(8)
+                // ->limit($page->firstRow . ',' . $page->listRows)
+                ->select();
 	}
 
 	//首页园区
