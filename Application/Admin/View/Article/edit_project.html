@@ -1,0 +1,421 @@
+<extend name="Public/base" />
+
+<!-- 子导航 -->
+<block name="sidebar">
+    <include file="sidemenu" />
+</block>
+
+<block name="body">
+	<script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+	<div class="main-title cf">
+		<h2>
+			编辑{$data.model_id|get_document_model='title'} [
+			<volist name="rightNav" id="nav">
+			<a href="{:U('article/index','cate_id='.$nav['id'])}">{$nav.title}</a>
+			<if condition="count($rightNav) gt $i"><i class="ca"></i></if>
+			</volist>
+			<present name="article">：<a href="{:U('article/index','cate_id='.$data['category_id'].'&pid='.$article['id'])}">{$article.title}</a></present>
+			]
+		</h2>
+	</div>
+	<!-- 标签页导航 -->
+<div class="tab-wrap">
+	<ul class="tab-nav nav">
+		<volist name=":parse_config_attr($model['field_group'])" id="group">
+			<li data-tab="tab{$key}" <eq name="key" value="1">class="current"</eq>><a href="javascript:void(0);">{$group}</a></li>
+		</volist>
+		<li data-tab="tab3" ><a href="javascript:void(0);">项目简介</a></li>
+		<li data-tab="tab4" ><a href="javascript:void(0);">手续办理情况</a></li>
+		<li data-tab="tab5" ><a href="javascript:void(0);">项目进展情况</a></li>
+	</ul>
+	<div class="tab-content">
+	<!-- 表单 -->
+	<form id="form" action="{:U('update')}" method="post" class="form-horizontal">
+		<!-- 基础文档模型 -->
+		<volist name=":parse_config_attr($model['field_group'])" id="group">
+        <div id="tab{$key}" class="tab-pane <eq name="key" value="1">in</eq> tab{$key}">
+            <volist name="fields[$key]" id="field">
+                <if condition="$field['is_show'] == 1 || $field['is_show'] == 3">
+                <div class="form-item cf">
+                    <label class="item-label">{$field['title']}<span class="check-tips"><notempty name="field['remark']">（{$field['remark']}）</notempty></span></label>
+                    <div class="controls">
+                        <switch name="field.type">
+                            <case value="num">
+                                <eq name="field.name" value="link_id">
+								<input type="text" class="text input-large" name="{$field.name}" value="{$data[$field['name']]|get_link_url}">
+								<else/>
+								<input type="text" class="text input-large" name="{$field.name}" value="{$data[$field['name']]}">
+								</eq>
+                            </case>
+                            <case value="string">
+                                <input type="text" class="text input-large" name="{$field.name}" value="{$data[$field['name']]}">
+                            </case>
+                            <case value="textarea">
+                                <label class="textarea input-large">
+                                <textarea name="{$field.name}">{$data[$field['name']]}</textarea>
+                                </label>
+                            </case>
+                            <case value="datetime">
+                                <input type="text" name="{$field.name}" class="text input-large time" value="{$data[$field['name']]|time_format}" placeholder="请选择时间" />
+                            </case>
+                            <case value="bool">
+                                <select name="{$field.name}">
+                                    <volist name=":parse_field_attr($field['extra'])" id="vo">
+                                        <option value="{$key}" <eq name="data[$field['name']]" value="$key">selected</eq>>{$vo}</option>
+                                    </volist>
+                                </select>
+                            </case>
+                            <case value="select">
+                                <select name="{$field.name}">
+                                    <volist name=":parse_field_attr($field['extra'])" id="vo">
+                                        <option value="{$key}" <eq name="data[$field['name']]" value="$key">selected</eq>>{$vo}</option>
+                                    </volist>
+                                </select>
+                            </case>
+                            <case value="radio">
+                                <volist name=":parse_field_attr($field['extra'])" id="vo">
+                                	<label class="radio">
+                                    <input type="radio" value="{$key}" name="{$field.name}" <eq name="data[$field['name']]" value="$key">checked="checked"</eq>>{$vo}
+                                	</label>
+                                </volist>
+                            </case>
+                            <case value="checkbox">
+                                <volist name=":parse_field_attr($field['extra'])" id="vo">
+                                	<label class="checkbox">
+                                    <input type="checkbox" value="{$key}" name="{$field.name}[]" <if condition="check_document_position($data[$field['name']],$key)">checked="checked"</if>>{$vo}
+                                	</label>
+                                </volist>
+                            </case>
+                            <case value="editor">
+                                <label class="textarea">
+                                <textarea name="{$field.name}">{$data[$field['name']]}</textarea>
+                                {:hook('adminArticleEdit', array('name'=>$field['name'],'value'=>$data[$field['name']]))}
+                                </label>
+                            </case>
+                            <case value="picture">
+                                <div class="controls">
+									<input type="file" id="upload_picture_{$field.name}" accept="image/*" onchange="uploadPicture()">
+									<input type="hidden" name="{$field.name}" id="cover_id_{$field.name}" value="{$data[$field['name']]}"/>
+									<div class="upload-img-box">
+									<notempty name="data[$field['name']]">
+										<div class="upload-pre-item"><img src="__ROOT__{$data[$field['name']]|get_cover='path'}"/></div>
+									</notempty>
+									</div>
+								</div>
+								<script type="text/javascript">
+							    function uploadPicture(){
+									// var inputfile = $('#inputfile')[0].files[0];
+									//new FormData的参数是一个DOM对象，而非jQuery对象
+									var formData = new FormData();
+									formData.append("download",document.getElementById("upload_picture_{$field.name}").files[0]);
+									$.ajax({
+										url: "{:U('File/uploadPicture',array('session_id'=>session_id()))}",
+										type: 'POST',
+										data: formData,			// 上传formdata封装的数据
+										//dataType: 'text',		//传递数据的格式  text才能触发succcess  json不能
+										async: true,			//这是重要的一步，防止重复提交的
+										// 下面三个参数要指定，如果不指定，会报一个JQuery的错误
+										cache: false,			// 不缓存
+										contentType: false,		// 不设置内容类型  jQuery不要去设置Content-Type请求头
+										processData: false,		// jQuery不要去处理发送的数据
+										success: function (data) {            //成功回调
+											// alert("#cover_id_{$field.name}");
+											// alert(data.path);
+											alert(data.info);
+											$("#cover_id_{$field.name}").val(data.id);
+								        	src = data.url || '__ROOT__' + data.path;
+								        	$("#cover_id_{$field.name}").parent().find('.upload-img-box').html(
+								        		'<div class="upload-pre-item"><img src="' + src + '"/></div>'
+								        	);
+										},
+										error: function (data) {
+											// data = JSON.parse(data);
+											updateAlert(data.info);
+							        		setTimeout(function(){
+							                $('#top-alert').find('button').click();
+							                $(that).removeClass('disabled').prop('disabled',false);
+							            },1500);
+										}
+									});
+								}
+								</script>
+                            </case>
+                            <case value="file">
+								<div class="controls">
+									<input type="file" id="upload_file_{$field.name}">
+									<input type="hidden" name="{$field.name}" value="{:think_encrypt(json_encode(get_table_field($data[$field['name']],'id','','File')))}"/>
+									<div class="upload-img-box">
+										<present name="data[$field['name']]">
+											<div class="upload-pre-file"><span class="upload_icon_all"></span>{$data[$field['name']]|get_table_field=###,'id','name','File'}</div>
+										</present>
+									</div>
+								</div>
+								<script type="text/javascript">
+								//上传图片
+							    /* 初始化上传插件 */
+								$("#upload_file_{$field.name}").uploadify({
+							        "height"          : 30,
+							        "swf"             : "__STATIC__/uploadify/uploadify.swf",
+							        "fileObjName"     : "download",
+							        "buttonText"      : "上传附件",
+							        "uploader"        : "{:U('File/upload',array('session_id'=>session_id()))}",
+							        "width"           : 120,
+							        'removeTimeout'	  : 1,
+							        "onUploadSuccess" : uploadFile{$field.name}
+							    });
+								function uploadFile{$field.name}(file, data){
+									var data = $.parseJSON(data);
+							        if(data.status){
+							        	var name = "{$field.name}";
+							        	$("input[name="+name+"]").val(data.data);
+							        	$("input[name="+name+"]").parent().find('.upload-img-box').html(
+							        		"<div class=\"upload-pre-file\"><span class=\"upload_icon_all\"></span>" + data.info + "</div>"
+							        	);
+							        } else {
+							        	updateAlert(data.info);
+							        	setTimeout(function(){
+							                $('#top-alert').find('button').click();
+							                $(that).removeClass('disabled').prop('disabled',false);
+							            },1500);
+							        }
+							    }
+								</script>
+                            </case>
+                            <default/>
+                            <input type="text" class="text input-large" name="{$field.name}" value="{$data[$field['name']]}">
+                        </switch>
+                    </div>
+                </div>
+                </if>
+            </volist>
+        </div>
+		</volist>
+
+		<div id="tab3" class="tab-pane  tab3">
+		    <div class="form-item cf">
+                <label class="item-label">项目简介<span class="check-tips"></span></label>
+                <div class="controls">
+                    <label class="textarea">
+                        <textarea name="project_intro">{$data['project_intro']}</textarea>
+                		<link rel="stylesheet" href="__STATIC__/kindeditor/default/default.css" />
+						<script charset="utf-8" src="__STATIC__/kindeditor/kindeditor-min.js"></script>
+						<script charset="utf-8" src="__STATIC__/kindeditor/zh_CN.js"></script>
+						<script type="text/javascript">
+							var editor3;
+							KindEditor.ready(function(K) {
+								editor3 = K.create('textarea[name="project_intro"]', {
+									allowFileManager : false,
+									themesPath: K.basePath,
+									width: '100%',
+									height: '500px',
+									resizeType: 1,
+									pasteType : 2,
+									urlType : 'absolute',
+									fileManagerJson : '/free_trade/index.php?s=/admin/article/filemanagerjson.html',
+									//uploadJson : '/free_trade/index.php?s=/admin/article/uploadjson.html' }
+									uploadJson : '/free_trade/index.php?s=/admin/addons/execute/_addons/editor_for_admin/_controller/upload/_action/ke_upimg.html'
+								});
+							});
+
+							$(function(){
+								//传统表单提交同步
+								$('textarea[name="project_intro"]').closest('form').submit(function(){
+									editor3.sync();
+								});
+								//ajax提交之前同步
+								$('button[type="submit"],#submit,.ajax-post').click(function(){
+									editor3.sync();
+								});
+							})
+						</script>
+
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab4" class="tab-pane  tab4">
+		    <div class="form-item cf">
+                <label class="item-label">手续办理情况<span class="check-tips"></span></label>
+                <div class="controls">
+                    <label class="textarea">
+                        <textarea name="project_shouxu">{$data['project_shouxu']}</textarea>
+                		<link rel="stylesheet" href="__STATIC__/kindeditor/default/default.css" />
+						<script charset="utf-8" src="__STATIC__/kindeditor/kindeditor-min.js"></script>
+						<script charset="utf-8" src="__STATIC__/kindeditor/zh_CN.js"></script>
+						<script type="text/javascript">
+							var editor4;
+							KindEditor.ready(function(K) {
+								editor4 = K.create('textarea[name="project_shouxu"]', {
+									allowFileManager : false,
+									themesPath: K.basePath,
+									width: '100%',
+									height: '500px',
+									resizeType: 1,
+									pasteType : 2,
+									urlType : 'absolute',
+									fileManagerJson : '/free_trade/index.php?s=/admin/article/filemanagerjson.html',
+									//uploadJson : '/free_trade/index.php?s=/admin/article/uploadjson.html' }
+									uploadJson : '/free_trade/index.php?s=/admin/addons/execute/_addons/editor_for_admin/_controller/upload/_action/ke_upimg.html'
+								});
+							});
+
+							$(function(){
+								//传统表单提交同步
+								$('textarea[name="project_shouxu"]').closest('form').submit(function(){
+									editor4.sync();
+								});
+								//ajax提交之前同步
+								$('button[type="submit"],#submit,.ajax-post').click(function(){
+									editor4.sync();
+								});
+							})
+						</script>
+
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab5" class="tab-pane  tab5">
+		    <div class="form-item cf">
+                <label class="item-label">项目进展情况<span class="check-tips"></span></label>
+                <div class="controls">
+                    <label class="textarea">
+                        <textarea name="project_jinzhan">{$data['project_jinzhan']}</textarea>
+                		<link rel="stylesheet" href="__STATIC__/kindeditor/default/default.css" />
+						<script charset="utf-8" src="__STATIC__/kindeditor/kindeditor-min.js"></script>
+						<script charset="utf-8" src="__STATIC__/kindeditor/zh_CN.js"></script>
+						<script type="text/javascript">
+							var editor5;
+							KindEditor.ready(function(K) {
+								editor5 = K.create('textarea[name="project_jinzhan"]', {
+									allowFileManager : false,
+									themesPath: K.basePath,
+									width: '100%',
+									height: '500px',
+									resizeType: 1,
+									pasteType : 2,
+									urlType : 'absolute',
+									fileManagerJson : '/free_trade/index.php?s=/admin/article/filemanagerjson.html',
+									//uploadJson : '/free_trade/index.php?s=/admin/article/uploadjson.html' }
+									uploadJson : '/free_trade/index.php?s=/admin/addons/execute/_addons/editor_for_admin/_controller/upload/_action/ke_upimg.html'
+								});
+							});
+
+							$(function(){
+								//传统表单提交同步
+								$('textarea[name="project_jinzhan"]').closest('form').submit(function(){
+									editor5.sync();
+								});
+								//ajax提交之前同步
+								$('button[type="submit"],#submit,.ajax-post').click(function(){
+									editor5.sync();
+								});
+							})
+						</script>
+
+                    </label>
+                </div>
+            </div>
+        </div>
+
+		<div class="form-item cf">
+			<button class="btn submit-btn ajax-post hidden" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+			<a class="btn btn-return" href="{:U('article/index?cate_id='.$cate_id)}">返 回</a>
+			<if condition="C('OPEN_DRAFTBOX') and (ACTION_NAME eq 'add' or $data['status'] eq 3)">
+			<button class="btn save-btn" url="{:U('article/autoSave')}" target-form="form-horizontal" id="autoSave">
+				存草稿
+			</button>
+			</if>
+			<input type="hidden" name="id" value="{$data.id|default=''}"/>
+			<input type="hidden" name="pid" value="{$data.pid|default=''}"/>
+			<input type="hidden" name="model_id" value="{$data.model_id|default=''}"/>
+			<input type="hidden" name="category_id" value="{$data.category_id|default=''}">
+		</div>
+	</form>
+	</div>
+</div>
+</block>
+
+<block name="script">
+<link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+<php>if(C('COLOR_STYLE')=='blue_color') echo '<link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">';</php>
+<link href="__STATIC__/datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<script type="text/javascript">
+
+Think.setValue("type", {$data.type|default='""'});
+Think.setValue("display", {$data.display|default=0});
+
+$('#submit').click(function(){
+	$('#form').submit();
+});
+
+$(function(){
+    $('.time').datetimepicker({
+        format: 'yyyy-mm-dd hh:ii',
+        language:"zh-CN",
+        minView:2,
+        autoclose:true
+    });
+    showTab();
+
+	<if condition="C('OPEN_DRAFTBOX') and (ACTION_NAME eq 'add' or $data['status'] eq 3)">
+	//保存草稿
+	var interval;
+	$('#autoSave').click(function(){
+        var target_form = $(this).attr('target-form');
+        var target = $(this).attr('url')
+        var form = $('.'+target_form);
+        var query = form.serialize();
+        var that = this;
+
+        $(that).addClass('disabled').attr('autocomplete','off').prop('disabled',true);
+        $.post(target,query).success(function(data){
+            if (data.status==1) {
+                updateAlert(data.info ,'alert-success');
+                $('input[name=id]').val(data.data.id);
+            }else{
+                updateAlert(data.info);
+            }
+            setTimeout(function(){
+                $('#top-alert').find('button').click();
+                $(that).removeClass('disabled').prop('disabled',false);
+            },1500);
+        })
+
+        //重新开始定时器
+        clearInterval(interval);
+        autoSaveDraft();
+        return false;
+    });
+
+	//Ctrl+S保存草稿
+	$('body').keydown(function(e){
+		if(e.ctrlKey && e.which == 83){
+			$('#autoSave').click();
+			return false;
+		}
+	});
+
+	//每隔一段时间保存草稿
+	function autoSaveDraft(){
+		interval = setInterval(function(){
+			//只有基础信息填写了，才会触发
+			var title = $('input[name=title]').val();
+			var name = $('input[name=name]').val();
+			var des = $('textarea[name=description]').val();
+			if(title != '' || name != '' || des != ''){
+				$('#autoSave').click();
+			}
+		}, 1000*parseInt({:C('AOTUSAVE_DRAFT')}));
+	}
+	autoSaveDraft();
+
+	</if>
+
+});
+</script>
+</block>

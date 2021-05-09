@@ -425,7 +425,10 @@ class ArticleController extends \Admin\Controller\AdminController {
         $this->assign('type_list',  get_type_bycate($cate_id));
         $this->assign('model',      $model);
         $this->meta_title = '新增'.$model['title'];
-        $this->display();
+
+        $view = $this->choice_view($cate_id,'add');
+
+        $this->display($view);
     }
 
     /**
@@ -469,7 +472,9 @@ class ArticleController extends \Admin\Controller\AdminController {
         $this->assign('type_list', get_type_bycate($data['category_id']));
 
         $this->meta_title   =   '编辑文档';
-        $this->display();
+        $view = $this->choice_view($data['category_id'],'edit');
+
+        $this->display($view);
     }
 
     /**
@@ -831,5 +836,35 @@ class ArticleController extends \Admin\Controller\AdminController {
     	}
 
     	return $return;
+    }
+
+    //项目建设、企业风采分类 文章新建和编辑模板页面
+    public function choice_view($cate_id,$pre='add'){
+        //55在建港口项目 56在建物流项目
+        $arr_project = array(55,56);
+        //59港口项目 60物流项目 61贸易项目 62港口服务项目
+        $arr_enterprise = array(59,60,61,62);
+        
+        if(in_array($cate_id, $arr_project)){
+            return $pre.'_project';
+        }else if(in_array($cate_id, $arr_enterprise)){
+            return $pre.'_enterprise';
+        }else{
+            return '';
+        }
+    }
+
+    public function save_project(){
+        $res = D('Document')->update();
+        if(!$res){
+            $this->error(D('Document')->getError());
+        }else{
+            if($res['id']){
+                $this->success('更新成功', U('index?pid='.$res['pid'].'&cate_id='.$res['category_id']));
+            }else{
+                $this->success('新增成功', U('index?pid='.$res['pid'].'&cate_id='.$res['category_id']));
+            }
+        }
+        // dump($_POST);exit;
     }
 }

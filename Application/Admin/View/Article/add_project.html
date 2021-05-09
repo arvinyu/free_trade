@@ -1,0 +1,454 @@
+<extend name="Public/base" />
+
+<!-- 子导航 -->
+<block name="sidebar">
+    <include file="sidemenu" />
+</block>
+
+<block name="body">
+	<script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+	<div class="main-title cf">
+		<h2>
+			新增{$info.model_id|get_document_model='title'} [
+			<volist name="rightNav" id="nav">
+			<a href="{:U('article/index','cate_id='.$nav['id'])}">{$nav.title}</a>
+			<if condition="count($rightNav) gt $i"><i class="ca"></i></if>
+			</volist>
+			<present name="article">：<a href="{:U('article/index','cate_id='.$info['category_id'].'&pid='.$article['id'])}">{$article.title}</a></present>
+			]
+		</h2>
+	</div>
+	<!-- 标签页导航 -->
+<div class="tab-wrap">
+	<ul class="tab-nav nav">
+		<li data-tab="tab1" class="current"><a href="javascript:void(0);">基础</a></li>
+		<li data-tab="tab2" ><a href="javascript:void(0);">扩展</a></li>
+		<li data-tab="tab3" ><a href="javascript:void(0);">项目简介</a></li>
+		<li data-tab="tab4" ><a href="javascript:void(0);">手续办理情况</a></li>
+		<li data-tab="tab5" ><a href="javascript:void(0);">项目进展情况</a></li>
+	</ul>
+	<div class="tab-content">
+	<!-- 表单 -->
+	<form id="form" action="{:U('save_project')}" method="post" class="form-horizontal">
+		<!-- 基础文档模型 -->
+		<div id="tab1" class="tab-pane in tab1">
+            <div class="form-item cf">
+                <label class="item-label">标题<span class="check-tips">（文档标题）</span></label>
+                <div class="controls">
+                    <input type="text" class="text input-large" name="title" value="">
+                </div>
+            </div>
+            <div class="form-item cf">
+                <label class="item-label">标识<span class="check-tips">（同一根节点下标识不重复）</span></label>
+                <div class="controls">
+                    <input type="text" class="text input-large" name="name" value="">
+                </div>
+            </div>
+            <div class="form-item cf">
+                <label class="item-label">描述<span class="check-tips"></span></label>
+                <div class="controls">
+                    <label class="textarea input-large">
+                        <textarea name="description"></textarea>
+                    </label>
+                </div>
+            </div>
+            <!-- <div class="form-item cf">
+                <label class="item-label">文章内容<span class="check-tips"></span></label>
+                <div class="controls">
+                    <label class="textarea">
+                        <textarea name="content"></textarea>
+                		<input type="hidden" name="parse" value="0">
+                		<link rel="stylesheet" href="__STATIC__/kindeditor/default/default.css" />
+            						<script charset="utf-8" src="__STATIC__/kindeditor/kindeditor-min.js"></script>
+            						<script charset="utf-8" src="__STATIC__/kindeditor/zh_CN.js"></script>
+            						<script type="text/javascript">
+            							var editor;
+            							KindEditor.ready(function(K) {
+            								editor = K.create('textarea[name="content"]', {
+            									allowFileManager : false,
+            									themesPath: K.basePath,
+            									width: '100%',
+            									height: '500px',
+            									resizeType: 1,
+            									pasteType : 2,
+            									urlType : 'absolute',
+            									fileManagerJson : '/free_trade/index.php?s=/admin/article/filemanagerjson.html',
+            									//uploadJson : '/free_trade/index.php?s=/admin/article/uploadjson.html' }
+            									uploadJson : '/free_trade/index.php?s=/admin/addons/execute/_addons/editor_for_admin/_controller/upload/_action/ke_upimg.html'
+            								});
+            							});
+            
+            							$(function(){
+            								//传统表单提交同步
+            								$('textarea[name="content"]').closest('form').submit(function(){
+            									editor.sync();
+            								});
+            								//ajax提交之前同步
+            								$('button[type="submit"],#submit,.ajax-post').click(function(){
+            									editor.sync();
+            								});
+            							})
+            						</script>
+            
+                    </label>
+                </div>
+            </div> -->
+        </div>
+        <div id="tab2" class="tab-pane  tab2">
+            <div class="form-item cf">
+                <label class="item-label">截至时间<span class="check-tips">（0-永久有效）</span></label>
+                <div class="controls">
+                    <input type="text" name="dateline" class="text input-large time" value="" placeholder="请选择时间" />                    
+                </div>
+            </div>
+            <div class="form-item cf">
+                <label class="item-label">详情页显示模板<span class="check-tips">（参照display方法参数的定义）</span></label>
+                <div class="controls">
+                    <input type="text" class="text input-large" name="template" value="">
+                </div>
+            </div>
+            <div class="form-item cf">
+                <label class="item-label">外链<span class="check-tips">（0-非外链，大于0-外链ID,需要函数进行链接与编号的转换）</span></label>
+                <div class="controls">
+                    <input type="text" class="text input-large" name="link_id" value="">
+                </div>
+            </div>
+            <div class="form-item cf">
+                <label class="item-label">内容类型<span class="check-tips"></span></label>
+                <div class="controls">
+                    <select name="type">
+                        <option value="1" >目录</option>
+                        <option value="2">主题</option>
+                        <option value="3" selected>段落</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-item cf">
+                <label class="item-label">附件数量<span class="check-tips"></span></label>
+                <div class="controls">
+                    <input type="text" class="text input-large" name="attach" value="">
+                </div>
+            </div>
+            <div class="form-item cf">
+                <label class="item-label">浏览量<span class="check-tips"></span></label>
+                <div class="controls">
+                    <input type="text" class="text input-large" name="view" value="">
+                </div>
+            </div>
+            <div class="form-item cf">
+                <label class="item-label">推荐位<span class="check-tips">（多个推荐则将其推荐值相加）</span></label>
+                <div class="controls">
+                    <label class="checkbox"><input type="checkbox" value="1" name="position">列表推荐</label>
+                    <label class="checkbox"><input type="checkbox" value="2" name="position">频道页推荐</label>
+                    <label class="checkbox"><input type="checkbox" value="4" name="position">首页推荐</label>
+                </div>
+            </div>
+            <div class="form-item cf">
+                <label class="item-label">评论数<span class="check-tips"></span></label>
+                <div class="controls">
+                    <input type="text" class="text input-large" name="comment" value="">
+                </div>
+            </div>
+            <div class="form-item cf">
+                <label class="item-label">优先级<span class="check-tips">（越高排序越靠前）</span></label>
+                <div class="controls">
+                    <input type="text" class="text input-large" name="level" value="">
+                </div>
+            </div>
+            <div class="form-item cf">
+                <label class="item-label">可见性<span class="check-tips"></span></label>
+                <div class="controls">
+                    <label class="radio"><input type="radio" value="0" name="display">不可见</label>
+                    <label class="radio"><input type="radio" value="1" name="display">所有人可见</label>
+                </div>
+            </div>
+            <div class="form-item cf">
+                <label class="item-label">创建时间<span class="check-tips"></span></label>
+                <div class="controls">
+                    <input type="text" name="create_time" class="text input-large time" value="" placeholder="请选择时间" />
+                </div>
+            </div>
+            <div class="form-item cf">
+                <label class="item-label">封面<span class="check-tips">（0-无封面，大于0-封面图片ID，需要函数处理）</span></label>
+                <div class="controls">
+                    <div class="controls">
+						<input type="file" id="upload_picture_cover_id" accept="image/*" onchange="uploadPicture()">
+						<input type="hidden" name="cover_id" id="cover_id_cover_id"/>
+						<div class="upload-img-box"></div>
+					</div>
+					<script type="text/javascript">
+					function uploadPicture(){
+						// var inputfile = $('#inputfile')[0].files[0];
+						//new FormData的参数是一个DOM对象，而非jQuery对象
+						var formData = new FormData();
+						formData.append("download",document.getElementById("upload_picture_cover_id").files[0]);
+						$.ajax({
+							url: "/free_trade/index.php?s=/admin/file/uploadpicture/session_id/f2cvls6h56ai65q3rntqsdvs90.html",
+							type: 'POST',
+							data: formData,			// 上传formdata封装的数据
+							//dataType: 'text',		//传递数据的格式  text才能触发succcess  json不能
+							async: true,			//这是重要的一步，防止重复提交的
+							// 下面三个参数要指定，如果不指定，会报一个JQuery的错误
+							cache: false,			// 不缓存
+							contentType: false,		// 不设置内容类型  jQuery不要去设置Content-Type请求头
+							processData: false,		// jQuery不要去处理发送的数据
+							success: function (data) {            //成功回调
+								// alert("#cover_id_{$field.name}");
+								// alert(data.path);
+								alert(data.info);
+								$("#cover_id_cover_id").val(data.id);
+					        	src = data.url || '/free_trade' + data.path;
+					        	$("#cover_id_cover_id").parent().find('.upload-img-box').html(
+					        		'<div class="upload-pre-item"><img src="' + src + '"/></div>'
+					        	);
+							},
+							error: function (data) {
+								// data = JSON.parse(data);
+								updateAlert(data.info);
+				        		setTimeout(function(){
+				                $('#top-alert').find('button').click();
+				                $(that).removeClass('disabled').prop('disabled',false);
+				            },1500);
+							}
+						});
+					}
+					</script>
+				</div>
+            </div>
+            <div class="form-item cf">
+                <label class="item-label">收藏数<span class="check-tips"></span></label>
+                <div class="controls">
+                    <input type="text" class="text input-large" name="bookmark" value="">
+                </div>
+            </div>        
+        </div>
+
+		<div id="tab3" class="tab-pane  tab3">
+		    <div class="form-item cf">
+                <label class="item-label">项目简介<span class="check-tips"></span></label>
+                <div class="controls">
+                    <label class="textarea">
+                        <textarea name="project_intro"></textarea>
+                		<link rel="stylesheet" href="__STATIC__/kindeditor/default/default.css" />
+						<script charset="utf-8" src="__STATIC__/kindeditor/kindeditor-min.js"></script>
+						<script charset="utf-8" src="__STATIC__/kindeditor/zh_CN.js"></script>
+						<script type="text/javascript">
+							var editor3;
+							KindEditor.ready(function(K) {
+								editor3 = K.create('textarea[name="project_intro"]', {
+									allowFileManager : false,
+									themesPath: K.basePath,
+									width: '100%',
+									height: '500px',
+									resizeType: 1,
+									pasteType : 2,
+									urlType : 'absolute',
+									fileManagerJson : '/free_trade/index.php?s=/admin/article/filemanagerjson.html',
+									//uploadJson : '/free_trade/index.php?s=/admin/article/uploadjson.html' }
+									uploadJson : '/free_trade/index.php?s=/admin/addons/execute/_addons/editor_for_admin/_controller/upload/_action/ke_upimg.html'
+								});
+							});
+
+							$(function(){
+								//传统表单提交同步
+								$('textarea[name="project_intro"]').closest('form').submit(function(){
+									editor3.sync();
+								});
+								//ajax提交之前同步
+								$('button[type="submit"],#submit,.ajax-post').click(function(){
+									editor3.sync();
+								});
+							})
+						</script>
+
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab4" class="tab-pane  tab4">
+		    <div class="form-item cf">
+                <label class="item-label">手续办理情况<span class="check-tips"></span></label>
+                <div class="controls">
+                    <label class="textarea">
+                        <textarea name="project_shouxu"></textarea>
+                		<link rel="stylesheet" href="__STATIC__/kindeditor/default/default.css" />
+						<script charset="utf-8" src="__STATIC__/kindeditor/kindeditor-min.js"></script>
+						<script charset="utf-8" src="__STATIC__/kindeditor/zh_CN.js"></script>
+						<script type="text/javascript">
+							var editor4;
+							KindEditor.ready(function(K) {
+								editor4 = K.create('textarea[name="project_shouxu"]', {
+									allowFileManager : false,
+									themesPath: K.basePath,
+									width: '100%',
+									height: '500px',
+									resizeType: 1,
+									pasteType : 2,
+									urlType : 'absolute',
+									fileManagerJson : '/free_trade/index.php?s=/admin/article/filemanagerjson.html',
+									//uploadJson : '/free_trade/index.php?s=/admin/article/uploadjson.html' }
+									uploadJson : '/free_trade/index.php?s=/admin/addons/execute/_addons/editor_for_admin/_controller/upload/_action/ke_upimg.html'
+								});
+							});
+
+							$(function(){
+								//传统表单提交同步
+								$('textarea[name="project_shouxu"]').closest('form').submit(function(){
+									editor4.sync();
+								});
+								//ajax提交之前同步
+								$('button[type="submit"],#submit,.ajax-post').click(function(){
+									editor4.sync();
+								});
+							})
+						</script>
+
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab5" class="tab-pane  tab5">
+		    <div class="form-item cf">
+                <label class="item-label">项目进展情况<span class="check-tips"></span></label>
+                <div class="controls">
+                    <label class="textarea">
+                        <textarea name="project_jinzhan"></textarea>
+                		<link rel="stylesheet" href="__STATIC__/kindeditor/default/default.css" />
+						<script charset="utf-8" src="__STATIC__/kindeditor/kindeditor-min.js"></script>
+						<script charset="utf-8" src="__STATIC__/kindeditor/zh_CN.js"></script>
+						<script type="text/javascript">
+							var editor5;
+							KindEditor.ready(function(K) {
+								editor5 = K.create('textarea[name="project_jinzhan"]', {
+									allowFileManager : false,
+									themesPath: K.basePath,
+									width: '100%',
+									height: '500px',
+									resizeType: 1,
+									pasteType : 2,
+									urlType : 'absolute',
+									fileManagerJson : '/free_trade/index.php?s=/admin/article/filemanagerjson.html',
+									//uploadJson : '/free_trade/index.php?s=/admin/article/uploadjson.html' }
+									uploadJson : '/free_trade/index.php?s=/admin/addons/execute/_addons/editor_for_admin/_controller/upload/_action/ke_upimg.html'
+								});
+							});
+
+							$(function(){
+								//传统表单提交同步
+								$('textarea[name="project_jinzhan"]').closest('form').submit(function(){
+									editor5.sync();
+								});
+								//ajax提交之前同步
+								$('button[type="submit"],#submit,.ajax-post').click(function(){
+									editor5.sync();
+								});
+							})
+						</script>
+
+                    </label>
+                </div>
+            </div>
+        </div>
+
+
+		<div class="form-item cf">
+			<button class="btn submit-btn ajax-post hidden" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+			<a class="btn btn-return" href="{:U('article/index?cate_id='.$cate_id)}">返 回</a>
+			<if condition="C('OPEN_DRAFTBOX') and (ACTION_NAME eq 'add' or $info['status'] eq 3)">
+			<button class="btn save-btn" url="{:U('article/autoSave')}" target-form="form-horizontal" id="autoSave">
+				存草稿
+			</button>
+			</if>
+			<input type="hidden" name="id" value="{$info.id|default=''}"/>
+			<input type="hidden" name="pid" value="{$info.pid|default=''}"/>
+			<input type="hidden" name="model_id" value="{$info.model_id|default=''}"/>
+			<input type="hidden" name="category_id" value="{$info.category_id|default=''}">
+		</div>
+	</form>
+	</div>
+</div>
+</block>
+
+<block name="script">
+<link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+<php>if(C('COLOR_STYLE')=='blue_color') echo '<link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">';</php>
+<link href="__STATIC__/datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<script type="text/javascript">
+
+Think.setValue("type", {$info.type|default='""'});
+Think.setValue("display", {$info.display|default=0});
+
+$('#submit').click(function(){
+	$('#form').submit();
+});
+
+$(function(){
+    $('.time').datetimepicker({
+        format: 'yyyy-mm-dd hh:ii',
+        language:"zh-CN",
+        minView:2,
+        autoclose:true
+    });
+    showTab();
+
+	<if condition="C('OPEN_DRAFTBOX') and (ACTION_NAME eq 'add' or $info['status'] eq 3)">
+	//保存草稿
+	var interval;
+	$('#autoSave').click(function(){
+        var target_form = $(this).attr('target-form');
+        var target = $(this).attr('url')
+        var form = $('.'+target_form);
+        var query = form.serialize();
+        var that = this;
+
+        $(that).addClass('disabled').attr('autocomplete','off').prop('disabled',true);
+        $.post(target,query).success(function(data){
+            if (data.status==1) {
+                updateAlert(data.info ,'alert-success');
+                $('input[name=id]').val(data.data.id);
+            }else{
+                updateAlert(data.info);
+            }
+            setTimeout(function(){
+                $('#top-alert').find('button').click();
+                $(that).removeClass('disabled').prop('disabled',false);
+            },1500);
+        })
+
+        //重新开始定时器
+        clearInterval(interval);
+        autoSaveDraft();
+        return false;
+    });
+
+	//Ctrl+S保存草稿
+	$('body').keydown(function(e){
+		if(e.ctrlKey && e.which == 83){
+			$('#autoSave').click();
+			return false;
+		}
+	});
+
+	//每隔一段时间保存草稿
+	function autoSaveDraft(){
+		interval = setInterval(function(){
+			//只有基础信息填写了，才会触发
+			var title = $('input[name=title]').val();
+			var name = $('input[name=name]').val();
+			var des = $('textarea[name=description]').val();
+			if(title != '' || name != '' || des != ''){
+				$('#autoSave').click();
+			}
+		}, 1000*parseInt({:C('AOTUSAVE_DRAFT')}));
+	}
+	autoSaveDraft();
+
+	</if>
+
+});
+</script>
+</block>
