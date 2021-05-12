@@ -125,7 +125,7 @@
   </div> -->
 
   <div class="gb_mainbox">
-    <div class="bg_pic">
+    <!-- <div class="bg_pic">
       <div class="newstxtbox">
         <div class="hd">
           <ul>
@@ -150,10 +150,45 @@
               </volist>
             </ul>
           </volist>
-
+    
         </div>
       </div>
       <script type="text/javascript">jQuery(".newstxtbox").slide();</script> 
+    </div> -->
+
+    <div class="bg_pic">
+      <div class="newstxtbox">
+        <div class="hd">
+          <ul>
+              <li >
+                <a href="{:U('Article/lists?category=price')}" title="大宗商品价格指数">
+                大宗商品价格指数
+                </a>
+              </li>
+          </ul>
+        </div>
+        <div class="bd" style="margin-top:10px;"> 
+          <volist name="sub_parks" id="sub_park">
+            <ul class="news_list news_lh35">
+              <volist name="price_list" id="price">
+                <li class="news_item"> 
+                  <a class="text-overflow list-style" title="{$price.title}" target="_blank" href="{:U('Article/detail?id='.$price['id'])}" onmousemove="changePicture('__ROOT__{$price.path}')"> {$price.title}
+                  </a> 
+                  <span class="date">({$price.create_time|date="m-d",###})</span> 
+                </li>
+              </volist>
+            </ul>
+          </volist>
+
+        </div>
+      </div>
+      <script type="text/javascript">
+        jQuery(".newstxtbox").slide();
+        function changePicture(url){
+            price_path.src=url;
+            // alert(url);
+        }
+      </script> 
     </div>
     
     <div class="bg_pic">
@@ -163,7 +198,7 @@
         <li><a target="_blank" href="query_54150124"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K034X3.png" width="92" height="92" alt="">三亚片区</a> </li>
         <li><a target="_blank" href="query_8CF65BF6"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K0424I.png" width="92" height="92" alt="">海口片区</a> </li> -->
         <a target="_blank" href="{:U('Article/lists?category=price')}">
-          <img src="__ROOT__{$price.path}" class="pic_scroll" title="价格指数">
+          <img id="price_path" src="__ROOT__{$price.path}" class="pic_scroll" title="价格指数">
         </a>
       </ul>
     </div>

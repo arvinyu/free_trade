@@ -486,6 +486,18 @@ class DocumentModel extends Model{
                 ->find();
 	}
 
+	//价格指数列表
+	public function priceList(){
+		return $this
+				->alias('d')
+                ->field('d.*,p.path')
+                ->join('left join zm_picture as p on d.cover_id = p.id')
+				->where('d.category_id=46')
+                ->order("d.create_time DESC")
+                ->limit(8)
+                ->select();
+	}
+
 	//首页公共服务列表
 	public function servicesList(){
 		return $this->where('category_id=47')
