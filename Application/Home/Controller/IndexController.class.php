@@ -61,6 +61,14 @@ class IndexController extends HomeController {
             }
             $this->assign('news_list',$news);//news列表
 
+            /* 园区概况 */
+            $yqgk = $Document->yqgk();
+            // dump($projects);exit;
+            if(false === $yqgk){
+                $this->error('获取园区概况列表数据失败！');
+            }
+            $this->assign('yqgk',$yqgk);
+
             /* 园区动态 */
             // $projects = $Document->projectList();
             $projects = $Document->yqdt();

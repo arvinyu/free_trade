@@ -419,6 +419,18 @@ class DocumentModel extends Model{
         return $result;
 	}
 
+	//园区概况
+	public function yqgk(){
+		return $this
+                ->alias('d')
+                ->field('d.id,d.title,d.create_time')
+                ->where('d.category_id=67')
+                ->order("d.level ASC")
+                ->limit(8)
+                // ->limit($page->firstRow . ',' . $page->listRows)
+                ->select();
+	}
+
 	//园区动态
 	public function yqdt(){
 		return $this
