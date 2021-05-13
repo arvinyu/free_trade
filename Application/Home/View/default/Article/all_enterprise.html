@@ -69,7 +69,7 @@
                 <ul>
                   <volist name="list" id="data">
                     <li>
-                      <a target="_blank" title="{$data.title}" href="{:U('Article/detail?id='.$data['id'])}">
+                      <a  title="{$data.title}" href="{:U('Article/detail?id='.$data['id'])}">
                         {$data.title}
                       </a>
                       <span style="float:right;">{$data.create_time|date='Y-m-d H:i:s',###}</span>
@@ -88,11 +88,11 @@
               <ul class="imglist"> 
                 <volist name="list" id="data">
                   <li>
-                    <a target="_blank" title="{$data.title}" href="{:U('Article/detail_tab?id='.$data['id'])}">
+                    <a  title="{$data.title}" href="{:U('Article/detail_tab?id='.$data['id'])}">
                        <img src="__ROOT__{$data.path|default='/Uploads/Picture/default.jpeg'}" /> 
                     </a>
-                    <a href="{:U('Article/img_lists?category='.$data['name'])}" target="_blank"><span>【{$data.category_name}】</span></a>
-                    <a title="{$data.title}" href="{:U('Article/detail_tab?id='.$data['id'])}" target="_blank"><span>{$data.title|msubstr=0,9}</span></a>
+                    <a href="{:U('Article/img_lists?category='.$data['name'])}" ><span>【{$data.category_name}】</span></a>
+                    <a title="{$data.title}" href="{:U('Article/detail_tab?id='.$data['id'])}" ><span>{$data.title|msubstr=0,9}</span></a>
                   </li>
                 </volist>
      
@@ -117,7 +117,7 @@
                   <li>
                     <elt name="hotlist.sort" value="3"> <span class="number front">{$hotlist.sort}</span> </elt>
                     <gt name="hotlist.sort" value="3"> <span class="number">{$hotlist.sort}</span> </gt>
-                    <a target="_blank" title="{$hotlist.title}" style="width:240px;" href="{:U('Article/detail?id='.$hotlist['id'])}">
+                    <a  title="{$hotlist.title}" style="width:240px;" href="{:U('Article/detail?id='.$hotlist['id'])}">
                       {$hotlist.title}
                     </a>
                   </li>

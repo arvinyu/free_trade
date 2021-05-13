@@ -61,31 +61,31 @@ class IndexController extends HomeController {
             }
             $this->assign('news_list',$news);//news列表
 
-            /* 园区概况 */
-            $yqgk = $Document->yqgk();
+            /* 园区简介 */
+            $yqjj = $Document->yqjj();
             // dump($projects);exit;
-            if(false === $yqgk){
-                $this->error('获取园区概况列表数据失败！');
+            if(false === $yqjj){
+                $this->error('获取园区简介列表数据失败！');
             }
-            $this->assign('yqgk',$yqgk);
+            $this->assign('yqjj',$yqjj);
 
-            /* 园区动态 */
+            /* 曹妃甸区域概况 */
             // $projects = $Document->projectList();
-            $projects = $Document->yqdt();
+            $projects = $Document->yqgk();
             // dump($projects);exit;
             if(false === $projects){
-                $this->error('获取动态列表数据失败！');
+                $this->error('获取区域概况列表数据失败！');
             }
             $this->assign('projects',$projects);//项目建设列表
 
-            /* 聚焦曹妃 */
+            /* 岗位设置 */
             // $enterprises = $Document->enterpriseList();
-            $enterprises = $Document->jjcf();
+            $enterprises = $Document->gwsz();
             // dump($enterprises);exit;
             if(false === $enterprises){
-                $this->error('获取企业风采数据失败！');
+                $this->error('获取岗位这只数据失败！');
             }
-            $this->assign('enterprises',$enterprises);//企业风采
+            $this->assign('enterprises',$enterprises);//岗位社会
 
             /* 园区子分类 */
             $sub_park = $Document->parkSubCategory();

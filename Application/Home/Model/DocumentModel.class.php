@@ -419,8 +419,8 @@ class DocumentModel extends Model{
         return $result;
 	}
 
-	//园区概况
-	public function yqgk(){
+	//园区简介
+	public function yqjj(){
 		return $this
                 ->alias('d')
                 ->field('d.id,d.title,d.create_time')
@@ -431,23 +431,23 @@ class DocumentModel extends Model{
                 ->select();
 	}
 
-	//园区动态
-	public function yqdt(){
+	//曹妃甸区域概况
+	public function yqgk(){
 		return $this
                 ->alias('d')
                 ->field('d.id,d.title,d.create_time')
-                ->where('d.category_id=65')
+                ->where('d.category_id=69')
                 ->order("d.level ASC")
                 ->limit(8)
                 // ->limit($page->firstRow . ',' . $page->listRows)
                 ->select();
 	}
-	//聚焦曹妃
-	public function jjcf(){
+	//岗位设置
+	public function gwsz(){
 		return $this
                 ->alias('d')
                 ->field('d.id,d.title,d.create_time')
-                ->where('d.category_id=63')
+                ->where('d.category_id=68')
                 ->order("d.level ASC")
                 ->limit(8)
                 // ->limit($page->firstRow . ',' . $page->listRows)
@@ -500,7 +500,7 @@ class DocumentModel extends Model{
 
 	//首页公共服务列表
 	public function servicesList(){
-		return $this->where('category_id=47')
+		return $this->where('category_id=47 and status=1')
                 ->order("create_time DESC")
                 ->select();
 	}

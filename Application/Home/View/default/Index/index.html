@@ -22,7 +22,7 @@
           <ul class="swiper-wrapper">
             <volist name="news_list" id="news">
               <li class="swiper-slide">
-                <a target="_blank" href="{:U('Article/detail?id='.$news['id'])}">
+                <a  href="{:U('Article/detail?id='.$news['id'])}">
                   <img src="__ROOT__{$news.path}"/>
                   <div class="black">
                     <p>{$banner.title}</p>
@@ -52,23 +52,23 @@
     </div>
     <!-- 新闻中心结束 -->
     
-    <!-- 园区动态、聚焦曹妃甸 -->
+    <!-- 园区简介、曹妃甸区域概况、岗位设置 -->
     <div class="bg_pic">
       <div class="newstxtbox">
         <div class="hd">
           <ul>
-            <li><a  title="园区概况">园区概况</a></li>
-            <li><a  title="园区动态">园区动态</a></li>
-            <li><a  title="聚焦曹妃甸">聚焦曹妃甸</a></li>
+            <li><a  title="园区简介">园区简介</a></li>
+            <li><a  title="曹妃甸区域概况">区域概况</a></li>
+            <li><a  title="岗位设置">岗位设置</a></li>
             <!-- <li><a  title="企业地图">企业地图</a></li> -->
           </ul>
         </div>
         <div  class="bd" style="margin-top:10px;">
 
           <ul class="news_list news_lh35">
-            <volist name="yqgk" id="project">
+            <volist name="yqjj" id="project">
               <li class="news_item"> 
-                <a class="text-overflow list-style" title="{$project.title}" target="_blank" href="{:U('Article/detail?id='.$project['id'])}"> 
+                <a class="text-overflow list-style" title="{$project.title}"  href="{:U('Article/detail?id='.$project['id'])}"> 
                   {$project.title|msubstr=0,25}
                 </a> 
                 <span class="date">({$project.create_time|date="m-d",###})</span> 
@@ -80,10 +80,10 @@
             <volist name="projects" id="project">
               <li class="news_item"> 
                 <!-- class="text-overflow list-style" -->
-                <!-- <a  title="{$project.ctitle}" target="_blank" href="{:U('Article/lists?category='.$project['name'])}"> 
+                <!-- <a  title="{$project.ctitle}"  href="{:U('Article/lists?category='.$project['name'])}"> 
                   【{$project.ctitle}】
                 </a> -->
-                <a class="text-overflow list-style" title="{$project.title}" target="_blank" href="{:U('Article/detail?id='.$project['id'])}"> 
+                <a class="text-overflow list-style" title="{$project.title}"  href="{:U('Article/detail?id='.$project['id'])}"> 
                   {$project.title|msubstr=0,25}
                 </a> 
                 <span class="date">({$project.create_time|date="m-d",###})</span> 
@@ -95,10 +95,10 @@
             <volist name="enterprises" id="enterprise">
               <li class="news_item"> 
                 <!-- class="text-overflow list-style" -->
-                <!-- <a  title="{$enterprise.ctitle}" target="_blank" href="{:U('Article/lists?category='.$enterprise['name'])}"> 
+                <!-- <a  title="{$enterprise.ctitle}"  href="{:U('Article/lists?category='.$enterprise['name'])}"> 
                   【{$enterprise.ctitle}】
                 </a> -->
-                <a class="text-overflow list-style" title="{$enterprise.title}" target="_blank" href="{:U('Article/detail?id='.$enterprise['id'])}"> 
+                <a class="text-overflow list-style" title="{$enterprise.title}"  href="{:U('Article/detail?id='.$enterprise['id'])}"> 
                   {$enterprise.title|msubstr=0,25}
                 </a> 
                 <span class="date">({$enterprise.create_time|date="m-d",###})</span> 
@@ -106,7 +106,7 @@
             </volist>
           </ul>
           <!-- <ul class="news_list news_lh35">
-            <a href="./Uploads/Picture/ditu.png" target="_blank"><img height="280" width="100%" src="./Uploads/Picture/ditujb.png"/></a>
+            <a href="./Uploads/Picture/ditu.png" ><img height="280" width="100%" src="./Uploads/Picture/ditujb.png"/></a>
           </ul> -->
           
         </div>
@@ -143,7 +143,7 @@
             <ul class="news_list news_lh35">
               <volist name="sub_park.document" id="document">
                 <li class="news_item"> 
-                  <a class="text-overflow list-style" title="{$document.title}" target="_blank" href="{:U('Article/detail?id='.$document['id'])}"> {$document.title}
+                  <a class="text-overflow list-style" title="{$document.title}"  href="{:U('Article/detail?id='.$document['id'])}"> {$document.title}
                   </a> 
                   <span class="date">({$document.create_time|date="m-d",###})</span> 
                 </li>
@@ -172,7 +172,7 @@
             <ul class="news_list news_lh35">
               <volist name="price_list" id="price">
                 <li class="news_item"> 
-                  <a class="text-overflow list-style" title="{$price.title}" target="_blank" href="{:U('Article/detail?id='.$price['id'])}" onmousemove="changePicture('__ROOT__{$price.path}')"> {$price.title}
+                  <a class="text-overflow list-style" title="{$price.title}"  href="{:U('Article/detail?id='.$price['id'])}" onmousemove="changePicture('__ROOT__{$price.path}')"> {$price.title}
                   </a> 
                   <span class="date">({$price.create_time|date="m-d",###})</span> 
                 </li>
@@ -194,10 +194,10 @@
     <div class="bg_pic">
       <ul>
         <!-- <li><a href="{:U('Article/lists?category=price')}" title="价格指数">价格指数</a></li> -->
-        <!-- <li><a target="_blank" href="query_EB15F0B2"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K024914.png" width="92" height="92" alt="">博鳌片区</a> </li>
-        <li><a target="_blank" href="query_54150124"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K034X3.png" width="92" height="92" alt="">三亚片区</a> </li>
-        <li><a target="_blank" href="query_8CF65BF6"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K0424I.png" width="92" height="92" alt="">海口片区</a> </li> -->
-        <a target="_blank" href="{:U('Article/lists?category=price')}">
+        <!-- <li><a  href="query_EB15F0B2"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K024914.png" width="92" height="92" alt="">博鳌片区</a> </li>
+        <li><a  href="query_54150124"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K034X3.png" width="92" height="92" alt="">三亚片区</a> </li>
+        <li><a  href="query_8CF65BF6"><img src="__STATIC__/ycnh/uploads/allimg/20200515/1-2005151K0424I.png" width="92" height="92" alt="">海口片区</a> </li> -->
+        <a  href="{:U('Article/lists?category=price')}">
           <img id="price_path" src="__ROOT__{$price.path}" class="pic_scroll" title="价格指数">
         </a>
       </ul>
@@ -211,22 +211,22 @@
       <div class="w740px">
         <div class="work_title title_bg">
           <span class="iconfont icon-rencaidongtaiyufazhan"></span>
-          <a target="_blank" href="query_EF5300DC">重点产业</a>
+          <a  href="query_EF5300DC">重点产业</a>
         </div>
         <ul class="zhidu">
-          <li class="jucuo"> <a target="_blank" href="query_DFEE2177"><span class="iconfont icon-jiangchengcuoshi"></span><span>旅游业</span> </a> </li>     
-          <li class="hongli"> <a target="_blank" href="query_68CA0F54"><span class="iconfont icon-jiangchengcuoshi"></span><span>现代服务业</span> </a> </li>     
-          <li class="anli"> <a target="_blank" href="query_9641A9DB"><span class="iconfont icon-jiangchengcuoshi"></span><span>高新技术产业</span> </a> </li>     
-          <li class="tuiguang"> <a target="_blank" href="query_D82302E5"><span class="iconfont icon-jiangchengcuoshi"></span><span>其他产业</span> </a> </li>  
-          <li class="jucuo"> <a target="_blank" href="query_DFEE2177"><span class="iconfont icon-jiangchengcuoshi"></span><span>旅游业</span> </a> </li>     
-          <li class="hongli"> <a target="_blank" href="query_68CA0F54"><span class="iconfont icon-jiangchengcuoshi"></span><span>现代服务业</span> </a> </li>         
+          <li class="jucuo"> <a  href="query_DFEE2177"><span class="iconfont icon-jiangchengcuoshi"></span><span>旅游业</span> </a> </li>     
+          <li class="hongli"> <a  href="query_68CA0F54"><span class="iconfont icon-jiangchengcuoshi"></span><span>现代服务业</span> </a> </li>     
+          <li class="anli"> <a  href="query_9641A9DB"><span class="iconfont icon-jiangchengcuoshi"></span><span>高新技术产业</span> </a> </li>     
+          <li class="tuiguang"> <a  href="query_D82302E5"><span class="iconfont icon-jiangchengcuoshi"></span><span>其他产业</span> </a> </li>  
+          <li class="jucuo"> <a  href="query_DFEE2177"><span class="iconfont icon-jiangchengcuoshi"></span><span>旅游业</span> </a> </li>     
+          <li class="hongli"> <a  href="query_68CA0F54"><span class="iconfont icon-jiangchengcuoshi"></span><span>现代服务业</span> </a> </li>         
         </ul>
       </div>
       <div class="gb_notice">
-        <div class="work_title title_bg "> <span class="iconfont icon-hudong"></span><a target="_blank" href="index.htm">联系我们</a></div>
+        <div class="work_title title_bg "> <span class="iconfont icon-hudong"></span><a  href="index.htm">联系我们</a></div>
         <div class="wx_box">
           <ul>
-             <li><a target="_blank" href="query_7CF41E1B"><i class="iconfont icon-wenjuan"></i> 自贸区简介</a></li> <li><a target="_blank" href="query_0C3F09AA" class="zixun"><i class="iconfont icon-guanbi"></i>海南简介</a></li> <li><a target="_blank" href="query_573C3920" class="lianxi"><i class="iconfont icon-respond"></i>机构职能与设置</a></li> <li><a target="_blank" href="query_D037187E" class="callme"><i class="iconfont icon-kefu"></i>联系我们</a></li>        </ul>
+             <li><a  href="query_7CF41E1B"><i class="iconfont icon-wenjuan"></i> 自贸区简介</a></li> <li><a  href="query_0C3F09AA" class="zixun"><i class="iconfont icon-guanbi"></i>海南简介</a></li> <li><a  href="query_573C3920" class="lianxi"><i class="iconfont icon-respond"></i>机构职能与设置</a></li> <li><a  href="query_D037187E" class="callme"><i class="iconfont icon-kefu"></i>联系我们</a></li>        </ul>
         </div>
       </div>
     </div> -->
@@ -286,16 +286,16 @@
 
     <!-- <div class="ft_hd">
       <div class="w740px">
-        <div class="work_title title_bg"><span class="iconfont icon-UI_icon_zhuantitu"></span><a target="_blank" href="query_116FFC74">专题专栏</a></div>
+        <div class="work_title title_bg"><span class="iconfont icon-UI_icon_zhuantitu"></span><a  href="query_116FFC74">专题专栏</a></div>
         <ul>
           <li class="zhuantiFa">
-            <a target="_blank" href="{:U('Article/lists?category=building')}">
+            <a  href="{:U('Article/lists?category=building')}">
               <img src="__STATIC__/ycnh/uploads/allimg/20200518/1-20051QPQE51.jpg">
               <img src="__STATIC__/ycnh/uploads/allimg/20200518/yingshanghuanjing.jpg">
             </a>
           </li>
           <li class="zhuantiFa">
-            <a target="_blank" href="{:U('Article/lists?category=public')}">
+            <a  href="{:U('Article/lists?category=public')}">
               <img src="__STATIC__/ycnh/uploads/allimg/20200518/1-20051QPZ0323.jpg">
               <img src="__STATIC__/ycnh/uploads/allimg/20200518/xietong.jpg">
             </a>
@@ -303,7 +303,7 @@
         </ul>
       </div>
       <div class="gb_notice " style="height: 242px;overflow: hidden;">
-        <div class="work_title title_bg duitai"><span class="zhitongche iconfont icon-zhitongcheguanjianci"></span><a target="_blank" href="article/list/gid/70/index.htm">专题推荐</a> </div>
+        <div class="work_title title_bg duitai"><span class="zhitongche iconfont icon-zhitongcheguanjianci"></span><a  href="article/list/gid/70/index.htm">专题推荐</a> </div>
         <div class="ztzl_box">
           <ul>
             <volist name="push_lists" id="push">
