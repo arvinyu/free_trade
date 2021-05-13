@@ -61,6 +61,14 @@ class IndexController extends HomeController {
             }
             $this->assign('news_list',$news);//news列表
 
+            /* 园区概况 */
+            $yqgk = $Document->yqgk();
+            // dump($projects);exit;
+            if(false === $yqgk){
+                $this->error('获取园区概况列表数据失败！');
+            }
+            $this->assign('yqgk',$yqgk);
+
             /* 园区动态 */
             // $projects = $Document->projectList();
             $projects = $Document->yqdt();
@@ -94,6 +102,14 @@ class IndexController extends HomeController {
             }
             // dump($price);exit;
             $this->assign('price',$price);//价格指数
+
+            $price_list = $Document->priceList();
+            if(false === $price_list){
+                $this->error('获取价格指数列表数据失败！');
+            }
+            // echo $Document->getLastSql();
+            // dump($price_list);exit;
+            $this->assign('price_list',$price_list);//价格指数列表
 
             /* 公共服务 */
             $services_lists = $Document->servicesList();

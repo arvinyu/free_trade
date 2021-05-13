@@ -419,6 +419,18 @@ class DocumentModel extends Model{
         return $result;
 	}
 
+	//园区概况
+	public function yqgk(){
+		return $this
+                ->alias('d')
+                ->field('d.id,d.title,d.create_time')
+                ->where('d.category_id=67')
+                ->order("d.level ASC")
+                ->limit(8)
+                // ->limit($page->firstRow . ',' . $page->listRows)
+                ->select();
+	}
+
 	//园区动态
 	public function yqdt(){
 		return $this
@@ -472,6 +484,18 @@ class DocumentModel extends Model{
 				->where('d.category_id=46')
                 ->order("d.create_time DESC")
                 ->find();
+	}
+
+	//价格指数列表
+	public function priceList(){
+		return $this
+				->alias('d')
+                ->field('d.*,p.path')
+                ->join('left join zm_picture as p on d.cover_id = p.id')
+				->where('d.category_id=46')
+                ->order("d.create_time DESC")
+                ->limit(8)
+                ->select();
 	}
 
 	//首页公共服务列表

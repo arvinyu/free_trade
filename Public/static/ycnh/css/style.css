@@ -2889,14 +2889,14 @@ ul.gb_top_list ul li:hover {
 		z-index: 2;
 	}
 	.gb_top {
-		height: 80px;
+		height: 160px;
 		width: 100%;
 		box-shadow: 0 0 2px #efeeee;
 		line-height: 40px;
 		color: #fff;
 		font-size: 14px;
 		background-color: #1b4586;
-		background-image: url(../images/gangkou.jpeg);
+		background-image: url(../images/gangkou.jpg);
 	    background-repeat: no-repeat;
 	    background-position: center center;
 	}
