@@ -419,35 +419,35 @@ class DocumentModel extends Model{
         return $result;
 	}
 
-	//园区简介
-	public function yqjj(){
+	//园区概况
+	public function yqgk(){
 		return $this
                 ->alias('d')
                 ->field('d.id,d.title,d.create_time')
-                ->where('d.category_id=67')
+                ->where('d.category_id in (67,68,69)')
                 ->order("d.level ASC")
                 ->limit(8)
                 // ->limit($page->firstRow . ',' . $page->listRows)
                 ->select();
 	}
 
-	//曹妃甸区域概况
-	public function yqgk(){
+	//园区动态
+	public function yqdt(){
 		return $this
                 ->alias('d')
                 ->field('d.id,d.title,d.create_time')
-                ->where('d.category_id=69')
+                ->where('d.category_id=65')
                 ->order("d.level ASC")
                 ->limit(8)
                 // ->limit($page->firstRow . ',' . $page->listRows)
                 ->select();
 	}
-	//岗位设置
-	public function gwsz(){
+	//聚焦曹妃
+	public function jjcf(){
 		return $this
                 ->alias('d')
                 ->field('d.id,d.title,d.create_time')
-                ->where('d.category_id=68')
+                ->where('d.category_id=63')
                 ->order("d.level ASC")
                 ->limit(8)
                 // ->limit($page->firstRow . ',' . $page->listRows)

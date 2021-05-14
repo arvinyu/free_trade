@@ -57,16 +57,16 @@
       <div class="newstxtbox">
         <div class="hd">
           <ul>
-            <li><a  title="园区简介">园区简介</a></li>
-            <li><a  title="曹妃甸区域概况">区域概况</a></li>
-            <li><a  title="岗位设置">岗位设置</a></li>
+            <li><a  title="园区概况">园区概况</a></li>
+            <li><a  title="园区动态">园区动态</a></li>
+            <li><a  title="聚焦曹妃甸">聚焦曹妃甸</a></li>
             <!-- <li><a  title="企业地图">企业地图</a></li> -->
           </ul>
         </div>
         <div  class="bd" style="margin-top:10px;">
 
           <ul class="news_list news_lh35">
-            <volist name="yqjj" id="project">
+            <volist name="yqgk" id="project">
               <li class="news_item"> 
                 <a class="text-overflow list-style" title="{$project.title}"  href="{:U('Article/detail?id='.$project['id'])}"> 
                   {$project.title|msubstr=0,25}
