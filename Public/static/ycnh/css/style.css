@@ -2562,6 +2562,8 @@ ul.gb_top_list ul li:hover {
 
 	.xl_fta_box .info_news li a {
 		/*background: url(../images/dian.jpg) left no-repeat;*/
+		display:block;
+		height:20px;
 		padding-left: 10px;
 		font-size: 14px;
 		text-overflow: ellipsis;
