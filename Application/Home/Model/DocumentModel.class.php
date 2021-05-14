@@ -424,7 +424,7 @@ class DocumentModel extends Model{
 		return $this
                 ->alias('d')
                 ->field('d.id,d.title,d.create_time')
-                ->where('d.category_id in (67,68,69)')
+                ->where('d.category_id in (67,68,69) and status=1')
                 ->order("d.level ASC")
                 ->limit(8)
                 // ->limit($page->firstRow . ',' . $page->listRows)
@@ -436,7 +436,7 @@ class DocumentModel extends Model{
 		return $this
                 ->alias('d')
                 ->field('d.id,d.title,d.create_time')
-                ->where('d.category_id=65')
+                ->where('d.category_id=65 and status=1')
                 ->order("d.level ASC")
                 ->limit(8)
                 // ->limit($page->firstRow . ',' . $page->listRows)
@@ -447,7 +447,7 @@ class DocumentModel extends Model{
 		return $this
                 ->alias('d')
                 ->field('d.id,d.title,d.create_time')
-                ->where('d.category_id=63')
+                ->where('d.category_id=63 and status=1')
                 ->order("d.level ASC")
                 ->limit(8)
                 // ->limit($page->firstRow . ',' . $page->listRows)
