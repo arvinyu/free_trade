@@ -205,6 +205,89 @@
 
   </div>
 
+  <div class="gb_mainbox">
+    <!-- 智慧党建开始 -->
+    <div class="bg_pic">
+      <div  class="pic_scroll">
+        <div class="bd swiper-container" id="slideBox2">
+          <ul class="swiper-wrapper">
+            <volist name="zhdj" id="item">
+              <li class="swiper-slide">
+                <a  href="{:U('Article/detail?id='.$item['id'])}">
+                  <img src="__ROOT__{$item.path}"/>
+                  <div class="black">
+                    <p>{$banner.title}</p>
+                  </div>
+                </a>
+              </li>
+            </volist>
+            
+          </ul>
+          <div class="paginations"></div>
+        </div>
+      </div>
+      <script>
+        var slideBox2 = new Swiper('#slideBox2', {
+          pagination: '.paginations',
+          paginationClickable: true,
+          loop: true,
+          autoplay: 3000
+        })
+        $('#slideBox2').mouseover(function () {
+          slideBox2.stopAutoplay();
+        })
+        $('#slideBox2').mouseleave(function () {
+          slideBox2.startAutoplay();
+        })
+      </script> 
+    </div>
+    <!-- 智慧党建结束 -->
+    
+    <!-- 政策、活动开始 -->
+    <div class="bg_pic">
+      <div class="newstxtbox">
+        <div class="hd">
+          <ul>
+            <li><a  title="政策">政策</a></li>
+            <li><a  title="活动">活动</a></li>
+          </ul>
+        </div>
+        <div  class="bd" style="margin-top:10px;">
+
+          <ul class="news_list news_lh35">
+            <volist name="djzc" id="project">
+              <li class="news_item"> 
+                <a class="text-overflow list-style" title="{$project.title}"  href="{:U('Article/detail?id='.$project['id'])}"> 
+                  {$project.title|msubstr=0,25}
+                </a> 
+                <span class="date">({$project.create_time|date="m-d",###})</span> 
+              </li>
+            </volist>
+          </ul>
+
+          <ul class="news_list news_lh35">
+            <volist name="djhd" id="project">
+              <li class="news_item"> 
+                <!-- class="text-overflow list-style" -->
+                <!-- <a  title="{$project.ctitle}"  href="{:U('Article/lists?category='.$project['name'])}"> 
+                  【{$project.ctitle}】
+                </a> -->
+                <a class="text-overflow list-style" title="{$project.title}"  href="{:U('Article/detail?id='.$project['id'])}"> 
+                  {$project.title|msubstr=0,25}
+                </a> 
+                <span class="date">({$project.create_time|date="m-d",###})</span> 
+              </li>
+            </volist>
+          </ul>          
+        </div>
+
+        <script type="text/javascript">jQuery(".newstxtbox").slide();</script> 
+      </div>
+    </div>
+    <!-- 政策、活动 结束 -->
+
+  </div>
+
   <div class="gb_mainbox" style="background-color: #fff;">
 
     <!-- <div class="ft_main">

@@ -262,14 +262,6 @@ li {
 	margin-bottom: 15px;
 }
 
-.sy1_ul {
-	font-size: 12px;
-	line-height: 50px;
-	height: 50px;
-	position: relative;
-	z-index: 1111;
-}
-
 .sy1_li {
 	width: 164px;
 	float: left;
@@ -2536,9 +2528,17 @@ ul.gb_top_list ul li:hover {
 		background-color: rgb(110, 71, 71);
 	}
 
+	.sy1_ul {
+		/*font-size: 12px;*/
+		line-height: 50px;
+		height: 50px;
+		position: relative;
+		z-index: 1111;
+	}
+
 	.sy1_ul li.sy1_li .sy1_tit {
 		line-height: 20px;
-		font-size: 10px;
+		/*font-size: 10px;*/
 		display: block;
 		text-align: center
 	}
@@ -2890,6 +2890,15 @@ ul.gb_top_list ul li:hover {
 	    background-repeat: no-repeat;
 	    background-position: center center;
 	}
+
+	.sy1_ul {
+		font-size: 12px;
+		line-height: 50px;
+		height: 50px;
+		position: relative;
+		z-index: 1111;
+	}
+
 	.sy1_ul li.sy1_li .sy1_tit {
 		line-height: 48px;
 		font-size: 18px;

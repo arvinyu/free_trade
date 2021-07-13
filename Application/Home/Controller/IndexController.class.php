@@ -56,6 +56,7 @@ class IndexController extends HomeController {
             $Document = D('Document');
 
             $news = $Document->newsList();
+            // dump($news);exit;
             if(false === $news){
                 $this->error('获取news列表数据失败！');
             }
@@ -110,6 +111,31 @@ class IndexController extends HomeController {
             // echo $Document->getLastSql();
             // dump($price_list);exit;
             $this->assign('price_list',$price_list);//价格指数列表
+
+            /* 智慧党建 */
+            $zhdj = $Document->zhdj();
+            // dump($zhdj);exit;
+            if(false === $zhdj){
+                $this->error('获取智慧党建图片列表数据失败！');
+            }
+            $this->assign('zhdj',$zhdj);//智慧党建
+
+            /* 党建政策 */
+            $djzc = $Document->djzc();
+            // dump($djzc);exit;
+            if(false === $djzc){
+                $this->error('获取党建政策列表数据失败！');
+            }
+            $this->assign('djzc',$djzc);
+
+            /* 党建活动 */
+            // $projects = $Document->projectList();
+            $djhd = $Document->djhd();
+            // dump($djhd);exit;
+            if(false === $djhd){
+                $this->error('获取党建活动列表数据失败！');
+            }
+            $this->assign('djhd',$djhd);//党建活动列表
 
             /* 公共服务 */
             $services_lists = $Document->servicesList();

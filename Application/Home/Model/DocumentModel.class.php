@@ -498,6 +498,42 @@ class DocumentModel extends Model{
                 ->select();
 	}
 
+	//首页智慧党建
+	public function zhdj(){
+		return $this
+                ->alias('d')
+                ->field('d.id,d.title,p.path')
+                ->join('left join zm_picture as p on d.cover_id = p.id')
+                ->where('d.category_id=71')
+                ->order("d.level ASC")
+                // ->limit($page->firstRow . ',' . $page->listRows)
+                ->select();
+	}
+
+	//党建政策
+	public function djzc(){
+		return $this
+                ->alias('d')
+                ->field('d.id,d.title,d.create_time')
+                ->where('d.category_id=72 and status=1')
+                ->order("d.level ASC")
+                ->limit(8)
+                // ->limit($page->firstRow . ',' . $page->listRows)
+                ->select();
+	}
+
+	//党建活动
+	public function djhd(){
+		return $this
+                ->alias('d')
+                ->field('d.id,d.title,d.create_time')
+                ->where('d.category_id=73 and status=1')
+                ->order("d.level ASC")
+                ->limit(8)
+                // ->limit($page->firstRow . ',' . $page->listRows)
+                ->select();
+	}
+
 	//首页公共服务列表
 	public function servicesList(){
 		return $this->where('category_id=47 and status=1')
